@@ -1,0 +1,256 @@
+/* sl-ce-button — RRUI-inspired actions
+   Variants: --solid (default) | --outline | --ghost | --soft | --link
+   Colors:   --primary (default) | --secondary | --success | --danger | --warning | --info
+   Sizes:    --xs | --sm (default) | --base | --md | --lg | --xl
+   Shapes:   --rounded (default) | --pill | --square
+   Use <a> or <button>. External links: target="_blank" rel="noopener noreferrer"
+*/
+
+.sl-ce-button {
+  --_sl-ce-btn-bg: var(--sl-ce-color-primary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-primary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-primary) 88%, #000);
+  --_sl-ce-btn-py: 0.45rem;
+  --_sl-ce-btn-px: 0.9rem;
+  --_sl-ce-btn-fs: 0.875rem;
+  --_sl-ce-btn-radius: var(--sl-ce-btn-radius);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: var(--_sl-ce-btn-py) var(--_sl-ce-btn-px);
+  border: 1px solid transparent;
+  border-radius: var(--_sl-ce-btn-radius);
+  background: var(--_sl-ce-btn-bg);
+  color: var(--_sl-ce-btn-fg);
+  font-family: inherit;
+  font-size: var(--_sl-ce-btn-fs);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.sl-ce-button:hover {
+  background: var(--_sl-ce-btn-hover);
+  color: var(--_sl-ce-btn-fg);
+}
+
+.sl-ce-button:focus {
+  outline: none;
+}
+
+.sl-ce-button:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+}
+
+.sl-ce-button:disabled,
+.sl-ce-button[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-button {
+    transition: none;
+  }
+}
+
+/* ── Colors ─────────────────────────────────────────────── */
+
+.sl-ce-button--primary {
+  --_sl-ce-btn-bg: var(--sl-ce-color-primary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-primary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-primary) 86%, #000);
+}
+
+.sl-ce-button--secondary {
+  --_sl-ce-btn-bg: var(--sl-ce-color-secondary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-secondary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-secondary) 86%, #000);
+}
+
+.sl-ce-button--success {
+  --_sl-ce-btn-bg: var(--sl-ce-color-success);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-success);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-success) 86%, #000);
+}
+
+.sl-ce-button--danger {
+  --_sl-ce-btn-bg: var(--sl-ce-color-danger);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-danger);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-danger) 86%, #000);
+}
+
+.sl-ce-button--warning {
+  --_sl-ce-btn-bg: var(--sl-ce-color-warning);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-warning);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-warning) 86%, #000);
+}
+
+.sl-ce-button--info {
+  --_sl-ce-btn-bg: var(--sl-ce-color-info);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-info);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-info) 86%, #000);
+}
+
+/* ── Variants ───────────────────────────────────────────── */
+
+.sl-ce-button--solid {
+  background: var(--_sl-ce-btn-bg);
+  color: var(--_sl-ce-btn-fg);
+  border-color: transparent;
+}
+
+.sl-ce-button--outline {
+  background: transparent;
+  color: var(--_sl-ce-btn-border);
+  border-color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--outline:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 10%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--ghost {
+  background: transparent;
+  color: var(--_sl-ce-btn-border);
+  border-color: transparent;
+}
+
+.sl-ce-button--ghost:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 12%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--soft {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 14%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+  border-color: transparent;
+}
+
+.sl-ce-button--soft:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 22%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--_sl-ce-btn-border);
+  padding-inline: 0.15rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  box-shadow: none;
+}
+
+.sl-ce-button--link:hover {
+  background: transparent;
+  color: var(--sl-ce-color-secondary);
+}
+
+/* Soft / outline text colors for semantic tones */
+.sl-ce-button--soft.sl-ce-button--success,
+.sl-ce-button--outline.sl-ce-button--success,
+.sl-ce-button--ghost.sl-ce-button--success,
+.sl-ce-button--link.sl-ce-button--success {
+  color: var(--sl-ce-color-success-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--danger,
+.sl-ce-button--outline.sl-ce-button--danger,
+.sl-ce-button--ghost.sl-ce-button--danger,
+.sl-ce-button--link.sl-ce-button--danger {
+  color: var(--sl-ce-color-danger-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--warning,
+.sl-ce-button--outline.sl-ce-button--warning,
+.sl-ce-button--ghost.sl-ce-button--warning,
+.sl-ce-button--link.sl-ce-button--warning {
+  color: var(--sl-ce-color-warning-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--info,
+.sl-ce-button--outline.sl-ce-button--info,
+.sl-ce-button--ghost.sl-ce-button--info,
+.sl-ce-button--link.sl-ce-button--info {
+  color: var(--sl-ce-color-info-fg);
+}
+
+/* ── Sizes ──────────────────────────────────────────────── */
+
+.sl-ce-button--xs {
+  --_sl-ce-btn-py: 0.3rem;
+  --_sl-ce-btn-px: 0.55rem;
+  --_sl-ce-btn-fs: 0.75rem;
+}
+
+.sl-ce-button--sm {
+  --_sl-ce-btn-py: 0.4rem;
+  --_sl-ce-btn-px: 0.8rem;
+  --_sl-ce-btn-fs: 0.8125rem;
+}
+
+.sl-ce-button--base {
+  --_sl-ce-btn-py: 0.5rem;
+  --_sl-ce-btn-px: 1rem;
+  --_sl-ce-btn-fs: 0.875rem;
+}
+
+.sl-ce-button--md {
+  --_sl-ce-btn-py: 0.55rem;
+  --_sl-ce-btn-px: 1.1rem;
+  --_sl-ce-btn-fs: 0.9375rem;
+}
+
+.sl-ce-button--lg {
+  --_sl-ce-btn-py: 0.65rem;
+  --_sl-ce-btn-px: 1.25rem;
+  --_sl-ce-btn-fs: 1rem;
+}
+
+.sl-ce-button--xl {
+  --_sl-ce-btn-py: 0.75rem;
+  --_sl-ce-btn-px: 1.4rem;
+  --_sl-ce-btn-fs: 1.0625rem;
+}
+
+/* ── Shapes ─────────────────────────────────────────────── */
+
+.sl-ce-button--rounded {
+  --_sl-ce-btn-radius: var(--sl-ce-btn-radius);
+}
+
+.sl-ce-button--pill {
+  --_sl-ce-btn-radius: 999px;
+}
+
+.sl-ce-button--square {
+  --_sl-ce-btn-radius: 0;
+}
+
+.sl-ce-button--full {
+  width: 100%;
+}
+
+.sl-ce-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}

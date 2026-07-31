@@ -25,4 +25,17 @@
   --sl-ce-table-font-size: 0.875rem;
   --sl-ce-table-stripe: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
   --sl-ce-table-sticky-max-height: 16rem;
+  --sl-ce-table-hint-bg: #d7e8f2;
+  --sl-ce-table-bar-track: #f3f4f6;
+  --sl-ce-table-bar-grid: #c5c9ce;
+  --sl-ce-table-bar-mid: #1a1a1a;
+  --sl-ce-table-bar-calving: #e0c23a;
+  --sl-ce-table-bar-growth: #2f6b3c;
+  --sl-ce-table-bar-maternal: #c44d8a;
+  --sl-ce-table-bar-milk: #6b2d7a;
+  --sl-ce-table-bar-fertility: #8b1e2d;
+  --sl-ce-table-bar-other: #1e3a6e;
+  --sl-ce-table-bar-carcase: #2aa3c4;
+  --sl-ce-table-bar-structure: #c4a06a;
+  --sl-ce-table-bar-index: #d63d8f;
 }

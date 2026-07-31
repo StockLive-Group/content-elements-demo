@@ -4,7 +4,9 @@
      Chrome: --bordered | --plain
      Texture: --striped | --striped-columns | --hoverable
      Size: --xs | --sm | --base | --lg | --xl
-     Layout: --sticky-header | --cards | --stack
+     Layout: --sticky-header | --cards | --stack | --percentile
+   Percentile bars: set --sl-ce-percentile (0–100) on .sl-ce-table__bar
+   Axis is 100← left · 50 centre · 0 → right (Breedplan trait-profile style).
    Sorting / selection / bulk actions / pagination need JS — out of scope.
 */
 
@@ -373,5 +375,170 @@
   .sl-ce-table--bordered.sl-ce-table--stack {
     border: none;
     background: transparent;
+  }
+}
+
+/* ── Percentile (trait profile) ───────────────────────────
+   Columns: trait | low-end hint | bi-directional bar | high-end hint
+   Bar fill uses --sl-ce-percentile (unitless 0–100).
+*/
+
+.sl-ce-table--percentile .sl-ce-table__grid {
+  table-layout: fixed;
+  min-width: 36rem;
+}
+
+.sl-ce-table--percentile .sl-ce-table__th[scope="row"] {
+  width: 11.5rem;
+  white-space: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--sl-ce-color-primary);
+  background: var(--sl-ce-color-surface);
+  vertical-align: middle;
+}
+
+.sl-ce-table--percentile .sl-ce-table__td--hint {
+  width: 9.5rem;
+  padding-block: 0.35rem;
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  color: var(--sl-ce-color-text);
+  background: var(--sl-ce-table-hint-bg);
+  vertical-align: middle;
+}
+
+.sl-ce-table--percentile .sl-ce-table__td--hint-start {
+  text-align: right;
+}
+
+.sl-ce-table--percentile .sl-ce-table__td--hint-end {
+  text-align: left;
+}
+
+.sl-ce-table--percentile .sl-ce-table__td--bar {
+  padding: 0.35rem 0.5rem;
+  vertical-align: middle;
+}
+
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__th,
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__td {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__th + .sl-ce-table__th,
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__td + .sl-ce-table__td,
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__th + .sl-ce-table__td,
+.sl-ce-table--percentile.sl-ce-table--bordered .sl-ce-table__td + .sl-ce-table__th {
+  border-left: none;
+}
+
+.sl-ce-table--percentile.sl-ce-table--bordered tbody tr:last-child .sl-ce-table__th,
+.sl-ce-table--percentile.sl-ce-table--bordered tbody tr:last-child .sl-ce-table__td {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-table--percentile .sl-ce-table__tfoot .sl-ce-table__td {
+  border-top: none;
+  font-weight: 400;
+  color: var(--sl-ce-color-text-muted);
+}
+
+.sl-ce-table__bar {
+  --sl-ce-percentile: 50;
+  --sl-ce-bar-color: var(--sl-ce-color-secondary);
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1.15rem;
+  background-color: var(--sl-ce-table-bar-track);
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 0.75px),
+      var(--sl-ce-table-bar-mid) calc(50% - 0.75px),
+      var(--sl-ce-table-bar-mid) calc(50% + 0.75px),
+      transparent calc(50% + 0.75px)
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(10% - 1px),
+      var(--sl-ce-table-bar-grid) calc(10% - 1px),
+      var(--sl-ce-table-bar-grid) 10%
+    );
+  border: 1px solid var(--sl-ce-color-border);
+  box-sizing: border-box;
+}
+
+.sl-ce-table__bar-fill {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: min(50%, calc((100 - var(--sl-ce-percentile)) * 1%));
+  width: max(2px, calc(abs(50 - var(--sl-ce-percentile)) * 1%));
+  background: var(--sl-ce-bar-color);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.sl-ce-table__bar--calving { --sl-ce-bar-color: var(--sl-ce-table-bar-calving); }
+.sl-ce-table__bar--growth { --sl-ce-bar-color: var(--sl-ce-table-bar-growth); }
+.sl-ce-table__bar--maternal { --sl-ce-bar-color: var(--sl-ce-table-bar-maternal); }
+.sl-ce-table__bar--milk { --sl-ce-bar-color: var(--sl-ce-table-bar-milk); }
+.sl-ce-table__bar--fertility { --sl-ce-bar-color: var(--sl-ce-table-bar-fertility); }
+.sl-ce-table__bar--other { --sl-ce-bar-color: var(--sl-ce-table-bar-other); }
+.sl-ce-table__bar--carcase { --sl-ce-bar-color: var(--sl-ce-table-bar-carcase); }
+.sl-ce-table__bar--structure { --sl-ce-bar-color: var(--sl-ce-table-bar-structure); }
+.sl-ce-table__bar--index { --sl-ce-bar-color: var(--sl-ce-table-bar-index); }
+
+.sl-ce-table__axis {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 0;
+  width: 100%;
+  padding: 0.15rem 0 0;
+  font-size: 0.625rem;
+  line-height: 1.2;
+  color: var(--sl-ce-color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-ce-table__axis span {
+  text-align: center;
+}
+
+.sl-ce-table__axis span:first-child {
+  text-align: left;
+}
+
+.sl-ce-table__axis span:last-child {
+  text-align: right;
+}
+
+.sl-ce-table__axis-label {
+  display: block;
+  margin-top: 0.2rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--sl-ce-color-text-muted);
+}
+
+@media (max-width: 720px) {
+  .sl-ce-table--percentile .sl-ce-table__td--hint {
+    display: none;
+  }
+
+  .sl-ce-table--percentile .sl-ce-table__th[scope="row"] {
+    width: 8.5rem;
+    font-size: 0.75rem;
+  }
+
+  .sl-ce-table--percentile .sl-ce-table__grid {
+    min-width: 0;
   }
 }

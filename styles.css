@@ -1,0 +1,301 @@
+/* Demo chrome — lot shell approximating Nextlot lot row (not shipped) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.45;
+  color: #021c45;
+  background: #fff;
+}
+
+.demo,
+.sl-ce-tabs {
+  --sl-ce-color-primary: #021c45;
+  --sl-ce-color-secondary: #cd7854;
+  --sl-ce-color-track: #edf2f7;
+  --sl-ce-color-surface: #ffffff;
+  --sl-ce-color-border: #e5e7eb;
+  --sl-ce-color-text: #021c45;
+  --sl-ce-color-text-muted: #555555;
+  --sl-ce-radius-track: 0.5rem;
+  --sl-ce-radius-pill: 0.375rem;
+  --sl-ce-shadow-pill: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --sl-ce-shadow-panel: none;
+  --sl-ce-space-xs: 0.25rem;
+  --sl-ce-space-md: 1rem;
+  --sl-ce-space-lg: 1.25rem;
+  --sl-ce-focus-ring: 0 0 0 3px rgba(2, 28, 69, 0.25);
+}
+
+.demo {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.demo__note {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  color: #7c8791;
+}
+
+/*
+  Lot row — mirrors StockLive / Nextlot listing proportions:
+  media ~30% left, description (tabs) fills the rest.
+  https://app.stocklive.com.au/auctions/1843561/lots
+*/
+.lot {
+  display: grid;
+  grid-template-columns: minmax(240px, 32%) 1fr;
+  gap: 1.75rem;
+  align-items: start;
+  padding: 1rem 0;
+  background: #fff;
+  border-bottom: 1px solid #e8ecef;
+}
+
+.lot__media {
+  margin: 0;
+  position: relative;
+}
+
+.lot__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  background: #dbe3e8;
+}
+
+.lot__body {
+  min-width: 0;
+  padding-top: 0.15rem;
+}
+
+.lot__number {
+  margin: 0 0 0.1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #021c45;
+}
+
+.lot__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #021c45;
+}
+
+.lot-dl {
+  margin: 0;
+}
+
+.lot-dl div {
+  display: grid;
+  grid-template-columns: 11.5rem minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.92rem;
+}
+
+.lot-dl dt {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.lot-dl dd {
+  margin: 0;
+  color: #021c45;
+}
+
+.lot-copy {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.lot-copy a {
+  color: #1c608e;
+}
+
+.lot-copy--muted {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #7c8791;
+}
+
+@media (max-width: 720px) {
+  .lot {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .lot__media img {
+    max-height: 260px;
+  }
+
+  .lot-dl div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+/* ── sl-ce-tabs (shippable) ─────────────────────────────── */
+.sl-ce-tabs {
+  position: relative;
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-tabs__targets {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.sl-ce-tabs__targets [id] {
+  display: block;
+  width: 1px;
+  height: 1px;
+}
+
+.sl-ce-tabs__list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--sl-ce-space-xs);
+  padding: var(--sl-ce-space-xs);
+  overflow-x: auto;
+  background: var(--sl-ce-color-track);
+  border-radius: var(--sl-ce-radius-track);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.sl-ce-tabs__tab {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border-radius: var(--sl-ce-radius-pill);
+  color: var(--sl-ce-color-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-tabs__tab {
+    transition: none;
+  }
+}
+
+.sl-ce-tabs__tab:hover {
+  color: var(--sl-ce-color-text);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.sl-ce-tabs__tab:focus {
+  outline: none;
+}
+
+.sl-ce-tabs__tab:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-tabs__panels {
+  min-height: 8rem;
+  margin-top: var(--sl-ce-space-md);
+  padding: var(--sl-ce-space-lg);
+  background: var(--sl-ce-color-surface);
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-track);
+  box-shadow: var(--sl-ce-shadow-panel);
+}
+
+.sl-ce-tabs__panel {
+  display: none;
+}
+
+.sl-ce-tabs__panel h4 {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sl-ce-color-text-muted);
+}
+
+.sl-ce-tabs__panel p {
+  margin: 0;
+  color: var(--sl-ce-color-text-muted);
+  font-size: 0.95rem;
+}
+
+.sl-ce-tabs:not(:has(.sl-ce-tabs__targets > :target)) .sl-ce-tabs__panel--default {
+  display: block;
+}
+
+.sl-ce-tabs:not(:has(.sl-ce-tabs__targets > :target)) .sl-ce-tabs__tab--default {
+  background: var(--sl-ce-color-surface);
+  color: var(--sl-ce-color-primary);
+  font-weight: 600;
+  box-shadow: var(--sl-ce-shadow-pill);
+}
+
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(1):target) .sl-ce-tabs__panel:nth-child(1) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(2):target) .sl-ce-tabs__panel:nth-child(2) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(3):target) .sl-ce-tabs__panel:nth-child(3) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(4):target) .sl-ce-tabs__panel:nth-child(4) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(5):target) .sl-ce-tabs__panel:nth-child(5) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(6):target) .sl-ce-tabs__panel:nth-child(6) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(7):target) .sl-ce-tabs__panel:nth-child(7) {
+  display: block;
+}
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(8):target) .sl-ce-tabs__panel:nth-child(8) {
+  display: block;
+}
+
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(1):target) .sl-ce-tabs__list > :nth-child(1),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(2):target) .sl-ce-tabs__list > :nth-child(2),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(3):target) .sl-ce-tabs__list > :nth-child(3),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(4):target) .sl-ce-tabs__list > :nth-child(4),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(5):target) .sl-ce-tabs__list > :nth-child(5),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(6):target) .sl-ce-tabs__list > :nth-child(6),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(7):target) .sl-ce-tabs__list > :nth-child(7),
+.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(8):target) .sl-ce-tabs__list > :nth-child(8) {
+  background: var(--sl-ce-color-surface);
+  color: var(--sl-ce-color-primary);
+  font-weight: 600;
+  box-shadow: var(--sl-ce-shadow-pill);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockLive Content Elements — Lot · Accordion</title>
+  <link rel="stylesheet" href="css/content-elements.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<div class="demo">
+  <nav class="demo__nav" aria-label="Content element demos">
+    <a href="index.html">Variants</a>
+    <a href="lot-tabs.html">Lot · Tabs</a>
+    <a href="lot-accordion.html" aria-current="page">Lot · Accordion</a>
+  </nav>
+
+  <p class="demo__note">
+    Lot-row preview — bordered accordion (<code>sl-ce-accordion--bordered</code>) with StockLive colours.
+    No JavaScript — native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>.
+  </p>
+
+  <article class="lot">
+    <figure class="lot__media">
+      <img
+        src="https://www.droughtmaster.com.au/wp-content/uploads/565695586_1275831397682102_716293321823734050_n.jpg"
+        alt="Example lot animal — Droughtmaster bull"
+        width="800"
+        height="600"
+      />
+    </figure>
+    <div class="lot__body">
+      <p class="lot__number"># 1</p>
+      <h1 class="lot__title">Sara Park Entice V89</h1>
+      <div class="sl-ce-accordion sl-ce-accordion--bordered">
+  <details class="sl-ce-accordion__item" open>
+    <summary class="sl-ce-accordion__trigger">
+      <span class="sl-ce-accordion__title">Overview</span>
+      <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="sl-ce-accordion__panel">
+            <dl class="lot-dl">
+              <div><dt>Animal ID</dt><dd>BDY24V89</dd></div>
+              <div><dt>Born</dt><dd>10/08/2024</dd></div>
+              <div><dt>Registration status</dt><dd>HBR</dd></div>
+            </dl>
+    </div>
+  </details>
+  <details class="sl-ce-accordion__item">
+    <summary class="sl-ce-accordion__trigger">
+      <span class="sl-ce-accordion__title">Pedigree</span>
+      <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="sl-ce-accordion__panel">
+            <dl class="lot-dl">
+              <div><dt>Sire</dt><dd>SARA PARK TAURUS T8</dd></div>
+              <div><dt>Dam</dt><dd>SARA PARK LOWAN Q1</dd></div>
+            </dl>
+    </div>
+  </details>
+  <details class="sl-ce-accordion__item">
+    <summary class="sl-ce-accordion__trigger">
+      <span class="sl-ce-accordion__title">Comments</span>
+      <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="sl-ce-accordion__panel">
+            <p class="lot-copy">A good bull to start the sale. V89 is well balanced with ideal skin and hair.</p>
+    </div>
+  </details>
+  <details class="sl-ce-accordion__item">
+    <summary class="sl-ce-accordion__trigger">
+      <span class="sl-ce-accordion__title">ASBV / documents</span>
+      <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="sl-ce-accordion__panel">
+            <p class="lot-copy"><a href="#">ASBV Data Link — Click Here</a></p>
+            <p class="lot-copy lot-copy--muted">Placeholder for future content elements.</p>
+    </div>
+  </details>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

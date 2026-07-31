@@ -21,7 +21,7 @@ body {
 }
 
 .demo--gallery {
-  max-width: 720px;
+  max-width: 800px;
 }
 
 .demo__note {
@@ -185,6 +185,10 @@ body {
 
 .lot-dl {
   margin: 0;
+}
+
+.lot-dl--before-ce {
+  margin-bottom: 1.25rem;
 }
 
 .lot-dl div {

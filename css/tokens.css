@@ -20,4 +20,9 @@
   --sl-ce-focus-ring: 0 0 0 3px rgba(2, 28, 69, 0.25);
   --sl-ce-accordion-trigger-py: 0.85rem;
   --sl-ce-accordion-trigger-px: 1rem;
+  --sl-ce-table-cell-py: 0.75rem;
+  --sl-ce-table-cell-px: 1rem;
+  --sl-ce-table-font-size: 0.875rem;
+  --sl-ce-table-stripe: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  --sl-ce-table-sticky-max-height: 16rem;
 }

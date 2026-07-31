@@ -2,7 +2,7 @@
 
 Public preview of StockLive **Content Elements** (`sl-ce`) — CSS-only components for Froala / Nextlot.
 
-**Live:** https://stocklive-group.github.io/content-elements-demo/
+**Live:** https://stocklive-group.github.io/sl-ce/
 
 ## Structure
 
@@ -13,23 +13,27 @@ css/
   tokens.css              # :root { --sl-ce-* }
   tabs.css                # .sl-ce-tabs*
   accordion.css           # .sl-ce-accordion* + variants
+  table.css               # .sl-ce-table* + variants
   content-elements.css    # shippable @import entry
   demo.css                # preview chrome only (not shipped)
 partials/
   tabs/default.html
   accordion/{default,bordered,separated,flush,ghost,chevron-left}.html
+  table/{default,caption,striped,square,sticky,footer,cards,empty}.html
 index.html                # stacked variants gallery
 lot-tabs.html             # lot-row context
 lot-accordion.html        # lot-row context (bordered)
+lot-table.html            # lot-row context (ASBV table)
 ```
 
 ## Pages
 
 | Page | What |
 |------|------|
-| [Variants](https://stocklive-group.github.io/content-elements-demo/) | All accordion variants + tabs, stacked |
-| [Lot · Tabs](https://stocklive-group.github.io/content-elements-demo/lot-tabs.html) | Auction lot shell + tabs |
-| [Lot · Accordion](https://stocklive-group.github.io/content-elements-demo/lot-accordion.html) | Auction lot shell + bordered accordion |
+| [Variants](https://stocklive-group.github.io/sl-ce/) | All variants stacked |
+| [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html) | Auction lot shell + tabs |
+| [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion |
+| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV table |
 
 ## Accordion variants
 
@@ -42,10 +46,26 @@ lot-accordion.html        # lot-row context (bordered)
 | `sl-ce-accordion--ghost` | Hairline / transparent |
 | `sl-ce-accordion--chevron-left` | Chevron on the left (combinable) |
 
+## Table variants
+
+| Class | Look |
+|-------|------|
+| `sl-ce-table--bordered` | Outer + cell borders (primary) |
+| `sl-ce-table--rounded` / `--square` | Corner shape |
+| `sl-ce-table--striped` | Alternating row wash |
+| `sl-ce-table--striped-columns` | Alternating column wash |
+| `sl-ce-table--hoverable` | Row hover highlight |
+| `sl-ce-table--sticky-header` | Sticky thead in scroll box |
+| `sl-ce-table--cards` / `--stack` | Mobile responsive layouts (`data-label` on cells) |
+| `sl-ce-table--xs` … `--xl` | Cell padding / type size |
+
+Sorting, selection, bulk actions, and pagination need JS — out of scope for Content Elements.
+
 ## Spec
 
 - [01 — Tabs](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/01-tabs.md)
 - [02 — Accordion](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/02-accordion.md)
+- [03 — Table](https://kuickr.co/hugh-gordon/inbox/plans/content-elements/03-table.md) (Inbox draft — move into ctp-docs when ready)
 
 ## Local
 

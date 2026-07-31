@@ -19,11 +19,11 @@ css/
 partials/
   tabs/default.html
   accordion/{default,bordered,separated,flush,ghost,chevron-left}.html
-  table/{default,caption,striped,square,sticky,footer,cards,empty}.html
+  table/{default,caption,striped,square,sticky,footer,cards,empty,percentile}.html
 index.html                # stacked variants gallery
 lot-tabs.html             # lot-row context
 lot-accordion.html        # lot-row context (bordered)
-lot-table.html            # lot-row context (ASBV table)
+lot-table.html            # lot-row context (ASBV + percentile)
 lot-combined.html         # lot-row with tabs + accordion + table
 ```
 
@@ -34,8 +34,8 @@ lot-combined.html         # lot-row with tabs + accordion + table
 | [Variants](https://stocklive-group.github.io/sl-ce/) | All variants stacked |
 | [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html) | Auction lot shell + tabs |
 | [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion |
-| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV table |
-| [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html) | Auction lot shell + tabs + accordion + pedigree table |
+| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV + percentile table |
+| [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html) | Auction lot shell + tabs + accordion + pedigree + percentile |
 
 ## Accordion variants
 
@@ -59,7 +59,10 @@ lot-combined.html         # lot-row with tabs + accordion + table
 | `sl-ce-table--hoverable` | Row hover highlight |
 | `sl-ce-table--sticky-header` | Sticky thead in scroll box |
 | `sl-ce-table--cards` / `--stack` | Mobile responsive layouts (`data-label` on cells) |
+| `sl-ce-table--percentile` | Trait-profile bars (100← · 50 · →0) via `--sl-ce-percentile` |
 | `sl-ce-table--xs` … `--xl` | Cell padding / type size |
+
+Bar tone modifiers on `.sl-ce-table__bar`: `--calving`, `--growth`, `--maternal`, `--milk`, `--fertility`, `--other`, `--carcase`, `--structure`, `--index`.
 
 Sorting, selection, bulk actions, and pagination need JS — out of scope for Content Elements.
 

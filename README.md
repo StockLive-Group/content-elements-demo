@@ -14,6 +14,7 @@ css/
   tabs.css                # .sl-ce-tabs*
   accordion.css           # .sl-ce-accordion* + variants
   table.css               # .sl-ce-table* + variants
+  expand.css              # .sl-ce-expand* (show more)
   content-elements.css    # shippable @import entry
   demo.css                # preview chrome only (not shipped)
 partials/
@@ -29,39 +30,55 @@ lot-combined.html         # lot-row with tabs + accordion + table
 
 ## Pages
 
-| Page | What |
-|------|------|
-| [Variants](https://stocklive-group.github.io/sl-ce/) | All variants stacked |
-| [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html) | Auction lot shell + tabs |
-| [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion |
-| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV table |
-| [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html) | Auction lot shell + tabs + accordion + pedigree table |
+| Page                                                                          | What                                                 |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [Variants](https://stocklive-group.github.io/sl-ce/)                          | All variants stacked                                 |
+| [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html)           | Auction lot shell + tabs                             |
+| [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion               |
+| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html)         | Auction lot shell + ASBV + percentile table          |
+| [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html)   | Composed lot: tables in tabs/accordion + expand more |
 
 ## Accordion variants
 
-| Class | Look |
-|-------|------|
-| `sl-ce-accordion--default` | Dividers only |
-| `sl-ce-accordion--bordered` | Outer border (primary) |
-| `sl-ce-accordion--separated` | Gapped item cards |
-| `sl-ce-accordion--flush` | No borders |
-| `sl-ce-accordion--ghost` | Hairline / transparent |
+| Class                           | Look                             |
+| ------------------------------- | -------------------------------- |
+| `sl-ce-accordion--default`      | Dividers only                    |
+| `sl-ce-accordion--bordered`     | Outer border (primary)           |
+| `sl-ce-accordion--separated`    | Gapped item cards                |
+| `sl-ce-accordion--flush`        | No borders                       |
+| `sl-ce-accordion--ghost`        | Hairline / transparent           |
 | `sl-ce-accordion--chevron-left` | Chevron on the left (combinable) |
 
 ## Table variants
 
-| Class | Look |
-|-------|------|
-| `sl-ce-table--bordered` | Outer + cell borders (primary) |
-| `sl-ce-table--rounded` / `--square` | Corner shape |
-| `sl-ce-table--striped` | Alternating row wash |
-| `sl-ce-table--striped-columns` | Alternating column wash |
-| `sl-ce-table--hoverable` | Row hover highlight |
-| `sl-ce-table--sticky-header` | Sticky thead in scroll box |
-| `sl-ce-table--cards` / `--stack` | Mobile responsive layouts (`data-label` on cells) |
-| `sl-ce-table--xs` … `--xl` | Cell padding / type size |
+| Class                               | Look                                              |
+| ----------------------------------- | ------------------------------------------------- |
+| `sl-ce-table--bordered`             | Outer + cell borders (primary)                    |
+| `sl-ce-table--rounded` / `--square` | Corner shape                                      |
+| `sl-ce-table--striped`              | Alternating row wash                              |
+| `sl-ce-table--striped-columns`      | Alternating column wash                           |
+| `sl-ce-table--hoverable`            | Row hover highlight                               |
+| `sl-ce-table--sticky-header`        | Sticky thead in scroll box                        |
+| `sl-ce-table--cards` / `--stack`    | Mobile responsive layouts (`data-label` on cells) |
+| `sl-ce-table--xs` … `--xl`          | Cell padding / type size                          |
 
-Sorting, selection, bulk actions, and pagination need JS — out of scope for Content Elements.
+# <<<<<<< Updated upstream
+
+Bar tone modifiers on `.sl-ce-table__bar`: `--calving`, `--growth`, `--maternal`, `--milk`, `--fertility`, `--other`, `--carcase`, `--structure`, `--index`.
+
+## Expand (show more)
+
+| Class                    | Look                                    |
+| ------------------------ | --------------------------------------- |
+| `sl-ce-expand`           | Text “Show more / Show less” disclosure |
+| `sl-ce-expand--bordered` | Bordered card shell                     |
+| `sl-ce-expand--button`   | Pill button trigger                     |
+| `sl-ce-expand--footer`   | Trigger sits under the revealed panel   |
+
+Native `<details>` / `<summary>` — nest tables, accordion, or copy inside `.sl-ce-expand__panel`.
+
+> > > > > > > Stashed changes
+> > > > > > > Sorting, selection, bulk actions, and pagination need JS — out of scope for Content Elements.
 
 ## Spec
 

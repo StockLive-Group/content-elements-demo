@@ -1,0 +1,172 @@
+/* sl-ce-expand — native <details>/<summary> “show more” disclosure
+   Use to tuck secondary tables / long blocks behind a short trigger
+   so lot descriptions stay scannable. Compose with tabs / accordion / table.
+   Modifiers: --default (text) | --bordered | --button
+*/
+
+.sl-ce-expand {
+  position: relative;
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-expand__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0;
+  list-style: none;
+  cursor: pointer;
+  color: var(--sl-ce-color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  user-select: none;
+}
+
+.sl-ce-expand__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.sl-ce-expand__trigger::marker {
+  content: "";
+}
+
+.sl-ce-expand__trigger:focus {
+  outline: none;
+}
+
+.sl-ce-expand__trigger:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+  border-radius: var(--sl-ce-radius-pill);
+}
+
+.sl-ce-expand__trigger:hover {
+  color: var(--sl-ce-color-secondary);
+}
+
+.sl-ce-expand__label-less {
+  display: none;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__label-more {
+  display: none;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__label-less {
+  display: inline;
+}
+
+.sl-ce-expand__chevron {
+  flex: 0 0 auto;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__chevron {
+  transform: rotate(-135deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-expand__chevron {
+    transition: none;
+  }
+}
+
+.sl-ce-expand__panel {
+  margin-top: var(--sl-ce-space-md);
+  min-width: 0;
+}
+
+/* Nested CE spacing inside expand / accordion / tabs panels */
+.sl-ce-expand__panel > .sl-ce-table + .sl-ce-table,
+.sl-ce-expand__panel > .sl-ce-accordion,
+.sl-ce-accordion__panel > .sl-ce-table,
+.sl-ce-tabs__panel > .sl-ce-table {
+  margin-top: var(--sl-ce-space-md);
+}
+
+.sl-ce-tabs__panel > .sl-ce-table:first-child,
+.sl-ce-accordion__panel > .sl-ce-table:first-child,
+.sl-ce-expand__panel > .sl-ce-table:first-child {
+  margin-top: 0;
+}
+
+/* ── Bordered ──────────────────────────────────────────── */
+
+.sl-ce-expand--bordered {
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-track);
+  background: var(--sl-ce-color-surface);
+  overflow: hidden;
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__trigger {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem var(--sl-ce-space-md);
+  background: var(--sl-ce-color-track);
+  border-radius: 0;
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__trigger:hover {
+  background: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__panel {
+  margin-top: 0;
+  padding: var(--sl-ce-space-md);
+  border-top: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-expand--bordered[open] > .sl-ce-expand__trigger {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+/* Trigger under content (teaser above, action below) */
+.sl-ce-expand--footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sl-ce-expand--footer > .sl-ce-expand__trigger {
+  order: 2;
+}
+
+.sl-ce-expand--footer > .sl-ce-expand__panel {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sl-ce-expand--bordered.sl-ce-expand--footer > .sl-ce-expand__panel {
+  border-top: none;
+}
+
+.sl-ce-expand--bordered.sl-ce-expand--footer[open] > .sl-ce-expand__trigger {
+  border-bottom: none;
+  border-top: 1px solid var(--sl-ce-color-border);
+}
+
+/* ── Button ────────────────────────────────────────────── */
+
+.sl-ce-expand--button > .sl-ce-expand__trigger {
+  display: inline-flex;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-pill);
+  background: var(--sl-ce-color-surface);
+  box-shadow: var(--sl-ce-shadow-pill);
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-expand--button > .sl-ce-expand__trigger:hover {
+  background: var(--sl-ce-color-track);
+  color: var(--sl-ce-color-primary);
+}

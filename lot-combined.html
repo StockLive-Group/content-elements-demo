@@ -18,7 +18,8 @@
   </nav>
 
   <p class="demo__note">
-    Lot-row preview with tabs, accordion, and table together — how Content Elements compose in one description column.
+    Composed lot view — tables nested in tabs and accordion, with
+    <code>sl-ce-expand</code> for deeper blocks so the first screen stays short.
   </p>
 
   <article class="lot">
@@ -34,16 +35,17 @@
       <p class="lot__number"># 1</p>
       <h1 class="lot__title">Sara Park Entice V89</h1>
 
+      <!-- Primary view: tabs with nested tables -->
       <div class="lot-ce">
         <div class="sl-ce-tabs">
           <div class="sl-ce-tabs__targets" aria-hidden="true">
             <span id="combo-overview"></span>
-            <span id="combo-comments"></span>
+            <span id="combo-pedigree"></span>
             <span id="combo-asbv"></span>
           </div>
           <nav class="sl-ce-tabs__list" aria-label="Lot details">
             <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#combo-overview">Overview</a>
-            <a class="sl-ce-tabs__tab" href="#combo-comments">Comments</a>
+            <a class="sl-ce-tabs__tab" href="#combo-pedigree">Pedigree</a>
             <a class="sl-ce-tabs__tab" href="#combo-asbv">ASBV</a>
           </nav>
           <div class="sl-ce-tabs__panels">
@@ -56,26 +58,92 @@
                 <div><dt>Genetic status</dt><dd>AMFU, CAFU, DDFU, NHFU</dd></div>
                 <div><dt>Account</dt><dd>SARA PARK Angus</dd></div>
               </dl>
-            </section>
-            <section class="sl-ce-tabs__panel">
-              <h4>Comments</h4>
-              <p class="lot-copy">
-                A good bull to start the sale. V89 is a well balanced bull that has ideal skin and hair.
-                He is deep, good hip to pin and wide through the pins with a good top.
+              <p class="lot-copy" style="margin-top: 0.85rem;">
+                A good bull to start the sale. V89 is well balanced with ideal skin and hair.
               </p>
             </section>
+
             <section class="sl-ce-tabs__panel">
-              <h4>ASBV / documents</h4>
-              <p class="lot-copy"><a href="#">ASBV Data Link — Click Here</a></p>
-              <p class="lot-copy lot-copy--muted">Placeholder for future content elements.</p>
+              <h4>Pedigree</h4>
+              <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--striped sl-ce-table--hoverable sl-ce-table--sm">
+                <div class="sl-ce-table__scroll">
+                  <table class="sl-ce-table__grid">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="sl-ce-table__th" colspan="2">Pedigree</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Sire</th>
+                        <td class="sl-ce-table__td" data-label="Sire">CHILTERN PARK PICASSO P9</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Dam</th>
+                        <td class="sl-ce-table__td" data-label="Dam">BOOROOMOOKA WHIM T627</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Dam Sire</th>
+                        <td class="sl-ce-table__td" data-label="Dam Sire">MURDEDUKE QUARTERBACK Q011</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section class="sl-ce-tabs__panel">
+              <h4>ASBV summary</h4>
+              <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--sm">
+                <div class="sl-ce-table__scroll">
+                  <table class="sl-ce-table__grid">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="sl-ce-table__th">Trait</th>
+                        <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">EBV</th>
+                        <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">Acc.</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="sl-ce-table__td" data-label="Trait">Birth weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+2.1</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">72%</td>
+                      </tr>
+                      <tr>
+                        <td class="sl-ce-table__td" data-label="Trait">200-day weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+28</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">68%</td>
+                      </tr>
+                      <tr>
+                        <td class="sl-ce-table__td" data-label="Trait">400-day weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+46</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">64%</td>
+                      </tr>
+                      <tr>
+                        <td class="sl-ce-table__td" data-label="Trait">Milk</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+8</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">55%</td>
+                      </tr>
+                    </tbody>
+                    <tfoot class="sl-ce-table__tfoot">
+                      <tr>
+                        <td class="sl-ce-table__td" colspan="2">Domestic index</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--center">$142</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
             </section>
           </div>
         </div>
       </div>
 
+      <!-- Secondary view: accordion with nested tables (collapsed by default) -->
       <div class="lot-ce">
         <div class="sl-ce-accordion sl-ce-accordion--bordered">
-          <details class="sl-ce-accordion__item" open>
+          <details class="sl-ce-accordion__item">
             <summary class="sl-ce-accordion__trigger">
               <span class="sl-ce-accordion__title">Vendor notes</span>
               <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
@@ -86,53 +154,266 @@
               </p>
             </div>
           </details>
+
           <details class="sl-ce-accordion__item">
             <summary class="sl-ce-accordion__trigger">
-              <span class="sl-ce-accordion__title">Delivery</span>
+              <span class="sl-ce-accordion__title">Key trait percentiles</span>
               <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
             </summary>
             <div class="sl-ce-accordion__panel">
-              <p class="lot-copy">Free delivery within 200km of the saleyards.</p>
+              <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
+                <div class="sl-ce-table__scroll">
+                  <table class="sl-ce-table__grid">
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Birth Weight</th>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--bar">
+                          <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
+                            <span class="sl-ce-table__bar-fill"></span>
+                          </span>
+                        </td>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--bar">
+                          <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
+                            <span class="sl-ce-table__bar-fill"></span>
+                          </span>
+                        </td>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Milk</th>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--bar">
+                          <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
+                            <span class="sl-ce-table__bar-fill"></span>
+                          </span>
+                        </td>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">IMF</th>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
+                        <td class="sl-ce-table__td sl-ce-table__td--bar">
+                          <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
+                            <span class="sl-ce-table__bar-fill"></span>
+                          </span>
+                        </td>
+                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
+                      </tr>
+                    </tbody>
+                    <tfoot class="sl-ce-table__tfoot">
+                      <tr>
+                        <td class="sl-ce-table__td"></td>
+                        <td class="sl-ce-table__td"></td>
+                        <td class="sl-ce-table__td sl-ce-table__td--bar">
+                          <div class="sl-ce-table__axis" aria-hidden="true">
+                            <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                          </div>
+                          <span class="sl-ce-table__axis-label">Percentile</span>
+                        </td>
+                        <td class="sl-ce-table__td"></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
             </div>
           </details>
+
           <details class="sl-ce-accordion__item">
             <summary class="sl-ce-accordion__trigger">
-              <span class="sl-ce-accordion__title">Health</span>
+              <span class="sl-ce-accordion__title">Delivery &amp; health</span>
               <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
             </summary>
             <div class="sl-ce-accordion__panel">
-              <p class="lot-copy">Vaccinated and tested prior to sale. Certificates available on request.</p>
+              <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
+                <div class="sl-ce-table__scroll">
+                  <table class="sl-ce-table__grid">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="sl-ce-table__th">Item</th>
+                        <th scope="col" class="sl-ce-table__th">Detail</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Delivery</th>
+                        <td class="sl-ce-table__td" data-label="Detail">Free within 200km of saleyards</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sl-ce-table__th">Health</th>
+                        <td class="sl-ce-table__td" data-label="Detail">Vaccinated and tested; certificates on request</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </details>
         </div>
       </div>
 
+      <!-- Tertiary view: expand more for the long trait profile -->
       <div class="lot-ce">
-        <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--striped sl-ce-table--hoverable sl-ce-table--sm">
-          <div class="sl-ce-table__scroll">
-            <table class="sl-ce-table__grid">
-              <thead>
-                <tr>
-                  <th scope="col" class="sl-ce-table__th" colspan="2">Pedigree</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">Sire</th>
-                  <td class="sl-ce-table__td" data-label="Sire">CHILTERN PARK PICASSO P9</td>
-                </tr>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">Dam</th>
-                  <td class="sl-ce-table__td" data-label="Dam">BOOROOMOOKA WHIM T627</td>
-                </tr>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">Dam Sire</th>
-                  <td class="sl-ce-table__td" data-label="Dam Sire">MURDEDUKE QUARTERBACK Q011</td>
-                </tr>
-              </tbody>
-            </table>
+        <details class="sl-ce-expand sl-ce-expand--bordered sl-ce-expand--footer">
+          <summary class="sl-ce-expand__trigger">
+            <span class="sl-ce-expand__label-more">Show full trait profile</span>
+            <span class="sl-ce-expand__label-less">Hide full trait profile</span>
+            <span class="sl-ce-expand__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="sl-ce-expand__panel">
+            <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
+              <div class="sl-ce-table__header">
+                <h3 class="sl-ce-table__title">Full trait profile</h3>
+                <p class="sl-ce-table__description">Percentile vs breed average (50). Opened on demand via expand.</p>
+              </div>
+              <div class="sl-ce-table__scroll">
+                <table class="sl-ce-table__grid">
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Calving Ease Direct</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">More Calving Difficulty</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 78" role="img" aria-label="78th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Less Calving Difficulty</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Birth Weight</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">400 Day Growth</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">600 Day Growth</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 5" role="img" aria-label="5th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Milk</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Carcase Weight</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Carcase Weight</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 3" role="img" aria-label="3rd percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Carcase Weight</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Eye Muscle Area</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Smaller EMA</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 18" role="img" aria-label="18th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Larger EMA</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">IMF</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Angus Breeding Index</th>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lower Profitability</td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <span class="sl-ce-table__bar sl-ce-table__bar--index" style="--sl-ce-percentile: 54" role="img" aria-label="54th percentile">
+                          <span class="sl-ce-table__bar-fill"></span>
+                        </span>
+                      </td>
+                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Greater Profitability</td>
+                    </tr>
+                  </tbody>
+                  <tfoot class="sl-ce-table__tfoot">
+                    <tr>
+                      <td class="sl-ce-table__td"></td>
+                      <td class="sl-ce-table__td"></td>
+                      <td class="sl-ce-table__td sl-ce-table__td--bar">
+                        <div class="sl-ce-table__axis" aria-hidden="true">
+                          <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                        </div>
+                        <span class="sl-ce-table__axis-label">Percentile</span>
+                      </td>
+                      <td class="sl-ce-table__td"></td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+
+            <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm" style="margin-top: 1rem;">
+              <div class="sl-ce-table__header">
+                <h3 class="sl-ce-table__title">Documents</h3>
+              </div>
+              <div class="sl-ce-table__scroll">
+                <table class="sl-ce-table__grid">
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">ASBV</th>
+                      <td class="sl-ce-table__td"><a href="#">ASBV Data Link — Click Here</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="sl-ce-table__th">Catalogue</th>
+                      <td class="sl-ce-table__td"><a href="#">Lot catalogue PDF</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </article>

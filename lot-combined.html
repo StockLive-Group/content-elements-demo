@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockLive Content Elements — Lot · Combined</title>
+  <link rel="stylesheet" href="css/content-elements.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<div class="demo">
+  <nav class="demo__nav" aria-label="Content element demos">
+    <a href="index.html">Variants</a>
+    <a href="lot-tabs.html">Lot · Tabs</a>
+    <a href="lot-accordion.html">Lot · Accordion</a>
+    <a href="lot-table.html">Lot · Table</a>
+    <a href="lot-combined.html" aria-current="page">Lot · Combined</a>
+  </nav>
+
+  <p class="demo__note">
+    Lot-row preview with tabs, accordion, and table together — how Content Elements compose in one description column.
+  </p>
+
+  <article class="lot">
+    <figure class="lot__media">
+      <img
+        src="https://www.droughtmaster.com.au/wp-content/uploads/565695586_1275831397682102_716293321823734050_n.jpg"
+        alt="Example lot animal — Droughtmaster bull"
+        width="800"
+        height="600"
+      />
+    </figure>
+    <div class="lot__body">
+      <p class="lot__number"># 1</p>
+      <h1 class="lot__title">Sara Park Entice V89</h1>
+
+      <div class="lot-ce">
+        <div class="sl-ce-tabs">
+          <div class="sl-ce-tabs__targets" aria-hidden="true">
+            <span id="combo-overview"></span>
+            <span id="combo-comments"></span>
+            <span id="combo-asbv"></span>
+          </div>
+          <nav class="sl-ce-tabs__list" aria-label="Lot details">
+            <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#combo-overview">Overview</a>
+            <a class="sl-ce-tabs__tab" href="#combo-comments">Comments</a>
+            <a class="sl-ce-tabs__tab" href="#combo-asbv">ASBV</a>
+          </nav>
+          <div class="sl-ce-tabs__panels">
+            <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
+              <h4>Overview</h4>
+              <dl class="lot-dl">
+                <div><dt>Animal ID</dt><dd>BDY24V89</dd></div>
+                <div><dt>Born</dt><dd>10/08/2024</dd></div>
+                <div><dt>Registration status</dt><dd>HBR</dd></div>
+                <div><dt>Genetic status</dt><dd>AMFU, CAFU, DDFU, NHFU</dd></div>
+                <div><dt>Account</dt><dd>SARA PARK Angus</dd></div>
+              </dl>
+            </section>
+            <section class="sl-ce-tabs__panel">
+              <h4>Comments</h4>
+              <p class="lot-copy">
+                A good bull to start the sale. V89 is a well balanced bull that has ideal skin and hair.
+                He is deep, good hip to pin and wide through the pins with a good top.
+              </p>
+            </section>
+            <section class="sl-ce-tabs__panel">
+              <h4>ASBV / documents</h4>
+              <p class="lot-copy"><a href="#">ASBV Data Link — Click Here</a></p>
+              <p class="lot-copy lot-copy--muted">Placeholder for future content elements.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="lot-ce">
+        <div class="sl-ce-accordion sl-ce-accordion--bordered">
+          <details class="sl-ce-accordion__item" open>
+            <summary class="sl-ce-accordion__trigger">
+              <span class="sl-ce-accordion__title">Vendor notes</span>
+              <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="sl-ce-accordion__panel">
+              <p class="lot-copy">
+                Structurally correct with plenty of capacity. Suited to heifers and cows.
+              </p>
+            </div>
+          </details>
+          <details class="sl-ce-accordion__item">
+            <summary class="sl-ce-accordion__trigger">
+              <span class="sl-ce-accordion__title">Delivery</span>
+              <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="sl-ce-accordion__panel">
+              <p class="lot-copy">Free delivery within 200km of the saleyards.</p>
+            </div>
+          </details>
+          <details class="sl-ce-accordion__item">
+            <summary class="sl-ce-accordion__trigger">
+              <span class="sl-ce-accordion__title">Health</span>
+              <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="sl-ce-accordion__panel">
+              <p class="lot-copy">Vaccinated and tested prior to sale. Certificates available on request.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="lot-ce">
+        <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--striped sl-ce-table--hoverable sl-ce-table--sm">
+          <div class="sl-ce-table__scroll">
+            <table class="sl-ce-table__grid">
+              <thead>
+                <tr>
+                  <th scope="col" class="sl-ce-table__th" colspan="2">Pedigree</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">Sire</th>
+                  <td class="sl-ce-table__td" data-label="Sire">CHILTERN PARK PICASSO P9</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">Dam</th>
+                  <td class="sl-ce-table__td" data-label="Dam">BOOROOMOOKA WHIM T627</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">Dam Sire</th>
+                  <td class="sl-ce-table__td" data-label="Dam Sire">MURDEDUKE QUARTERBACK Q011</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="lot-ce">
+        <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
+          <div class="sl-ce-table__header">
+            <h3 class="sl-ce-table__title">Trait profile</h3>
+            <p class="sl-ce-table__description">Percentile vs breed average (50).</p>
+          </div>
+          <div class="sl-ce-table__scroll">
+            <table class="sl-ce-table__grid">
+              <tbody>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">Birth Weight</th>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
+                  <td class="sl-ce-table__td sl-ce-table__td--bar">
+                    <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
+                      <span class="sl-ce-table__bar-fill"></span>
+                    </span>
+                  </td>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                  <td class="sl-ce-table__td sl-ce-table__td--bar">
+                    <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
+                      <span class="sl-ce-table__bar-fill"></span>
+                    </span>
+                  </td>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">Milk</th>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
+                  <td class="sl-ce-table__td sl-ce-table__td--bar">
+                    <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
+                      <span class="sl-ce-table__bar-fill"></span>
+                    </span>
+                  </td>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="sl-ce-table__th">IMF</th>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
+                  <td class="sl-ce-table__td sl-ce-table__td--bar">
+                    <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
+                      <span class="sl-ce-table__bar-fill"></span>
+                    </span>
+                  </td>
+                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
+                </tr>
+              </tbody>
+              <tfoot class="sl-ce-table__tfoot">
+                <tr>
+                  <td class="sl-ce-table__td"></td>
+                  <td class="sl-ce-table__td"></td>
+                  <td class="sl-ce-table__td sl-ce-table__td--bar">
+                    <div class="sl-ce-table__axis" aria-hidden="true">
+                      <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                    </div>
+                    <span class="sl-ce-table__axis-label">Percentile</span>
+                  </td>
+                  <td class="sl-ce-table__td"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

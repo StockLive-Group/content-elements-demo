@@ -39,7 +39,7 @@ lot-*.html                # lot-row context demos
 | [Variants](https://stocklive-group.github.io/sl-ce/) | All variants stacked |
 | [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html) | Auction lot shell + tabs |
 | [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion |
-| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV + percentile table |
+| [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV table + traits |
 | [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html) | Composed lot: tabs / accordion / expand / badges / buttons |
 
 ## Accordion variants

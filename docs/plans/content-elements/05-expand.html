@@ -1,0 +1,351 @@
+<div class="page" data-theme="light" data-design-system="kuickr-v2" data-kuickr-bar="float">
+<style>
+
+:root,
+[data-design-system="kuickr-v2"] {
+  --kk-font-display: "Libre Baskerville", Georgia, serif;
+  --kk-font-ui: "Space Grotesk", system-ui, sans-serif;
+  --kk-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --kk-bg: #ffffff; --kk-wash: #eef2f5; --kk-paper: #f8fafb; --kk-card: #ffffff;
+  --kk-fill: #eef2f5; --kk-fill-soft: #f4f7f9; --kk-line: #e6ecef; --kk-border: #dbe3e8;
+  --kk-ink: #12181f; --kk-text: #25303a; --kk-text-soft: #3a434c; --kk-muted: #7c8791;
+  --kk-secondary: #2f7fb0; --kk-secondary-soft: #dcedf5; --kk-accent-text: #1c608e;
+  --kk-blocker: #d74b4b; --kk-outcome: #1f7a68; --kk-decision: #4b7bd7; --kk-idea: #e8a53b;
+  --kk-r-sm: 7px; --kk-r-md: 10px; --kk-r-lg: 14px;
+  --kk-s-2: 8px; --kk-s-3: 12px; --kk-s-4: 16px; --kk-s-5: 24px; --kk-s-6: 32px; --kk-s-7: 48px;
+  --kk-read: 760px; --kk-shadow-sm: 0 1px 2px rgba(18, 24, 31, .07);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--kk-wash); color: var(--kk-text); font-family: var(--kk-font-ui); line-height: 1.6; }
+.page { max-width: var(--kk-read); margin: 0 auto; padding: var(--kk-s-7) var(--kk-s-5); background: var(--kk-bg); }
+.eyebrow { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--kk-muted); margin: 0 0 var(--kk-s-3); }
+h1 { font-family: var(--kk-font-display); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.12; color: var(--kk-ink); margin: 0 0 var(--kk-s-4); }
+.lede { font-size: 1.05rem; color: var(--kk-text-soft); margin: 0 0 var(--kk-s-4); }
+.meta { font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); margin: 0 0 var(--kk-s-6); }
+h2 { font-family: var(--kk-font-display); font-weight: 400; font-size: 1.5rem; color: var(--kk-ink); margin: var(--kk-s-7) 0 var(--kk-s-3); }
+h3 { font-family: var(--kk-font-ui); font-size: 1rem; font-weight: 600; color: var(--kk-ink); margin: var(--kk-s-5) 0 var(--kk-s-2); }
+p, li { margin: 0 0 var(--kk-s-3); }
+ul, ol { padding-left: 1.25rem; margin: 0 0 var(--kk-s-4); }
+code { font-family: var(--kk-font-mono); font-size: 0.9em; }
+pre { overflow: auto; background: var(--kk-fill-soft); border: 1px solid var(--kk-border); border-radius: var(--kk-r-md); padding: var(--kk-s-4); font-family: var(--kk-font-mono); font-size: 12px; line-height: 1.5; margin: 0 0 var(--kk-s-5); }
+table.doc { width: 100%; border-collapse: collapse; margin: 0 0 var(--kk-s-5); font-size: 0.92rem; }
+table.doc th, table.doc td { text-align: left; vertical-align: top; padding: var(--kk-s-3) var(--kk-s-2); border-bottom: 1px solid var(--kk-line); }
+table.doc th { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--kk-muted); font-weight: 600; }
+.callout { border-left: 3px solid var(--kk-secondary); background: var(--kk-secondary-soft); border-radius: var(--kk-r-sm); padding: var(--kk-s-4); margin: 0 0 var(--kk-s-5); }
+.callout.decision { border-left-color: var(--kk-decision); background: color-mix(in srgb, var(--kk-decision) 10%, var(--kk-card)); }
+.callout.outcome { border-left-color: var(--kk-outcome); background: color-mix(in srgb, var(--kk-outcome) 10%, var(--kk-card)); }
+.callout.idea { border-left-color: var(--kk-idea); background: color-mix(in srgb, var(--kk-idea) 12%, var(--kk-card)); }
+.callout strong { color: var(--kk-ink); }
+.demo-frame {
+  border: 1px solid var(--kk-border);
+  border-radius: var(--kk-r-lg);
+  padding: var(--kk-s-5);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(182, 223, 243, 0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(205, 120, 84, 0.1), transparent),
+    var(--kk-paper);
+  margin: 0 0 var(--kk-s-5);
+  box-shadow: var(--kk-shadow-sm);
+}
+.demo-label {
+  font-family: var(--kk-font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--kk-muted);
+  margin: 0 0 var(--kk-s-3);
+}
+.footer { margin-top: var(--kk-s-7); padding-top: var(--kk-s-4); border-top: 1px solid var(--kk-line); font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); }
+@media (max-width: 560px) {
+  .page { padding: var(--kk-s-5) var(--kk-s-4); }
+  table.doc { display: block; overflow-x: auto; }
+}
+
+/* StockLive Content Elements — design tokens
+   Mirrors plans/content-elements architecture: --sl-ce-* on :root
+*/
+:root {
+  --sl-ce-color-primary: #021c45;
+  --sl-ce-color-secondary: #cd7854;
+  --sl-ce-color-track: #edf2f7;
+  --sl-ce-color-surface: #ffffff;
+  --sl-ce-color-border: #e5e7eb;
+  --sl-ce-color-text: #021c45;
+  --sl-ce-color-text-muted: #555555;
+  --sl-ce-radius-track: 0.5rem;
+  --sl-ce-radius-pill: 0.375rem;
+  --sl-ce-shadow-pill: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --sl-ce-shadow-panel: none;
+  --sl-ce-space-xs: 0.25rem;
+  --sl-ce-space-sm: 0.5rem;
+  --sl-ce-space-md: 1rem;
+  --sl-ce-space-lg: 1.25rem;
+  --sl-ce-focus-ring: 0 0 0 3px rgba(2, 28, 69, 0.25);
+  --sl-ce-accordion-trigger-py: 0.85rem;
+  --sl-ce-accordion-trigger-px: 1rem;
+  --sl-ce-table-cell-py: 0.75rem;
+  --sl-ce-table-cell-px: 1rem;
+  --sl-ce-table-font-size: 0.875rem;
+  --sl-ce-table-stripe: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  --sl-ce-table-sticky-max-height: 16rem;
+  --sl-ce-table-hint-bg: #d7e8f2;
+  --sl-ce-table-bar-track: #f3f4f6;
+  --sl-ce-table-bar-grid: #c5c9ce;
+  --sl-ce-table-bar-mid: #1a1a1a;
+  --sl-ce-table-bar-calving: #e0c23a;
+  --sl-ce-table-bar-growth: #2f6b3c;
+  --sl-ce-table-bar-maternal: #c44d8a;
+  --sl-ce-table-bar-milk: #6b2d7a;
+  --sl-ce-table-bar-fertility: #8b1e2d;
+  --sl-ce-table-bar-other: #1e3a6e;
+  --sl-ce-table-bar-carcase: #2aa3c4;
+  --sl-ce-table-bar-structure: #c4a06a;
+  --sl-ce-table-bar-index: #d63d8f;
+  /* Semantic palette (RRUI-aligned) */
+  --sl-ce-color-success: #16a34a;
+  --sl-ce-color-success-fg: #166534;
+  --sl-ce-color-danger: #dc2626;
+  --sl-ce-color-danger-fg: #991b1b;
+  --sl-ce-color-warning: #d97706;
+  --sl-ce-color-warning-fg: #92400e;
+  --sl-ce-color-info: #0284c7;
+  --sl-ce-color-info-fg: #075985;
+  --sl-ce-btn-radius: 0.375rem;
+  --sl-ce-badge-radius: 999px;
+}
+
+/* sl-ce-expand — native <details>/<summary> “show more” disclosure
+   Use to tuck secondary tables / long blocks behind a short trigger
+   so lot descriptions stay scannable. Compose with tabs / accordion / table.
+   Modifiers: --default (text) | --bordered | --button
+*/
+
+.sl-ce-expand {
+  position: relative;
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-expand__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0;
+  list-style: none;
+  cursor: pointer;
+  color: var(--sl-ce-color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  user-select: none;
+}
+
+.sl-ce-expand__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.sl-ce-expand__trigger::marker {
+  content: "";
+}
+
+.sl-ce-expand__trigger:focus {
+  outline: none;
+}
+
+.sl-ce-expand__trigger:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+  border-radius: var(--sl-ce-radius-pill);
+}
+
+.sl-ce-expand__trigger:hover {
+  color: var(--sl-ce-color-secondary);
+}
+
+.sl-ce-expand__label-less {
+  display: none;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__label-more {
+  display: none;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__label-less {
+  display: inline;
+}
+
+.sl-ce-expand__chevron {
+  flex: 0 0 auto;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.sl-ce-expand[open] > .sl-ce-expand__trigger .sl-ce-expand__chevron {
+  transform: rotate(-135deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-expand__chevron {
+    transition: none;
+  }
+}
+
+.sl-ce-expand__panel {
+  margin-top: var(--sl-ce-space-md);
+  min-width: 0;
+}
+
+/* Nested CE spacing inside expand / accordion / tabs panels */
+.sl-ce-expand__panel > .sl-ce-table + .sl-ce-table,
+.sl-ce-expand__panel > .sl-ce-accordion,
+.sl-ce-accordion__panel > .sl-ce-table,
+.sl-ce-tabs__panel > .sl-ce-table {
+  margin-top: var(--sl-ce-space-md);
+}
+
+.sl-ce-tabs__panel > .sl-ce-table:first-child,
+.sl-ce-accordion__panel > .sl-ce-table:first-child,
+.sl-ce-expand__panel > .sl-ce-table:first-child {
+  margin-top: 0;
+}
+
+/* ── Bordered ──────────────────────────────────────────── */
+
+.sl-ce-expand--bordered {
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-track);
+  background: var(--sl-ce-color-surface);
+  overflow: hidden;
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__trigger {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem var(--sl-ce-space-md);
+  background: var(--sl-ce-color-track);
+  border-radius: 0;
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__trigger:hover {
+  background: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-expand--bordered > .sl-ce-expand__panel {
+  margin-top: 0;
+  padding: var(--sl-ce-space-md);
+  border-top: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-expand--bordered[open] > .sl-ce-expand__trigger {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+/* Trigger under content (teaser above, action below) */
+.sl-ce-expand--footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sl-ce-expand--footer > .sl-ce-expand__trigger {
+  order: 2;
+}
+
+.sl-ce-expand--footer > .sl-ce-expand__panel {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.sl-ce-expand--bordered.sl-ce-expand--footer > .sl-ce-expand__panel {
+  border-top: none;
+}
+
+.sl-ce-expand--bordered.sl-ce-expand--footer[open] > .sl-ce-expand__trigger {
+  border-bottom: none;
+  border-top: 1px solid var(--sl-ce-color-border);
+}
+
+/* ── Button ────────────────────────────────────────────── */
+
+.sl-ce-expand--button > .sl-ce-expand__trigger {
+  display: inline-flex;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-pill);
+  background: var(--sl-ce-color-surface);
+  box-shadow: var(--sl-ce-shadow-pill);
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-expand--button > .sl-ce-expand__trigger:hover {
+  background: var(--sl-ce-color-track);
+  color: var(--sl-ce-color-primary);
+}
+
+</style>
+
+<p class="eyebrow">StockLive · Content Elements · Approach</p>
+<h1>HTML/CSS-only show more for Froala / Nextlot</h1>
+<p class="lede">Tuck secondary lot content behind a native disclosure. Same <code>sl-ce</code> tokens as accordion — no JavaScript.</p>
+<p class="meta">status: shipped · rev 1 · 2026-07-31 · namespace: sl-ce · spec: plans/content-elements/05-expand.md</p>
+
+<div class="callout decision">
+  <strong>Approach:</strong> native <code>&lt;details&gt;</code> with dual more/less labels swapped via <code>[open]</code> CSS.
+</div>
+
+
+<h2>1. Live preview</h2>
+<p>Click the trigger — secondary content stays collapsed until needed.</p>
+
+<div class="demo-frame">
+  <p class="demo-label">Interactive demo · bordered + footer</p>
+  <p style="margin:0 0 1rem;color:var(--sl-ce-color-text-muted);font-size:0.95rem;">Primary lot copy stays above the fold. Extra notes tuck behind expand.</p>
+  <details class="sl-ce-expand sl-ce-expand--bordered sl-ce-expand--footer">
+    <summary class="sl-ce-expand__trigger">
+      <span class="sl-ce-expand__label-more">Show more details</span>
+      <span class="sl-ce-expand__label-less">Show less</span>
+      <span class="sl-ce-expand__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="sl-ce-expand__panel">
+      <p style="margin:0;color:var(--sl-ce-color-text-muted);font-size:0.95rem;">Secondary lot content — extra tables, docs, or long notes — so the first viewport stays short.</p>
+    </div>
+  </details>
+</div>
+
+<div class="callout outcome">
+  <strong>Why details:</strong> same native disclosure model as accordion, but a single show-more control rather than a multi-item stack.
+</div>
+
+<h2>2. Variants</h2>
+<table class="doc">
+  <thead><tr><th>Modifier</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td>(none)</td><td>Text trigger</td></tr>
+    <tr><td><code>--bordered</code></td><td>Card shell</td></tr>
+    <tr><td><code>--button</code></td><td>Pill button trigger</td></tr>
+    <tr><td><code>--footer</code></td><td>Trigger under the panel</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Author snippet</h2>
+<pre>&lt;details class="sl-ce-expand sl-ce-expand--bordered sl-ce-expand--footer"&gt;
+  &lt;summary class="sl-ce-expand__trigger"&gt;
+    &lt;span class="sl-ce-expand__label-more"&gt;Show more details&lt;/span&gt;
+    &lt;span class="sl-ce-expand__label-less"&gt;Show less&lt;/span&gt;
+    &lt;span class="sl-ce-expand__chevron" aria-hidden="true"&gt;&lt;/span&gt;
+  &lt;/summary&gt;
+  &lt;div class="sl-ce-expand__panel"&gt;…&lt;/div&gt;
+&lt;/details&gt;</pre>
+
+<div class="callout idea">
+  <strong>Demo:</strong> <a href="https://stocklive-group.github.io/sl-ce/lot-combined.html">lot-combined.html</a> · Spec: <a href="05-expand.md">05-expand.md</a>
+</div>
+
+
+<p class="footer">stocklive/ctp-docs/plans/content-elements/05-expand.html · rev 1 · Kuickr v2 · companion to 05-expand.md</p>
+</div>

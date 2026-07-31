@@ -1,0 +1,573 @@
+<div class="page" data-theme="light" data-design-system="kuickr-v2" data-kuickr-bar="float">
+<style>
+
+:root,
+[data-design-system="kuickr-v2"] {
+  --kk-font-display: "Libre Baskerville", Georgia, serif;
+  --kk-font-ui: "Space Grotesk", system-ui, sans-serif;
+  --kk-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --kk-bg: #ffffff; --kk-wash: #eef2f5; --kk-paper: #f8fafb; --kk-card: #ffffff;
+  --kk-fill: #eef2f5; --kk-fill-soft: #f4f7f9; --kk-line: #e6ecef; --kk-border: #dbe3e8;
+  --kk-ink: #12181f; --kk-text: #25303a; --kk-text-soft: #3a434c; --kk-muted: #7c8791;
+  --kk-secondary: #2f7fb0; --kk-secondary-soft: #dcedf5; --kk-accent-text: #1c608e;
+  --kk-blocker: #d74b4b; --kk-outcome: #1f7a68; --kk-decision: #4b7bd7; --kk-idea: #e8a53b;
+  --kk-r-sm: 7px; --kk-r-md: 10px; --kk-r-lg: 14px;
+  --kk-s-2: 8px; --kk-s-3: 12px; --kk-s-4: 16px; --kk-s-5: 24px; --kk-s-6: 32px; --kk-s-7: 48px;
+  --kk-read: 760px; --kk-shadow-sm: 0 1px 2px rgba(18, 24, 31, .07);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--kk-wash); color: var(--kk-text); font-family: var(--kk-font-ui); line-height: 1.6; }
+.page { max-width: var(--kk-read); margin: 0 auto; padding: var(--kk-s-7) var(--kk-s-5); background: var(--kk-bg); }
+.eyebrow { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--kk-muted); margin: 0 0 var(--kk-s-3); }
+h1 { font-family: var(--kk-font-display); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.12; color: var(--kk-ink); margin: 0 0 var(--kk-s-4); }
+.lede { font-size: 1.05rem; color: var(--kk-text-soft); margin: 0 0 var(--kk-s-4); }
+.meta { font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); margin: 0 0 var(--kk-s-6); }
+h2 { font-family: var(--kk-font-display); font-weight: 400; font-size: 1.5rem; color: var(--kk-ink); margin: var(--kk-s-7) 0 var(--kk-s-3); }
+h3 { font-family: var(--kk-font-ui); font-size: 1rem; font-weight: 600; color: var(--kk-ink); margin: var(--kk-s-5) 0 var(--kk-s-2); }
+p, li { margin: 0 0 var(--kk-s-3); }
+ul, ol { padding-left: 1.25rem; margin: 0 0 var(--kk-s-4); }
+code { font-family: var(--kk-font-mono); font-size: 0.9em; }
+pre { overflow: auto; background: var(--kk-fill-soft); border: 1px solid var(--kk-border); border-radius: var(--kk-r-md); padding: var(--kk-s-4); font-family: var(--kk-font-mono); font-size: 12px; line-height: 1.5; margin: 0 0 var(--kk-s-5); }
+table.doc { width: 100%; border-collapse: collapse; margin: 0 0 var(--kk-s-5); font-size: 0.92rem; }
+table.doc th, table.doc td { text-align: left; vertical-align: top; padding: var(--kk-s-3) var(--kk-s-2); border-bottom: 1px solid var(--kk-line); }
+table.doc th { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--kk-muted); font-weight: 600; }
+.callout { border-left: 3px solid var(--kk-secondary); background: var(--kk-secondary-soft); border-radius: var(--kk-r-sm); padding: var(--kk-s-4); margin: 0 0 var(--kk-s-5); }
+.callout.decision { border-left-color: var(--kk-decision); background: color-mix(in srgb, var(--kk-decision) 10%, var(--kk-card)); }
+.callout.outcome { border-left-color: var(--kk-outcome); background: color-mix(in srgb, var(--kk-outcome) 10%, var(--kk-card)); }
+.callout.idea { border-left-color: var(--kk-idea); background: color-mix(in srgb, var(--kk-idea) 12%, var(--kk-card)); }
+.callout strong { color: var(--kk-ink); }
+.demo-frame {
+  border: 1px solid var(--kk-border);
+  border-radius: var(--kk-r-lg);
+  padding: var(--kk-s-5);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(182, 223, 243, 0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(205, 120, 84, 0.1), transparent),
+    var(--kk-paper);
+  margin: 0 0 var(--kk-s-5);
+  box-shadow: var(--kk-shadow-sm);
+}
+.demo-label {
+  font-family: var(--kk-font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--kk-muted);
+  margin: 0 0 var(--kk-s-3);
+}
+.footer { margin-top: var(--kk-s-7); padding-top: var(--kk-s-4); border-top: 1px solid var(--kk-line); font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); }
+@media (max-width: 560px) {
+  .page { padding: var(--kk-s-5) var(--kk-s-4); }
+  table.doc { display: block; overflow-x: auto; }
+}
+
+/* StockLive Content Elements — design tokens
+   Mirrors plans/content-elements architecture: --sl-ce-* on :root
+*/
+:root {
+  --sl-ce-color-primary: #021c45;
+  --sl-ce-color-secondary: #cd7854;
+  --sl-ce-color-track: #edf2f7;
+  --sl-ce-color-surface: #ffffff;
+  --sl-ce-color-border: #e5e7eb;
+  --sl-ce-color-text: #021c45;
+  --sl-ce-color-text-muted: #555555;
+  --sl-ce-radius-track: 0.5rem;
+  --sl-ce-radius-pill: 0.375rem;
+  --sl-ce-shadow-pill: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --sl-ce-shadow-panel: none;
+  --sl-ce-space-xs: 0.25rem;
+  --sl-ce-space-sm: 0.5rem;
+  --sl-ce-space-md: 1rem;
+  --sl-ce-space-lg: 1.25rem;
+  --sl-ce-focus-ring: 0 0 0 3px rgba(2, 28, 69, 0.25);
+  --sl-ce-accordion-trigger-py: 0.85rem;
+  --sl-ce-accordion-trigger-px: 1rem;
+  --sl-ce-table-cell-py: 0.75rem;
+  --sl-ce-table-cell-px: 1rem;
+  --sl-ce-table-font-size: 0.875rem;
+  --sl-ce-table-stripe: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  --sl-ce-table-sticky-max-height: 16rem;
+  --sl-ce-table-hint-bg: #d7e8f2;
+  --sl-ce-table-bar-track: #f3f4f6;
+  --sl-ce-table-bar-grid: #c5c9ce;
+  --sl-ce-table-bar-mid: #1a1a1a;
+  --sl-ce-table-bar-calving: #e0c23a;
+  --sl-ce-table-bar-growth: #2f6b3c;
+  --sl-ce-table-bar-maternal: #c44d8a;
+  --sl-ce-table-bar-milk: #6b2d7a;
+  --sl-ce-table-bar-fertility: #8b1e2d;
+  --sl-ce-table-bar-other: #1e3a6e;
+  --sl-ce-table-bar-carcase: #2aa3c4;
+  --sl-ce-table-bar-structure: #c4a06a;
+  --sl-ce-table-bar-index: #d63d8f;
+  /* Semantic palette (RRUI-aligned) */
+  --sl-ce-color-success: #16a34a;
+  --sl-ce-color-success-fg: #166534;
+  --sl-ce-color-danger: #dc2626;
+  --sl-ce-color-danger-fg: #991b1b;
+  --sl-ce-color-warning: #d97706;
+  --sl-ce-color-warning-fg: #92400e;
+  --sl-ce-color-info: #0284c7;
+  --sl-ce-color-info-fg: #075985;
+  --sl-ce-btn-radius: 0.375rem;
+  --sl-ce-badge-radius: 999px;
+}
+
+/* sl-ce-badge — RRUI-inspired status / metadata labels
+   Variants: --solid (default) | --outline | --ghost | --soft | --link
+   Colors:   --primary (default) | --secondary | --success | --danger | --warning | --info
+   Sizes:    --xs (default) | --sm | --base | --md | --lg
+   Shapes:   --pill (default) | --rounded | --square
+   Link badges: use <a class="sl-ce-badge …"> with target="_blank" rel="noopener noreferrer"
+*/
+
+.sl-ce-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.sl-ce-badge {
+  --_sl-ce-badge-bg: var(--sl-ce-color-primary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-primary);
+  --_sl-ce-badge-py: 0.15rem;
+  --_sl-ce-badge-px: 0.5rem;
+  --_sl-ce-badge-fs: 0.6875rem;
+  --_sl-ce-badge-radius: var(--sl-ce-badge-radius);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: var(--_sl-ce-badge-py) var(--_sl-ce-badge-px);
+  border: 1px solid transparent;
+  border-radius: var(--_sl-ce-badge-radius);
+  background: var(--_sl-ce-badge-bg);
+  color: var(--_sl-ce-badge-fg);
+  font-size: var(--_sl-ce-badge-fs);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+a.sl-ce-badge {
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+a.sl-ce-badge:hover {
+  filter: brightness(0.95);
+}
+
+a.sl-ce-badge:focus {
+  outline: none;
+}
+
+a.sl-ce-badge:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.sl-ce-badge {
+    transition: none;
+  }
+}
+
+/* ── Colors ─────────────────────────────────────────────── */
+
+.sl-ce-badge--primary {
+  --_sl-ce-badge-bg: var(--sl-ce-color-primary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-primary);
+}
+
+.sl-ce-badge--secondary {
+  --_sl-ce-badge-bg: var(--sl-ce-color-secondary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-secondary);
+}
+
+.sl-ce-badge--success {
+  --_sl-ce-badge-bg: var(--sl-ce-color-success);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-success);
+}
+
+.sl-ce-badge--danger {
+  --_sl-ce-badge-bg: var(--sl-ce-color-danger);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-danger);
+}
+
+.sl-ce-badge--warning {
+  --_sl-ce-badge-bg: var(--sl-ce-color-warning);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-warning);
+}
+
+.sl-ce-badge--info {
+  --_sl-ce-badge-bg: var(--sl-ce-color-info);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-info);
+}
+
+/* ── Variants ───────────────────────────────────────────── */
+
+.sl-ce-badge--solid {
+  background: var(--_sl-ce-badge-bg);
+  color: var(--_sl-ce-badge-fg);
+  border-color: transparent;
+}
+
+.sl-ce-badge--outline {
+  background: transparent;
+  color: var(--_sl-ce-badge-border);
+  border-color: var(--_sl-ce-badge-border);
+}
+
+.sl-ce-badge--ghost {
+  background: transparent;
+  color: var(--_sl-ce-badge-border);
+  border-color: transparent;
+}
+
+.sl-ce-badge--soft {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 14%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-badge-border);
+  border-color: transparent;
+}
+
+.sl-ce-badge--soft.sl-ce-badge--success {
+  color: var(--sl-ce-color-success-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--danger {
+  color: var(--sl-ce-color-danger-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--warning {
+  color: var(--sl-ce-color-warning-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--info {
+  color: var(--sl-ce-color-info-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--primary {
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--secondary {
+  color: color-mix(in srgb, var(--sl-ce-color-secondary) 70%, #000);
+}
+
+/* Link variant — text treatment; still a badge-sized chip when soft border needed */
+.sl-ce-badge--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--_sl-ce-badge-border);
+  padding-inline: 0.15rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 700;
+}
+
+a.sl-ce-badge--link:hover {
+  filter: none;
+  color: var(--sl-ce-color-secondary);
+}
+
+a.sl-ce-badge--outline:hover {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 10%, var(--sl-ce-color-surface));
+  filter: none;
+}
+
+a.sl-ce-badge--soft:hover,
+a.sl-ce-badge--ghost:hover {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 20%, var(--sl-ce-color-surface));
+  filter: none;
+}
+
+/* ── Sizes ──────────────────────────────────────────────── */
+
+.sl-ce-badge--xs {
+  --_sl-ce-badge-py: 0.12rem;
+  --_sl-ce-badge-px: 0.45rem;
+  --_sl-ce-badge-fs: 0.6875rem;
+}
+
+.sl-ce-badge--sm {
+  --_sl-ce-badge-py: 0.2rem;
+  --_sl-ce-badge-px: 0.55rem;
+  --_sl-ce-badge-fs: 0.75rem;
+}
+
+.sl-ce-badge--base {
+  --_sl-ce-badge-py: 0.25rem;
+  --_sl-ce-badge-px: 0.65rem;
+  --_sl-ce-badge-fs: 0.8125rem;
+}
+
+.sl-ce-badge--md {
+  --_sl-ce-badge-py: 0.3rem;
+  --_sl-ce-badge-px: 0.75rem;
+  --_sl-ce-badge-fs: 0.875rem;
+}
+
+.sl-ce-badge--lg {
+  --_sl-ce-badge-py: 0.35rem;
+  --_sl-ce-badge-px: 0.85rem;
+  --_sl-ce-badge-fs: 0.9375rem;
+}
+
+/* ── Shapes ─────────────────────────────────────────────── */
+
+.sl-ce-badge--pill {
+  --_sl-ce-badge-radius: 999px;
+}
+
+.sl-ce-badge--rounded {
+  --_sl-ce-badge-radius: var(--sl-ce-radius-pill);
+}
+
+.sl-ce-badge--square {
+  --_sl-ce-badge-radius: 0;
+}
+
+/* sl-ce-traits — compact EBV / percentile profile (not a table)
+   Each item: name + EBV · Top% badge · progress bar · percentile label
+   Set --sl-ce-percentile (0–100) on .sl-ce-traits__item
+   Tone: --calving | --growth | --maternal | --milk | --fertility |
+         --other | --carcase | --structure | --index
+   Density: --dense (tighter vertical rhythm)
+*/
+
+.sl-ce-traits {
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-traits__title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sl-ce-color-primary);
+  line-height: 1.3;
+}
+
+.sl-ce-traits__description {
+  margin: 0 0 0.85rem;
+  font-size: 0.8125rem;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.4;
+}
+
+.sl-ce-traits__group {
+  margin: 0.85rem 0 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sl-ce-color-text-muted);
+}
+
+.sl-ce-traits__group:first-child {
+  margin-top: 0;
+}
+
+.sl-ce-traits__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sl-ce-traits--dense .sl-ce-traits__list {
+  gap: 0.55rem;
+}
+
+.sl-ce-traits__item {
+  --sl-ce-percentile: 50;
+  --sl-ce-trait-color: var(--sl-ce-color-primary);
+  margin: 0;
+  min-width: 0;
+}
+
+.sl-ce-traits__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.sl-ce-traits__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  min-width: 0;
+}
+
+.sl-ce-traits__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--sl-ce-color-primary);
+  line-height: 1.25;
+}
+
+.sl-ce-traits__ebv {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.25;
+}
+
+.sl-ce-traits__rank {
+  flex: 0 0 auto;
+  background: var(--sl-ce-trait-color) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-traits__track {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--sl-ce-table-bar-track);
+}
+
+.sl-ce-traits__fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--sl-ce-percentile) * 1%);
+  max-width: 100%;
+  border-radius: inherit;
+  background: var(--sl-ce-trait-color);
+}
+
+.sl-ce-traits__perc {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.2;
+}
+
+/* Optional accuracy chip */
+.sl-ce-traits__acc {
+  font-size: 0.75rem;
+  color: var(--sl-ce-color-text-muted);
+}
+
+/* Tones — bar + badge share --sl-ce-trait-color */
+.sl-ce-traits__item--calving { --sl-ce-trait-color: var(--sl-ce-color-success); }
+.sl-ce-traits__item--growth { --sl-ce-trait-color: var(--sl-ce-color-primary); }
+.sl-ce-traits__item--maternal { --sl-ce-trait-color: var(--sl-ce-table-bar-maternal); }
+.sl-ce-traits__item--milk { --sl-ce-trait-color: var(--sl-ce-table-bar-milk); }
+.sl-ce-traits__item--fertility { --sl-ce-trait-color: var(--sl-ce-table-bar-fertility); }
+.sl-ce-traits__item--other { --sl-ce-trait-color: var(--sl-ce-table-bar-other); }
+.sl-ce-traits__item--carcase { --sl-ce-trait-color: #0b1220; }
+.sl-ce-traits__item--structure { --sl-ce-trait-color: var(--sl-ce-table-bar-structure); }
+.sl-ce-traits__item--index { --sl-ce-trait-color: var(--sl-ce-color-secondary); }
+
+/* Nested spacing inside panels */
+.sl-ce-tabs__panel > .sl-ce-traits,
+.sl-ce-accordion__panel > .sl-ce-traits,
+.sl-ce-expand__panel > .sl-ce-traits {
+  margin-top: 0;
+}
+
+</style>
+
+<p class="eyebrow">StockLive · Content Elements · Approach</p>
+<h1>HTML/CSS-only trait profiles for Froala / Nextlot</h1>
+<p class="lede">Compact EBV + percentile bars under <code>sl-ce-traits</code>. Not a table — designed for lot cards and accordion panels.</p>
+<p class="meta">status: shipped · rev 1 · 2026-07-31 · namespace: sl-ce · spec: plans/content-elements/04-traits.md</p>
+
+<div class="callout decision">
+  <strong>Approach:</strong> list items with <code>--sl-ce-percentile</code> driving the bar. Rank chips reuse <code>.sl-ce-badge</code>.
+</div>
+
+
+<h2>1. Live preview</h2>
+<p>Compact EBV + percentile bars. Not a table.</p>
+
+<div class="demo-frame">
+  <p class="demo-label">Interactive demo · Trait profile</p>
+  <div class="sl-ce-traits sl-ce-traits--dense">
+    <h3 class="sl-ce-traits__title">Trait profile</h3>
+    <p class="sl-ce-traits__description">Percentile rank with EBV. Compact list for lot cards.</p>
+    <ul class="sl-ce-traits__list">
+      <li class="sl-ce-traits__item sl-ce-traits__item--calving" style="--sl-ce-percentile: 90">
+        <div class="sl-ce-traits__head">
+          <div class="sl-ce-traits__label">
+            <span class="sl-ce-traits__name">Calving Ease Direct</span>
+            <span class="sl-ce-traits__ebv">EBV +4.2</span>
+          </div>
+          <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 10%</span>
+        </div>
+        <div class="sl-ce-traits__track" role="img" aria-label="90th percentile"><span class="sl-ce-traits__fill"></span></div>
+        <p class="sl-ce-traits__perc">90th percentile</p>
+      </li>
+      <li class="sl-ce-traits__item sl-ce-traits__item--growth" style="--sl-ce-percentile: 80">
+        <div class="sl-ce-traits__head">
+          <div class="sl-ce-traits__label">
+            <span class="sl-ce-traits__name">200 Day Weight</span>
+            <span class="sl-ce-traits__ebv">EBV +63</span>
+          </div>
+          <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 20%</span>
+        </div>
+        <div class="sl-ce-traits__track" role="img" aria-label="80th percentile"><span class="sl-ce-traits__fill"></span></div>
+        <p class="sl-ce-traits__perc">80th percentile</p>
+      </li>
+      <li class="sl-ce-traits__item sl-ce-traits__item--carcase" style="--sl-ce-percentile: 70">
+        <div class="sl-ce-traits__head">
+          <div class="sl-ce-traits__label">
+            <span class="sl-ce-traits__name">Eye Muscle Area</span>
+            <span class="sl-ce-traits__ebv">EBV +8.7</span>
+          </div>
+          <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 30%</span>
+        </div>
+        <div class="sl-ce-traits__track" role="img" aria-label="70th percentile"><span class="sl-ce-traits__fill"></span></div>
+        <p class="sl-ce-traits__perc">70th percentile</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout outcome">
+  <strong>Custom property:</strong> set <code>style="--sl-ce-percentile: N"</code> on each item (0–100). Top% badge ≈ <code>100 − N</code>.
+</div>
+
+<h2>2. Why this approach</h2>
+<table class="doc">
+  <thead><tr><th>Option</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr><td>List + progress bar (chosen)</td><td>Compact on lot cards; clear hierarchy</td></tr>
+    <tr><td>Percentile columns in <code>.sl-ce-table</code></td><td>Rejected — too heavy for card / accordion context</td></tr>
+  </tbody>
+</table>
+
+<h2>3. Author snippet</h2>
+<pre>&lt;li class="sl-ce-traits__item sl-ce-traits__item--calving" style="--sl-ce-percentile: 90"&gt;
+  … name · EBV · Top% badge · track · label …
+&lt;/li&gt;</pre>
+
+<div class="callout idea">
+  <strong>Demo:</strong> <a href="https://stocklive-group.github.io/sl-ce/lot-combined.html">lot-combined.html</a> · Spec: <a href="04-traits.md">04-traits.md</a>
+</div>
+
+
+<p class="footer">stocklive/ctp-docs/plans/content-elements/04-traits.html · rev 1 · Kuickr v2 · companion to 04-traits.md</p>
+</div>

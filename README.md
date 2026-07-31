@@ -114,9 +114,13 @@ RRUI-aligned ([docs](https://rapidrails.cc/docs/button)). Prefer `<a>` for navig
 
 ## Spec
 
-- [01 — Tabs](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/01-tabs.md)
-- [02 — Accordion](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/02-accordion.md)
-- [03 — Table](https://kuickr.co/hugh-gordon/inbox/plans/content-elements/03-table.md) (Inbox draft — move into ctp-docs when ready)
+- [01 — Tabs](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/01-tabs.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/01-tabs.html)
+- [02 — Accordion](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/02-accordion.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/02-accordion.html)
+- [03 — Table](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/03-table.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/03-table.html)
+- [04 — Traits](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/04-traits.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/04-traits.html)
+- [05 — Expand](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/05-expand.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/05-expand.html)
+- [06 — Badge](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/06-badge.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/06-badge.html)
+- [07 — Button](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/07-button.md) · [rich](https://kuickr.co/stocklive/ctp-docs/plans/content-elements/07-button.html)
 
 ## Local
 

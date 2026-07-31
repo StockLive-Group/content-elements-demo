@@ -1,0 +1,420 @@
+<div class="page" data-theme="light" data-design-system="kuickr-v2" data-kuickr-bar="float">
+<style>
+
+:root,
+[data-design-system="kuickr-v2"] {
+  --kk-font-display: "Libre Baskerville", Georgia, serif;
+  --kk-font-ui: "Space Grotesk", system-ui, sans-serif;
+  --kk-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --kk-bg: #ffffff; --kk-wash: #eef2f5; --kk-paper: #f8fafb; --kk-card: #ffffff;
+  --kk-fill: #eef2f5; --kk-fill-soft: #f4f7f9; --kk-line: #e6ecef; --kk-border: #dbe3e8;
+  --kk-ink: #12181f; --kk-text: #25303a; --kk-text-soft: #3a434c; --kk-muted: #7c8791;
+  --kk-secondary: #2f7fb0; --kk-secondary-soft: #dcedf5; --kk-accent-text: #1c608e;
+  --kk-blocker: #d74b4b; --kk-outcome: #1f7a68; --kk-decision: #4b7bd7; --kk-idea: #e8a53b;
+  --kk-r-sm: 7px; --kk-r-md: 10px; --kk-r-lg: 14px;
+  --kk-s-2: 8px; --kk-s-3: 12px; --kk-s-4: 16px; --kk-s-5: 24px; --kk-s-6: 32px; --kk-s-7: 48px;
+  --kk-read: 760px; --kk-shadow-sm: 0 1px 2px rgba(18, 24, 31, .07);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--kk-wash); color: var(--kk-text); font-family: var(--kk-font-ui); line-height: 1.6; }
+.page { max-width: var(--kk-read); margin: 0 auto; padding: var(--kk-s-7) var(--kk-s-5); background: var(--kk-bg); }
+.eyebrow { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--kk-muted); margin: 0 0 var(--kk-s-3); }
+h1 { font-family: var(--kk-font-display); font-weight: 400; font-size: clamp(28px, 5vw, 40px); line-height: 1.12; color: var(--kk-ink); margin: 0 0 var(--kk-s-4); }
+.lede { font-size: 1.05rem; color: var(--kk-text-soft); margin: 0 0 var(--kk-s-4); }
+.meta { font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); margin: 0 0 var(--kk-s-6); }
+h2 { font-family: var(--kk-font-display); font-weight: 400; font-size: 1.5rem; color: var(--kk-ink); margin: var(--kk-s-7) 0 var(--kk-s-3); }
+h3 { font-family: var(--kk-font-ui); font-size: 1rem; font-weight: 600; color: var(--kk-ink); margin: var(--kk-s-5) 0 var(--kk-s-2); }
+p, li { margin: 0 0 var(--kk-s-3); }
+ul, ol { padding-left: 1.25rem; margin: 0 0 var(--kk-s-4); }
+code { font-family: var(--kk-font-mono); font-size: 0.9em; }
+pre { overflow: auto; background: var(--kk-fill-soft); border: 1px solid var(--kk-border); border-radius: var(--kk-r-md); padding: var(--kk-s-4); font-family: var(--kk-font-mono); font-size: 12px; line-height: 1.5; margin: 0 0 var(--kk-s-5); }
+table.doc { width: 100%; border-collapse: collapse; margin: 0 0 var(--kk-s-5); font-size: 0.92rem; }
+table.doc th, table.doc td { text-align: left; vertical-align: top; padding: var(--kk-s-3) var(--kk-s-2); border-bottom: 1px solid var(--kk-line); }
+table.doc th { font-family: var(--kk-font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--kk-muted); font-weight: 600; }
+.callout { border-left: 3px solid var(--kk-secondary); background: var(--kk-secondary-soft); border-radius: var(--kk-r-sm); padding: var(--kk-s-4); margin: 0 0 var(--kk-s-5); }
+.callout.decision { border-left-color: var(--kk-decision); background: color-mix(in srgb, var(--kk-decision) 10%, var(--kk-card)); }
+.callout.outcome { border-left-color: var(--kk-outcome); background: color-mix(in srgb, var(--kk-outcome) 10%, var(--kk-card)); }
+.callout.idea { border-left-color: var(--kk-idea); background: color-mix(in srgb, var(--kk-idea) 12%, var(--kk-card)); }
+.callout strong { color: var(--kk-ink); }
+.demo-frame {
+  border: 1px solid var(--kk-border);
+  border-radius: var(--kk-r-lg);
+  padding: var(--kk-s-5);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(182, 223, 243, 0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(205, 120, 84, 0.1), transparent),
+    var(--kk-paper);
+  margin: 0 0 var(--kk-s-5);
+  box-shadow: var(--kk-shadow-sm);
+}
+.demo-label {
+  font-family: var(--kk-font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--kk-muted);
+  margin: 0 0 var(--kk-s-3);
+}
+.footer { margin-top: var(--kk-s-7); padding-top: var(--kk-s-4); border-top: 1px solid var(--kk-line); font-family: var(--kk-font-mono); font-size: 11px; color: var(--kk-muted); }
+@media (max-width: 560px) {
+  .page { padding: var(--kk-s-5) var(--kk-s-4); }
+  table.doc { display: block; overflow-x: auto; }
+}
+
+/* StockLive Content Elements — design tokens
+   Mirrors plans/content-elements architecture: --sl-ce-* on :root
+*/
+:root {
+  --sl-ce-color-primary: #021c45;
+  --sl-ce-color-secondary: #cd7854;
+  --sl-ce-color-track: #edf2f7;
+  --sl-ce-color-surface: #ffffff;
+  --sl-ce-color-border: #e5e7eb;
+  --sl-ce-color-text: #021c45;
+  --sl-ce-color-text-muted: #555555;
+  --sl-ce-radius-track: 0.5rem;
+  --sl-ce-radius-pill: 0.375rem;
+  --sl-ce-shadow-pill: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --sl-ce-shadow-panel: none;
+  --sl-ce-space-xs: 0.25rem;
+  --sl-ce-space-sm: 0.5rem;
+  --sl-ce-space-md: 1rem;
+  --sl-ce-space-lg: 1.25rem;
+  --sl-ce-focus-ring: 0 0 0 3px rgba(2, 28, 69, 0.25);
+  --sl-ce-accordion-trigger-py: 0.85rem;
+  --sl-ce-accordion-trigger-px: 1rem;
+  --sl-ce-table-cell-py: 0.75rem;
+  --sl-ce-table-cell-px: 1rem;
+  --sl-ce-table-font-size: 0.875rem;
+  --sl-ce-table-stripe: color-mix(in srgb, var(--sl-ce-color-track) 70%, var(--sl-ce-color-surface));
+  --sl-ce-table-sticky-max-height: 16rem;
+  --sl-ce-table-hint-bg: #d7e8f2;
+  --sl-ce-table-bar-track: #f3f4f6;
+  --sl-ce-table-bar-grid: #c5c9ce;
+  --sl-ce-table-bar-mid: #1a1a1a;
+  --sl-ce-table-bar-calving: #e0c23a;
+  --sl-ce-table-bar-growth: #2f6b3c;
+  --sl-ce-table-bar-maternal: #c44d8a;
+  --sl-ce-table-bar-milk: #6b2d7a;
+  --sl-ce-table-bar-fertility: #8b1e2d;
+  --sl-ce-table-bar-other: #1e3a6e;
+  --sl-ce-table-bar-carcase: #2aa3c4;
+  --sl-ce-table-bar-structure: #c4a06a;
+  --sl-ce-table-bar-index: #d63d8f;
+  /* Semantic palette (RRUI-aligned) */
+  --sl-ce-color-success: #16a34a;
+  --sl-ce-color-success-fg: #166534;
+  --sl-ce-color-danger: #dc2626;
+  --sl-ce-color-danger-fg: #991b1b;
+  --sl-ce-color-warning: #d97706;
+  --sl-ce-color-warning-fg: #92400e;
+  --sl-ce-color-info: #0284c7;
+  --sl-ce-color-info-fg: #075985;
+  --sl-ce-btn-radius: 0.375rem;
+  --sl-ce-badge-radius: 999px;
+}
+
+/* sl-ce-button — RRUI-inspired actions
+   Variants: --solid (default) | --outline | --ghost | --soft | --link
+   Colors:   --primary (default) | --secondary | --success | --danger | --warning | --info
+   Sizes:    --xs | --sm (default) | --base | --md | --lg | --xl
+   Shapes:   --rounded (default) | --pill | --square
+   Use <a> or <button>. External links: target="_blank" rel="noopener noreferrer"
+*/
+
+.sl-ce-button {
+  --_sl-ce-btn-bg: var(--sl-ce-color-primary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-primary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-primary) 88%, #000);
+  --_sl-ce-btn-py: 0.45rem;
+  --_sl-ce-btn-px: 0.9rem;
+  --_sl-ce-btn-fs: 0.875rem;
+  --_sl-ce-btn-radius: var(--sl-ce-btn-radius);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: var(--_sl-ce-btn-py) var(--_sl-ce-btn-px);
+  border: 1px solid transparent;
+  border-radius: var(--_sl-ce-btn-radius);
+  background: var(--_sl-ce-btn-bg);
+  color: var(--_sl-ce-btn-fg);
+  font-family: inherit;
+  font-size: var(--_sl-ce-btn-fs);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.sl-ce-button:hover {
+  background: var(--_sl-ce-btn-hover);
+  color: var(--_sl-ce-btn-fg);
+}
+
+.sl-ce-button:focus {
+  outline: none;
+}
+
+.sl-ce-button:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+}
+
+.sl-ce-button:disabled,
+.sl-ce-button[aria-disabled="true"] {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-button {
+    transition: none;
+  }
+}
+
+/* ── Colors ─────────────────────────────────────────────── */
+
+.sl-ce-button--primary {
+  --_sl-ce-btn-bg: var(--sl-ce-color-primary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-primary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-primary) 86%, #000);
+}
+
+.sl-ce-button--secondary {
+  --_sl-ce-btn-bg: var(--sl-ce-color-secondary);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-secondary);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-secondary) 86%, #000);
+}
+
+.sl-ce-button--success {
+  --_sl-ce-btn-bg: var(--sl-ce-color-success);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-success);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-success) 86%, #000);
+}
+
+.sl-ce-button--danger {
+  --_sl-ce-btn-bg: var(--sl-ce-color-danger);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-danger);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-danger) 86%, #000);
+}
+
+.sl-ce-button--warning {
+  --_sl-ce-btn-bg: var(--sl-ce-color-warning);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-warning);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-warning) 86%, #000);
+}
+
+.sl-ce-button--info {
+  --_sl-ce-btn-bg: var(--sl-ce-color-info);
+  --_sl-ce-btn-fg: #ffffff;
+  --_sl-ce-btn-border: var(--sl-ce-color-info);
+  --_sl-ce-btn-hover: color-mix(in srgb, var(--sl-ce-color-info) 86%, #000);
+}
+
+/* ── Variants ───────────────────────────────────────────── */
+
+.sl-ce-button--solid {
+  background: var(--_sl-ce-btn-bg);
+  color: var(--_sl-ce-btn-fg);
+  border-color: transparent;
+}
+
+.sl-ce-button--outline {
+  background: transparent;
+  color: var(--_sl-ce-btn-border);
+  border-color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--outline:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 10%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--ghost {
+  background: transparent;
+  color: var(--_sl-ce-btn-border);
+  border-color: transparent;
+}
+
+.sl-ce-button--ghost:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 12%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--soft {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 14%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+  border-color: transparent;
+}
+
+.sl-ce-button--soft:hover {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg) 22%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-btn-border);
+}
+
+.sl-ce-button--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--_sl-ce-btn-border);
+  padding-inline: 0.15rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  box-shadow: none;
+}
+
+.sl-ce-button--link:hover {
+  background: transparent;
+  color: var(--sl-ce-color-secondary);
+}
+
+/* Soft / outline text colors for semantic tones */
+.sl-ce-button--soft.sl-ce-button--success,
+.sl-ce-button--outline.sl-ce-button--success,
+.sl-ce-button--ghost.sl-ce-button--success,
+.sl-ce-button--link.sl-ce-button--success {
+  color: var(--sl-ce-color-success-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--danger,
+.sl-ce-button--outline.sl-ce-button--danger,
+.sl-ce-button--ghost.sl-ce-button--danger,
+.sl-ce-button--link.sl-ce-button--danger {
+  color: var(--sl-ce-color-danger-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--warning,
+.sl-ce-button--outline.sl-ce-button--warning,
+.sl-ce-button--ghost.sl-ce-button--warning,
+.sl-ce-button--link.sl-ce-button--warning {
+  color: var(--sl-ce-color-warning-fg);
+}
+
+.sl-ce-button--soft.sl-ce-button--info,
+.sl-ce-button--outline.sl-ce-button--info,
+.sl-ce-button--ghost.sl-ce-button--info,
+.sl-ce-button--link.sl-ce-button--info {
+  color: var(--sl-ce-color-info-fg);
+}
+
+/* ── Sizes ──────────────────────────────────────────────── */
+
+.sl-ce-button--xs {
+  --_sl-ce-btn-py: 0.3rem;
+  --_sl-ce-btn-px: 0.55rem;
+  --_sl-ce-btn-fs: 0.75rem;
+}
+
+.sl-ce-button--sm {
+  --_sl-ce-btn-py: 0.4rem;
+  --_sl-ce-btn-px: 0.8rem;
+  --_sl-ce-btn-fs: 0.8125rem;
+}
+
+.sl-ce-button--base {
+  --_sl-ce-btn-py: 0.5rem;
+  --_sl-ce-btn-px: 1rem;
+  --_sl-ce-btn-fs: 0.875rem;
+}
+
+.sl-ce-button--md {
+  --_sl-ce-btn-py: 0.55rem;
+  --_sl-ce-btn-px: 1.1rem;
+  --_sl-ce-btn-fs: 0.9375rem;
+}
+
+.sl-ce-button--lg {
+  --_sl-ce-btn-py: 0.65rem;
+  --_sl-ce-btn-px: 1.25rem;
+  --_sl-ce-btn-fs: 1rem;
+}
+
+.sl-ce-button--xl {
+  --_sl-ce-btn-py: 0.75rem;
+  --_sl-ce-btn-px: 1.4rem;
+  --_sl-ce-btn-fs: 1.0625rem;
+}
+
+/* ── Shapes ─────────────────────────────────────────────── */
+
+.sl-ce-button--rounded {
+  --_sl-ce-btn-radius: var(--sl-ce-btn-radius);
+}
+
+.sl-ce-button--pill {
+  --_sl-ce-btn-radius: 999px;
+}
+
+.sl-ce-button--square {
+  --_sl-ce-btn-radius: 0;
+}
+
+.sl-ce-button--full {
+  width: 100%;
+}
+
+.sl-ce-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+</style>
+
+<p class="eyebrow">StockLive · Content Elements · Approach</p>
+<h1>HTML/CSS-only buttons for Froala / Nextlot</h1>
+<p class="lede">Action and navigation controls under <code>sl-ce-button</code>. Prefer anchors in Froala — RRUI variants with StockLive tokens.</p>
+<p class="meta">status: shipped · rev 1 · 2026-07-31 · namespace: sl-ce · spec: plans/content-elements/07-button.md</p>
+
+<div class="callout decision">
+  <strong>Approach:</strong> BEM modifiers for variant / colour / size / shape. External links always use <code>rel="noopener noreferrer"</code>.
+</div>
+
+
+<h2>1. Live preview</h2>
+<p>Prefer <code>&lt;a&gt;</code> in Froala. External destinations open in a new tab.</p>
+
+<div class="demo-frame">
+  <p class="demo-label">Interactive demo · Lot actions</p>
+  <div class="sl-ce-button-group">
+    <a class="sl-ce-button sl-ce-button--solid sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">View ASBVs</a>
+    <a class="sl-ce-button sl-ce-button--outline sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Catalogue PDF</a>
+    <a class="sl-ce-button sl-ce-button--soft sl-ce-button--secondary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Registry</a>
+  </div>
+  <p class="demo-label" style="margin-top:1.25rem">Variant snapshot</p>
+  <div class="sl-ce-button-group">
+    <a class="sl-ce-button sl-ce-button--solid sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Solid</a>
+    <a class="sl-ce-button sl-ce-button--outline sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Outline</a>
+    <a class="sl-ce-button sl-ce-button--ghost sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Ghost</a>
+    <a class="sl-ce-button sl-ce-button--soft sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Soft</a>
+    <a class="sl-ce-button sl-ce-button--link sl-ce-button--primary sl-ce-button--sm" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Link</a>
+  </div>
+</div>
+
+<div class="callout outcome">
+  <strong>RRUI-aligned:</strong> solid / outline / ghost / soft / link · colours · sizes · rounded/pill/square · full width.
+</div>
+
+<h2>3. Author snippet</h2>
+<pre>&lt;a class="sl-ce-button sl-ce-button--solid sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded"
+   href="…" target="_blank" rel="noopener noreferrer"&gt;View ASBVs&lt;/a&gt;</pre>
+
+<div class="callout idea">
+  <strong>Demo:</strong> <a href="https://stocklive-group.github.io/sl-ce/lot-combined.html">lot-combined.html</a> · Spec: <a href="07-button.md">07-button.md</a>
+</div>
+
+
+<p class="footer">stocklive/ctp-docs/plans/content-elements/07-button.html · rev 1 · Kuickr v2 · companion to 07-button.md</p>
+</div>

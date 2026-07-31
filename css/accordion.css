@@ -1,0 +1,203 @@
+/* sl-ce-accordion — native <details>/<summary>, RRUI-inspired variants
+   Variants (modifier on root): --default | --bordered | --separated | --flush | --ghost
+   Chevron: --chevron-left (optional)
+   Exclusive one-open is out of scope (needs radio/JS).
+*/
+
+/* Shared structure */
+.sl-ce-accordion {
+  position: relative;
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-accordion__item {
+  margin: 0;
+}
+
+.sl-ce-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sl-ce-space-md);
+  width: 100%;
+  padding: var(--sl-ce-accordion-trigger-py) var(--sl-ce-accordion-trigger-px);
+  list-style: none;
+  cursor: pointer;
+  color: var(--sl-ce-color-text);
+  background: transparent;
+  transition: background-color 0.15s ease;
+}
+
+.sl-ce-accordion__trigger::-webkit-details-marker {
+  display: none;
+}
+
+.sl-ce-accordion__trigger::marker {
+  content: "";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-ce-accordion__trigger,
+  .sl-ce-accordion__chevron {
+    transition: none;
+  }
+}
+
+.sl-ce-accordion__trigger:hover {
+  background: var(--sl-ce-color-track);
+}
+
+.sl-ce-accordion__trigger:focus {
+  outline: none;
+}
+
+.sl-ce-accordion__trigger:focus-visible {
+  box-shadow: inset var(--sl-ce-focus-ring);
+  background: var(--sl-ce-color-track);
+}
+
+.sl-ce-accordion__item[open] > .sl-ce-accordion__trigger {
+  background: color-mix(in srgb, var(--sl-ce-color-track) 65%, var(--sl-ce-color-surface));
+  font-weight: 600;
+}
+
+.sl-ce-accordion__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-accordion__chevron {
+  flex: 0 0 auto;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.15rem;
+  border-right: 2px solid var(--sl-ce-color-text-muted);
+  border-bottom: 2px solid var(--sl-ce-color-text-muted);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease, border-color 0.15s ease;
+}
+
+.sl-ce-accordion__item[open] > .sl-ce-accordion__trigger .sl-ce-accordion__chevron {
+  transform: rotate(225deg);
+  border-color: var(--sl-ce-color-secondary);
+}
+
+.sl-ce-accordion__panel {
+  padding: 0 var(--sl-ce-accordion-trigger-px) var(--sl-ce-space-lg);
+  color: var(--sl-ce-color-text-muted);
+  font-size: 0.95rem;
+}
+
+.sl-ce-accordion__panel > :first-child {
+  margin-top: 0;
+}
+
+.sl-ce-accordion__panel > :last-child {
+  margin-bottom: 0;
+}
+
+/* Chevron left */
+.sl-ce-accordion--chevron-left .sl-ce-accordion__trigger {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.sl-ce-accordion--chevron-left .sl-ce-accordion__chevron {
+  margin-right: 0;
+  margin-left: 0.15rem;
+}
+
+/* ── Variants ───────────────────────────────────────────── */
+
+/* Default — dividers only, no outer frame */
+.sl-ce-accordion--default .sl-ce-accordion__item {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-accordion--default .sl-ce-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* Bordered — shared outer border + item dividers (primary lot look) */
+.sl-ce-accordion--bordered {
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-track);
+  background: var(--sl-ce-color-surface);
+  overflow: hidden;
+}
+
+.sl-ce-accordion--bordered .sl-ce-accordion__item {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+.sl-ce-accordion--bordered .sl-ce-accordion__item:last-child {
+  border-bottom: none;
+}
+
+/* Separated — gap between independently bordered items */
+.sl-ce-accordion--separated {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-ce-space-sm);
+  background: transparent;
+  border: none;
+}
+
+.sl-ce-accordion--separated .sl-ce-accordion__item {
+  border: 1px solid var(--sl-ce-color-border);
+  border-radius: var(--sl-ce-radius-track);
+  background: var(--sl-ce-color-surface);
+  overflow: hidden;
+}
+
+.sl-ce-accordion--separated .sl-ce-accordion__item[open] > .sl-ce-accordion__trigger {
+  border-bottom: 1px solid var(--sl-ce-color-border);
+}
+
+/* Flush — no borders or outer chrome */
+.sl-ce-accordion--flush {
+  border: none;
+  background: transparent;
+}
+
+.sl-ce-accordion--flush .sl-ce-accordion__item {
+  border-bottom: none;
+}
+
+.sl-ce-accordion--flush .sl-ce-accordion__trigger:hover,
+.sl-ce-accordion--flush .sl-ce-accordion__item[open] > .sl-ce-accordion__trigger {
+  background: var(--sl-ce-color-track);
+  border-radius: var(--sl-ce-radius-pill);
+}
+
+/* Ghost — transparent, hairline dividers, muted open state */
+.sl-ce-accordion--ghost {
+  border: none;
+  background: transparent;
+}
+
+.sl-ce-accordion--ghost .sl-ce-accordion__item {
+  border-bottom: 1px solid color-mix(in srgb, var(--sl-ce-color-border) 70%, transparent);
+}
+
+.sl-ce-accordion--ghost .sl-ce-accordion__item:last-child {
+  border-bottom: none;
+}
+
+.sl-ce-accordion--ghost .sl-ce-accordion__trigger:hover {
+  background: color-mix(in srgb, var(--sl-ce-color-track) 50%, transparent);
+}
+
+.sl-ce-accordion--ghost .sl-ce-accordion__item[open] > .sl-ce-accordion__trigger {
+  background: transparent;
+  font-weight: 600;
+}
+
+.sl-ce-accordion--ghost .sl-ce-accordion__title {
+  font-weight: 500;
+}

@@ -3,114 +3,282 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StockLive Content Elements — Tabs (lot context)</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>StockLive Content Elements — Variants</title>
+  <link rel="stylesheet" href="css/content-elements.css">
+  <link rel="stylesheet" href="css/demo.css">
 </head>
 <body>
-<!-- Lot row shell ≈ StockLive auction lots: image left, description/tabs right -->
-<div class="demo">
+<div class="demo demo--gallery">
   <nav class="demo__nav" aria-label="Content element demos">
-    <a href="index.html" aria-current="page">Tabs</a>
-    <a href="accordion.html">Accordion</a>
+    <a href="index.html" aria-current="page">Variants</a>
+    <a href="lot-tabs.html">Lot · Tabs</a>
+    <a href="lot-accordion.html">Lot · Accordion</a>
   </nav>
 
-  <p class="demo__note">
-    Team preview — layout proportions inspired by
-    <a href="https://app.stocklive.com.au/auctions/1843561/lots" target="_blank" rel="noopener">auction lots</a>.
-    Tabs sit in the description column; future content elements go here too.
+  <h1 class="demo__title">Content Elements variants</h1>
+  <p class="demo__lede">
+    CSS-only <code>sl-ce</code> components. Structure mirrors Kuickr plans
+    (<code>tokens</code> / <code>tabs</code> / <code>accordion</code>).
+    Accordion visuals follow
+    <a href="https://rapidrails.cc/docs/accordion" target="_blank" rel="noopener">RapidRailsUI</a>
+    with StockLive colours. Markup partials live under <code>partials/</code>.
   </p>
 
-  <article class="lot">
-    <figure class="lot__media">
-      <img
-        src="https://www.droughtmaster.com.au/wp-content/uploads/565695586_1275831397682102_716293321823734050_n.jpg"
-        alt="Example lot animal — Droughtmaster bull"
-        width="800"
-        height="600"
-      />
-    </figure>
+  <nav class="demo__toc" aria-label="On this page">
+    <strong>On this page</strong>
+    <ol>
+      <li><a href="#tabs-default">Tabs · default</a></li>
+      <li><a href="#accordion-default">Accordion · default</a></li>
+      <li><a href="#accordion-bordered">Accordion · bordered</a></li>
+      <li><a href="#accordion-separated">Accordion · separated</a></li>
+      <li><a href="#accordion-flush">Accordion · flush</a></li>
+      <li><a href="#accordion-ghost">Accordion · ghost</a></li>
+      <li><a href="#accordion-chevron-left">Accordion · chevron left</a></li>
+    </ol>
+  </nav>
 
-    <div class="lot__body">
-      <p class="lot__number"># 1</p>
-      <h1 class="lot__title">Sara Park Entice V89</h1>
-
-      <div class="sl-ce-tabs">
-        <div class="sl-ce-tabs__targets" aria-hidden="true">
-          <span id="lot1-overview"></span>
-          <span id="lot1-pedigree"></span>
-          <span id="lot1-comments"></span>
-          <span id="lot1-asbv"></span>
-        </div>
-
-        <nav class="sl-ce-tabs__list" aria-label="Lot details">
-          <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#lot1-overview">Overview</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-pedigree">Pedigree</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-comments">Comments</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-asbv">ASBV</a>
-        </nav>
-
-        <div class="sl-ce-tabs__panels">
-          <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
-            <h4>Overview</h4>
-            <dl class="lot-dl">
-              <div>
-                <dt>Animal ID</dt>
-                <dd>BDY24V89</dd>
-              </div>
-              <div>
-                <dt>Born</dt>
-                <dd>10/08/2024</dd>
-              </div>
-              <div>
-                <dt>Registration status</dt>
-                <dd>HBR</dd>
-              </div>
-              <div>
-                <dt>Genetic status</dt>
-                <dd>AMFU, CAFU, DDFU, NHFU</dd>
-              </div>
-              <div>
-                <dt>Account</dt>
-                <dd>SARA PARK Angus</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section class="sl-ce-tabs__panel">
-            <h4>Pedigree</h4>
-            <dl class="lot-dl">
-              <div>
-                <dt>Sire</dt>
-                <dd>SARA PARK TAURUS T8</dd>
-              </div>
-              <div>
-                <dt>Dam</dt>
-                <dd>SARA PARK LOWAN Q1</dd>
-              </div>
-            </dl>
-          </section>
-
-          <section class="sl-ce-tabs__panel">
-            <h4>Comments</h4>
-            <p class="lot-copy">
-              A good bull to start the sale. V89 is a well balanced bull that has ideal skin and hair.
-              He is deep, good hip to pin and wide through the pins with a good top.
-            </p>
-          </section>
-
-          <section class="sl-ce-tabs__panel">
-            <h4>ASBV / documents</h4>
-            <p class="lot-copy">
-              <a href="#">ASBV Data Link — Click Here</a>
-            </p>
-            <p class="lot-copy lot-copy--muted">
-              Placeholder for future content elements (callouts, tables, document lists).
-            </p>
-          </section>
-        </div>
+  <section class="demo__section" id="tabs-default">
+    <p class="demo__section-label">Tabs</p>
+    <h2 class="demo__section-title">Default (segmented)</h2>
+    <p class="demo__section-desc">:target + :has() · partial: <code>partials/tabs/default.html</code></p>
+        <div class="sl-gallery-tabs-tabs">
+      <div class="sl-gallery-tabs-tabs__targets" aria-hidden="true">
+        <span id="gallery-tabs-overview"></span>
+        <span id="gallery-tabs-pedigree"></span>
+        <span id="gallery-tabs-comments"></span>
+      </div>
+      <nav class="sl-gallery-tabs-tabs__list" aria-label="Tabs">
+        <a class="sl-gallery-tabs-tabs__tab sl-gallery-tabs-tabs__tab--default" href="#gallery-tabs-overview">Overview</a>
+        <a class="sl-gallery-tabs-tabs__tab" href="#gallery-tabs-pedigree">Pedigree</a>
+        <a class="sl-gallery-tabs-tabs__tab" href="#gallery-tabs-comments">Comments</a>
+      </nav>
+      <div class="sl-gallery-tabs-tabs__panels">
+        <section class="sl-gallery-tabs-tabs__panel sl-gallery-tabs-tabs__panel--default">
+          <h4>Overview</h4>
+          <p>Segmented track, elevated active pill, StockLive navy. Pure CSS.</p>
+        </section>
+        <section class="sl-gallery-tabs-tabs__panel">
+          <h4>Pedigree</h4>
+          <p>Sire and dam details live in this panel.</p>
+        </section>
+        <section class="sl-gallery-tabs-tabs__panel">
+          <h4>Comments</h4>
+          <p>Sale comments and vendor notes.</p>
+        </section>
       </div>
     </div>
-  </article>
+  </section>
+
+  <section class="demo__section" id="accordion-default">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Default</h2>
+    <p class="demo__section-desc">Dividers only, no outer frame · partial: <code>partials/accordion/default.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--default">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="accordion-bordered">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Bordered</h2>
+    <p class="demo__section-desc">Shared outer border — primary lot look · partial: <code>partials/accordion/bordered.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--bordered">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="accordion-separated">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Separated</h2>
+    <p class="demo__section-desc">Gap between independently bordered items · partial: <code>partials/accordion/separated.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--separated">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="accordion-flush">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Flush</h2>
+    <p class="demo__section-desc">No borders; hover wash only · partial: <code>partials/accordion/flush.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--flush">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="accordion-ghost">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Ghost</h2>
+    <p class="demo__section-desc">Hairline dividers, transparent open state · partial: <code>partials/accordion/ghost.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--ghost">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="accordion-chevron-left">
+    <p class="demo__section-label">Accordion</p>
+    <h2 class="demo__section-title">Chevron left</h2>
+    <p class="demo__section-desc">Bordered + chevron on the left · partial: <code>partials/accordion/chevron-left.html</code></p>
+    <div class="sl-ce-accordion sl-ce-accordion--bordered sl-ce-accordion--chevron-left">
+      <details class="sl-ce-accordion__item" open>
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Overview</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Lot overview — animal ID, birth date, registration, and account.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Pedigree</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Sire and dam details for this animal.</p>
+        </div>
+      </details>
+      <details class="sl-ce-accordion__item">
+        <summary class="sl-ce-accordion__trigger">
+          <span class="sl-ce-accordion__title">Comments</span>
+          <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="sl-ce-accordion__panel">
+                <p>Vendor sale comments and notes.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>

@@ -1,0 +1,4 @@
+/* Shippable entry — mirrors content_elements.scss → stocklive-content-elements.css */
+@import url("tokens.css");
+@import url("tabs.css");
+@import url("accordion.css");

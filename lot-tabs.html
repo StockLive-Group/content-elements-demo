@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockLive Content Elements — Lot · Tabs</title>
+  <link rel="stylesheet" href="css/content-elements.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<div class="demo">
+  <nav class="demo__nav" aria-label="Content element demos">
+    <a href="index.html">Variants</a>
+    <a href="lot-tabs.html" aria-current="page">Lot · Tabs</a>
+    <a href="lot-accordion.html">Lot · Accordion</a>
+  </nav>
+
+  <p class="demo__note">
+    Lot-row preview — proportions inspired by
+    <a href="https://app.stocklive.com.au/auctions/1843561/lots" target="_blank" rel="noopener">auction lots</a>.
+    Tabs in the description column; CSS from <code>css/tabs.css</code>.
+  </p>
+
+  <article class="lot">
+    <figure class="lot__media">
+      <img
+        src="https://www.droughtmaster.com.au/wp-content/uploads/565695586_1275831397682102_716293321823734050_n.jpg"
+        alt="Example lot animal — Droughtmaster bull"
+        width="800"
+        height="600"
+      />
+    </figure>
+    <div class="lot__body">
+      <p class="lot__number"># 1</p>
+      <h1 class="lot__title">Sara Park Entice V89</h1>
+      <div class="sl-ce-tabs">
+        <div class="sl-ce-tabs__targets" aria-hidden="true">
+          <span id="lot1-overview"></span>
+          <span id="lot1-pedigree"></span>
+          <span id="lot1-comments"></span>
+          <span id="lot1-asbv"></span>
+        </div>
+        <nav class="sl-ce-tabs__list" aria-label="Lot details">
+          <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#lot1-overview">Overview</a>
+          <a class="sl-ce-tabs__tab" href="#lot1-pedigree">Pedigree</a>
+          <a class="sl-ce-tabs__tab" href="#lot1-comments">Comments</a>
+          <a class="sl-ce-tabs__tab" href="#lot1-asbv">ASBV</a>
+        </nav>
+        <div class="sl-ce-tabs__panels">
+          <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
+            <h4>Overview</h4>
+            <dl class="lot-dl">
+              <div><dt>Animal ID</dt><dd>BDY24V89</dd></div>
+              <div><dt>Born</dt><dd>10/08/2024</dd></div>
+              <div><dt>Registration status</dt><dd>HBR</dd></div>
+              <div><dt>Genetic status</dt><dd>AMFU, CAFU, DDFU, NHFU</dd></div>
+              <div><dt>Account</dt><dd>SARA PARK Angus</dd></div>
+            </dl>
+          </section>
+          <section class="sl-ce-tabs__panel">
+            <h4>Pedigree</h4>
+            <dl class="lot-dl">
+              <div><dt>Sire</dt><dd>SARA PARK TAURUS T8</dd></div>
+              <div><dt>Dam</dt><dd>SARA PARK LOWAN Q1</dd></div>
+            </dl>
+          </section>
+          <section class="sl-ce-tabs__panel">
+            <h4>Comments</h4>
+            <p class="lot-copy">
+              A good bull to start the sale. V89 is a well balanced bull that has ideal skin and hair.
+              He is deep, good hip to pin and wide through the pins with a good top.
+            </p>
+          </section>
+          <section class="sl-ce-tabs__panel">
+            <h4>ASBV / documents</h4>
+            <p class="lot-copy"><a href="#">ASBV Data Link — Click Here</a></p>
+            <p class="lot-copy lot-copy--muted">Placeholder for future content elements.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

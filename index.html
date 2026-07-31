@@ -47,6 +47,7 @@
       <li><a href="#table-cards">Table · cards</a></li>
       <li><a href="#table-empty">Table · empty</a></li>
       <li><a href="#table-percentile">Table · percentile</a></li>
+      <li><a href="#expand-default">Expand · show more</a></li>
     </ol>
   </nav>
 
@@ -938,6 +939,45 @@
 
   </section>
 
+  <section class="demo__section" id="expand-default">
+    <p class="demo__section-label">Expand</p>
+    <h2 class="demo__section-title">Show more</h2>
+    <p class="demo__section-desc">CSS-only <code>&lt;details&gt;</code> disclosure for secondary content · partial: <code>partials/expand/default.html</code></p>
+    <details class="sl-ce-expand sl-ce-expand--bordered sl-ce-expand--footer">
+      <summary class="sl-ce-expand__trigger">
+        <span class="sl-ce-expand__label-more">Show more details</span>
+        <span class="sl-ce-expand__label-less">Show less</span>
+        <span class="sl-ce-expand__chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="sl-ce-expand__panel">
+        <p style="margin: 0 0 1rem; font-size: 0.9rem; color: #555;">
+          Tuck long tables and notes behind expand so the lot card stays short.
+        </p>
+        <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
+          <div class="sl-ce-table__scroll">
+            <table class="sl-ce-table__grid">
+              <thead>
+                <tr>
+                  <th scope="col" class="sl-ce-table__th">Document</th>
+                  <th scope="col" class="sl-ce-table__th">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="sl-ce-table__td" data-label="Document">ASBV</td>
+                  <td class="sl-ce-table__td" data-label="Link"><a href="#">Open ASBV data</a></td>
+                </tr>
+                <tr>
+                  <td class="sl-ce-table__td" data-label="Document">Catalogue</td>
+                  <td class="sl-ce-table__td" data-label="Link"><a href="#">Lot catalogue PDF</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
 
 </div>
 </body>

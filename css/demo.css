@@ -175,12 +175,16 @@ body {
 }
 
 .lot__title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.55rem;
   font-size: clamp(1.15rem, 2vw, 1.45rem);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #021c45;
+}
+
+.lot__badges {
+  margin: 0 0 1rem;
 }
 
 .lot-dl {

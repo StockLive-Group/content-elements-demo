@@ -1,0 +1,224 @@
+/* sl-ce-badge — RRUI-inspired status / metadata labels
+   Variants: --solid (default) | --outline | --ghost | --soft | --link
+   Colors:   --primary (default) | --secondary | --success | --danger | --warning | --info
+   Sizes:    --xs (default) | --sm | --base | --md | --lg
+   Shapes:   --pill (default) | --rounded | --square
+   Link badges: use <a class="sl-ce-badge …"> with target="_blank" rel="noopener noreferrer"
+*/
+
+.sl-ce-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.sl-ce-badge {
+  --_sl-ce-badge-bg: var(--sl-ce-color-primary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-primary);
+  --_sl-ce-badge-py: 0.15rem;
+  --_sl-ce-badge-px: 0.5rem;
+  --_sl-ce-badge-fs: 0.6875rem;
+  --_sl-ce-badge-radius: var(--sl-ce-badge-radius);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: var(--_sl-ce-badge-py) var(--_sl-ce-badge-px);
+  border: 1px solid transparent;
+  border-radius: var(--_sl-ce-badge-radius);
+  background: var(--_sl-ce-badge-bg);
+  color: var(--_sl-ce-badge-fg);
+  font-size: var(--_sl-ce-badge-fs);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+a.sl-ce-badge {
+  cursor: pointer;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+a.sl-ce-badge:hover {
+  filter: brightness(0.95);
+}
+
+a.sl-ce-badge:focus {
+  outline: none;
+}
+
+a.sl-ce-badge:focus-visible {
+  box-shadow: var(--sl-ce-focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.sl-ce-badge {
+    transition: none;
+  }
+}
+
+/* ── Colors ─────────────────────────────────────────────── */
+
+.sl-ce-badge--primary {
+  --_sl-ce-badge-bg: var(--sl-ce-color-primary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-primary);
+}
+
+.sl-ce-badge--secondary {
+  --_sl-ce-badge-bg: var(--sl-ce-color-secondary);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-secondary);
+}
+
+.sl-ce-badge--success {
+  --_sl-ce-badge-bg: var(--sl-ce-color-success);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-success);
+}
+
+.sl-ce-badge--danger {
+  --_sl-ce-badge-bg: var(--sl-ce-color-danger);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-danger);
+}
+
+.sl-ce-badge--warning {
+  --_sl-ce-badge-bg: var(--sl-ce-color-warning);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-warning);
+}
+
+.sl-ce-badge--info {
+  --_sl-ce-badge-bg: var(--sl-ce-color-info);
+  --_sl-ce-badge-fg: #ffffff;
+  --_sl-ce-badge-border: var(--sl-ce-color-info);
+}
+
+/* ── Variants ───────────────────────────────────────────── */
+
+.sl-ce-badge--solid {
+  background: var(--_sl-ce-badge-bg);
+  color: var(--_sl-ce-badge-fg);
+  border-color: transparent;
+}
+
+.sl-ce-badge--outline {
+  background: transparent;
+  color: var(--_sl-ce-badge-border);
+  border-color: var(--_sl-ce-badge-border);
+}
+
+.sl-ce-badge--ghost {
+  background: transparent;
+  color: var(--_sl-ce-badge-border);
+  border-color: transparent;
+}
+
+.sl-ce-badge--soft {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 14%, var(--sl-ce-color-surface));
+  color: var(--_sl-ce-badge-border);
+  border-color: transparent;
+}
+
+.sl-ce-badge--soft.sl-ce-badge--success {
+  color: var(--sl-ce-color-success-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--danger {
+  color: var(--sl-ce-color-danger-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--warning {
+  color: var(--sl-ce-color-warning-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--info {
+  color: var(--sl-ce-color-info-fg);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--primary {
+  color: var(--sl-ce-color-primary);
+}
+
+.sl-ce-badge--soft.sl-ce-badge--secondary {
+  color: color-mix(in srgb, var(--sl-ce-color-secondary) 70%, #000);
+}
+
+/* Link variant — text treatment; still a badge-sized chip when soft border needed */
+.sl-ce-badge--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--_sl-ce-badge-border);
+  padding-inline: 0.15rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 700;
+}
+
+a.sl-ce-badge--link:hover {
+  filter: none;
+  color: var(--sl-ce-color-secondary);
+}
+
+a.sl-ce-badge--outline:hover {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 10%, var(--sl-ce-color-surface));
+  filter: none;
+}
+
+a.sl-ce-badge--soft:hover,
+a.sl-ce-badge--ghost:hover {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg) 20%, var(--sl-ce-color-surface));
+  filter: none;
+}
+
+/* ── Sizes ──────────────────────────────────────────────── */
+
+.sl-ce-badge--xs {
+  --_sl-ce-badge-py: 0.12rem;
+  --_sl-ce-badge-px: 0.45rem;
+  --_sl-ce-badge-fs: 0.6875rem;
+}
+
+.sl-ce-badge--sm {
+  --_sl-ce-badge-py: 0.2rem;
+  --_sl-ce-badge-px: 0.55rem;
+  --_sl-ce-badge-fs: 0.75rem;
+}
+
+.sl-ce-badge--base {
+  --_sl-ce-badge-py: 0.25rem;
+  --_sl-ce-badge-px: 0.65rem;
+  --_sl-ce-badge-fs: 0.8125rem;
+}
+
+.sl-ce-badge--md {
+  --_sl-ce-badge-py: 0.3rem;
+  --_sl-ce-badge-px: 0.75rem;
+  --_sl-ce-badge-fs: 0.875rem;
+}
+
+.sl-ce-badge--lg {
+  --_sl-ce-badge-py: 0.35rem;
+  --_sl-ce-badge-px: 0.85rem;
+  --_sl-ce-badge-fs: 0.9375rem;
+}
+
+/* ── Shapes ─────────────────────────────────────────────── */
+
+.sl-ce-badge--pill {
+  --_sl-ce-badge-radius: 999px;
+}
+
+.sl-ce-badge--rounded {
+  --_sl-ce-badge-radius: var(--sl-ce-radius-pill);
+}
+
+.sl-ce-badge--square {
+  --_sl-ce-badge-radius: 0;
+}

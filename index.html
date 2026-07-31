@@ -20,11 +20,13 @@
   <h1 class="demo__title">Content Elements variants</h1>
   <p class="demo__lede">
     CSS-only <code>sl-ce</code> components. Structure mirrors Kuickr plans
-    (<code>tokens</code> / <code>tabs</code> / <code>accordion</code> / <code>table</code>).
+    (<code>tokens</code> / <code>tabs</code> / <code>accordion</code> / <code>table</code> / <code>expand</code> / <code>badge</code> / <code>button</code>).
     Visuals follow
     <a href="https://rapidrails.cc/docs/accordion" target="_blank" rel="noopener">RapidRailsUI</a>
-    (accordion) and
-    <a href="https://rapidrails.cc/docs/table" target="_blank" rel="noopener">table</a>
+    (accordion),
+    <a href="https://rapidrails.cc/docs/table" target="_blank" rel="noopener">table</a>,
+    <a href="https://rapidrails.cc/docs/badge" target="_blank" rel="noopener">badge</a>, and
+    <a href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener">button</a>
     with StockLive colours. Markup partials live under <code>partials/</code>.
   </p>
 
@@ -48,6 +50,8 @@
       <li><a href="#table-empty">Table · empty</a></li>
       <li><a href="#table-percentile">Table · percentile</a></li>
       <li><a href="#expand-default">Expand · show more</a></li>
+      <li><a href="#badge-default">Badge · variants</a></li>
+      <li><a href="#button-default">Button · variants</a></li>
     </ol>
   </nav>
 
@@ -965,11 +969,15 @@
               <tbody>
                 <tr>
                   <td class="sl-ce-table__td" data-label="Document">ASBV</td>
-                  <td class="sl-ce-table__td" data-label="Link"><a href="#">Open ASBV data</a></td>
+                  <td class="sl-ce-table__td" data-label="Link">
+                    <a class="sl-ce-button sl-ce-button--solid sl-ce-button--primary sl-ce-button--xs sl-ce-button--rounded" href="https://www.angusaustralia.com.au/" target="_blank" rel="noopener noreferrer">ASBV data</a>
+                  </td>
                 </tr>
                 <tr>
                   <td class="sl-ce-table__td" data-label="Document">Catalogue</td>
-                  <td class="sl-ce-table__td" data-label="Link"><a href="#">Lot catalogue PDF</a></td>
+                  <td class="sl-ce-table__td" data-label="Link">
+                    <a class="sl-ce-button sl-ce-button--outline sl-ce-button--primary sl-ce-button--xs sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Catalogue PDF</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -978,6 +986,60 @@
       </div>
     </details>
   </section>
+
+  <section class="demo__section" id="badge-default">
+    <p class="demo__section-label">Badge</p>
+    <h2 class="demo__section-title">Variants &amp; lot accreditations</h2>
+    <p class="demo__section-desc">RRUI-aligned · solid / outline / ghost / soft / link · partials: <code>partials/badge/</code></p>
+    <p class="demo__section-desc" style="margin-top:-0.5rem;">Variants</p>
+    <div class="sl-ce-badge-group" style="margin-bottom: 1rem;">
+      <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--primary sl-ce-badge--sm">Solid</span>
+      <span class="sl-ce-badge sl-ce-badge--outline sl-ce-badge--primary sl-ce-badge--sm">Outline</span>
+      <span class="sl-ce-badge sl-ce-badge--ghost sl-ce-badge--primary sl-ce-badge--sm">Ghost</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--primary sl-ce-badge--sm">Soft</span>
+      <a class="sl-ce-badge sl-ce-badge--link sl-ce-badge--primary sl-ce-badge--sm" href="https://rapidrails.cc/docs/badge" target="_blank" rel="noopener noreferrer">Link</a>
+    </div>
+    <p class="demo__section-desc">Colors</p>
+    <div class="sl-ce-badge-group" style="margin-bottom: 1rem;">
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--primary sl-ce-badge--sm">Primary</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--secondary sl-ce-badge--sm">Secondary</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--success sl-ce-badge--sm">Success</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--warning sl-ce-badge--sm">Warning</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--danger sl-ce-badge--sm">Danger</span>
+      <span class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--info sl-ce-badge--sm">Info</span>
+    </div>
+    <p class="demo__section-desc">Lot accreditations (link badges → external tab)</p>
+    <div class="sl-ce-badge-group lot__badges" aria-label="Lot accreditations">
+      <a class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--primary sl-ce-badge--sm sl-ce-badge--pill" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Vendor bred</a>
+      <a class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--success sl-ce-badge--sm sl-ce-badge--pill" href="https://www.integritysystems.com.au/lpa/" target="_blank" rel="noopener noreferrer">LPA</a>
+      <a class="sl-ce-badge sl-ce-badge--soft sl-ce-badge--info sl-ce-badge--sm sl-ce-badge--pill" href="https://www.mla.com.au/marketing-beef-and-lamb/meat-standards-australia/" target="_blank" rel="noopener noreferrer">MSA</a>
+      <a class="sl-ce-badge sl-ce-badge--outline sl-ce-badge--success sl-ce-badge--sm sl-ce-badge--pill" href="https://www.agriculture.gov.au/agriculture-land/farm-food-drought/food/organic-biodynamic" target="_blank" rel="noopener noreferrer">Organic</a>
+      <a class="sl-ce-badge sl-ce-badge--link sl-ce-badge--secondary sl-ce-badge--sm" href="https://www.angusaustralia.com.au/" target="_blank" rel="noopener noreferrer">Angus Australia</a>
+    </div>
+  </section>
+
+  <section class="demo__section" id="button-default">
+    <p class="demo__section-label">Button</p>
+    <h2 class="demo__section-title">Variants</h2>
+    <p class="demo__section-desc">RRUI-aligned · solid / outline / ghost / soft / link · partial: <code>partials/button/default.html</code></p>
+    <div class="sl-ce-button-group" style="margin-bottom: 1rem;">
+      <a class="sl-ce-button sl-ce-button--solid sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Solid</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Outline</a>
+      <a class="sl-ce-button sl-ce-button--ghost sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Ghost</a>
+      <a class="sl-ce-button sl-ce-button--soft sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Soft</a>
+      <a class="sl-ce-button sl-ce-button--link sl-ce-button--primary sl-ce-button--sm" href="https://rapidrails.cc/docs/button" target="_blank" rel="noopener noreferrer">Link</a>
+    </div>
+    <p class="demo__section-desc">Colors · outline</p>
+    <div class="sl-ce-button-group">
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--primary sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Primary</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--secondary sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Secondary</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--success sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Success</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--warning sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Warning</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--danger sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Danger</a>
+      <a class="sl-ce-button sl-ce-button--outline sl-ce-button--info sl-ce-button--sm sl-ce-button--rounded" href="https://www.stocklive.com.au/" target="_blank" rel="noopener noreferrer">Info</a>
+    </div>
+  </section>
+
 
 </div>
 </body>

@@ -1,0 +1,148 @@
+/* sl-ce-traits — compact EBV / percentile profile (not a table)
+   Each item: name + EBV · Top% badge · progress bar · percentile label
+   Set --sl-ce-percentile (0–100) on .sl-ce-traits__item
+   Tone: --calving | --growth | --maternal | --milk | --fertility |
+         --other | --carcase | --structure | --index
+   Density: --dense (tighter vertical rhythm)
+*/
+
+.sl-ce-traits {
+  margin: 0;
+  color: var(--sl-ce-color-text);
+}
+
+.sl-ce-traits__title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sl-ce-color-primary);
+  line-height: 1.3;
+}
+
+.sl-ce-traits__description {
+  margin: 0 0 0.85rem;
+  font-size: 0.8125rem;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.4;
+}
+
+.sl-ce-traits__group {
+  margin: 0.85rem 0 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sl-ce-color-text-muted);
+}
+
+.sl-ce-traits__group:first-child {
+  margin-top: 0;
+}
+
+.sl-ce-traits__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sl-ce-traits--dense .sl-ce-traits__list {
+  gap: 0.55rem;
+}
+
+.sl-ce-traits__item {
+  --sl-ce-percentile: 50;
+  --sl-ce-trait-color: var(--sl-ce-color-primary);
+  margin: 0;
+  min-width: 0;
+}
+
+.sl-ce-traits__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.sl-ce-traits__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  min-width: 0;
+}
+
+.sl-ce-traits__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--sl-ce-color-primary);
+  line-height: 1.25;
+}
+
+.sl-ce-traits__ebv {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.25;
+}
+
+.sl-ce-traits__rank {
+  flex: 0 0 auto;
+  background: var(--sl-ce-trait-color) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-traits__track {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--sl-ce-table-bar-track);
+}
+
+.sl-ce-traits__fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--sl-ce-percentile) * 1%);
+  max-width: 100%;
+  border-radius: inherit;
+  background: var(--sl-ce-trait-color);
+}
+
+.sl-ce-traits__perc {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--sl-ce-color-text-muted);
+  line-height: 1.2;
+}
+
+/* Optional accuracy chip */
+.sl-ce-traits__acc {
+  font-size: 0.75rem;
+  color: var(--sl-ce-color-text-muted);
+}
+
+/* Tones — bar + badge share --sl-ce-trait-color */
+.sl-ce-traits__item--calving { --sl-ce-trait-color: var(--sl-ce-color-success); }
+.sl-ce-traits__item--growth { --sl-ce-trait-color: var(--sl-ce-color-primary); }
+.sl-ce-traits__item--maternal { --sl-ce-trait-color: var(--sl-ce-table-bar-maternal); }
+.sl-ce-traits__item--milk { --sl-ce-trait-color: var(--sl-ce-table-bar-milk); }
+.sl-ce-traits__item--fertility { --sl-ce-trait-color: var(--sl-ce-table-bar-fertility); }
+.sl-ce-traits__item--other { --sl-ce-trait-color: var(--sl-ce-table-bar-other); }
+.sl-ce-traits__item--carcase { --sl-ce-trait-color: #0b1220; }
+.sl-ce-traits__item--structure { --sl-ce-trait-color: var(--sl-ce-table-bar-structure); }
+.sl-ce-traits__item--index { --sl-ce-trait-color: var(--sl-ce-color-secondary); }
+
+/* Nested spacing inside panels */
+.sl-ce-tabs__panel > .sl-ce-traits,
+.sl-ce-accordion__panel > .sl-ce-traits,
+.sl-ce-expand__panel > .sl-ce-traits {
+  margin-top: 0;
+}

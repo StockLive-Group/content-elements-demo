@@ -18,8 +18,8 @@
   </nav>
 
   <p class="demo__note">
-    Composed lot view — tables nested in tabs and accordion, with
-    <code>sl-ce-expand</code> for deeper blocks so the first screen stays short.
+    Composed lot view — tables in tabs/accordion, compact <code>sl-ce-traits</code>,
+    and <code>sl-ce-expand</code> for the full profile.
   </p>
 
   <article class="lot">
@@ -189,70 +189,65 @@
 
           <details class="sl-ce-accordion__item">
             <summary class="sl-ce-accordion__trigger">
-              <span class="sl-ce-accordion__title">Key trait percentiles</span>
+              <span class="sl-ce-accordion__title">Key traits</span>
               <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
             </summary>
             <div class="sl-ce-accordion__panel">
-              <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
-                <div class="sl-ce-table__scroll">
-                  <table class="sl-ce-table__grid">
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="sl-ce-table__th">Birth Weight</th>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
-                        <td class="sl-ce-table__td sl-ce-table__td--bar">
-                          <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
-                            <span class="sl-ce-table__bar-fill"></span>
-                          </span>
-                        </td>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                        <td class="sl-ce-table__td sl-ce-table__td--bar">
-                          <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
-                            <span class="sl-ce-table__bar-fill"></span>
-                          </span>
-                        </td>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="sl-ce-table__th">Milk</th>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                        <td class="sl-ce-table__td sl-ce-table__td--bar">
-                          <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
-                            <span class="sl-ce-table__bar-fill"></span>
-                          </span>
-                        </td>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="sl-ce-table__th">IMF</th>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
-                        <td class="sl-ce-table__td sl-ce-table__td--bar">
-                          <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
-                            <span class="sl-ce-table__bar-fill"></span>
-                          </span>
-                        </td>
-                        <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
-                      </tr>
-                    </tbody>
-                    <tfoot class="sl-ce-table__tfoot">
-                      <tr>
-                        <td class="sl-ce-table__td"></td>
-                        <td class="sl-ce-table__td"></td>
-                        <td class="sl-ce-table__td sl-ce-table__td--bar">
-                          <div class="sl-ce-table__axis" aria-hidden="true">
-                            <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
-                          </div>
-                          <span class="sl-ce-table__axis-label">Percentile</span>
-                        </td>
-                        <td class="sl-ce-table__td"></td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
+              <div class="sl-ce-traits sl-ce-traits--dense">
+                <ul class="sl-ce-traits__list">
+                  <li class="sl-ce-traits__item sl-ce-traits__item--calving" style="--sl-ce-percentile: 90">
+                    <div class="sl-ce-traits__head">
+                      <div class="sl-ce-traits__label">
+                        <span class="sl-ce-traits__name">Birth Weight</span>
+                        <span class="sl-ce-traits__ebv">EBV +2.1</span>
+                      </div>
+                      <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 5%</span>
+                    </div>
+                    <div class="sl-ce-traits__track" role="img" aria-label="95th percentile">
+                      <span class="sl-ce-traits__fill"></span>
+                    </div>
+                    <p class="sl-ce-traits__perc">95th percentile</p>
+                  </li>
+                  <li class="sl-ce-traits__item sl-ce-traits__item--growth" style="--sl-ce-percentile: 92">
+                    <div class="sl-ce-traits__head">
+                      <div class="sl-ce-traits__label">
+                        <span class="sl-ce-traits__name">200 Day Growth</span>
+                        <span class="sl-ce-traits__ebv">EBV +28</span>
+                      </div>
+                      <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 8%</span>
+                    </div>
+                    <div class="sl-ce-traits__track" role="img" aria-label="92nd percentile">
+                      <span class="sl-ce-traits__fill"></span>
+                    </div>
+                    <p class="sl-ce-traits__perc">92nd percentile</p>
+                  </li>
+                  <li class="sl-ce-traits__item sl-ce-traits__item--milk" style="--sl-ce-percentile: 83">
+                    <div class="sl-ce-traits__head">
+                      <div class="sl-ce-traits__label">
+                        <span class="sl-ce-traits__name">Milk</span>
+                        <span class="sl-ce-traits__ebv">EBV +8</span>
+                      </div>
+                      <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 17%</span>
+                    </div>
+                    <div class="sl-ce-traits__track" role="img" aria-label="83rd percentile">
+                      <span class="sl-ce-traits__fill"></span>
+                    </div>
+                    <p class="sl-ce-traits__perc">83rd percentile</p>
+                  </li>
+                  <li class="sl-ce-traits__item sl-ce-traits__item--carcase" style="--sl-ce-percentile: 68">
+                    <div class="sl-ce-traits__head">
+                      <div class="sl-ce-traits__label">
+                        <span class="sl-ce-traits__name">IMF</span>
+                        <span class="sl-ce-traits__ebv">EBV +1.4</span>
+                      </div>
+                      <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 32%</span>
+                    </div>
+                    <div class="sl-ce-traits__track" role="img" aria-label="68th percentile">
+                      <span class="sl-ce-traits__fill"></span>
+                    </div>
+                    <p class="sl-ce-traits__perc">68th percentile</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </details>
@@ -299,130 +294,113 @@
             <span class="sl-ce-expand__chevron" aria-hidden="true"></span>
           </summary>
           <div class="sl-ce-expand__panel">
-            <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
-              <div class="sl-ce-table__header">
-                <h3 class="sl-ce-table__title">Full trait profile</h3>
-                <p class="sl-ce-table__description">Percentile vs breed average (50). Opened on demand via expand.</p>
-              </div>
-              <div class="sl-ce-table__scroll">
-                <table class="sl-ce-table__grid">
-                  <tbody>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Calving Ease Direct</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">More Calving Difficulty</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 78" role="img" aria-label="78th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Less Calving Difficulty</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Birth Weight</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">400 Day Growth</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">600 Day Growth</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 5" role="img" aria-label="5th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Milk</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Carcase Weight</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Carcase Weight</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 3" role="img" aria-label="3rd percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Carcase Weight</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Eye Muscle Area</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Smaller EMA</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 18" role="img" aria-label="18th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Larger EMA</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">IMF</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="sl-ce-table__th">Angus Breeding Index</th>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lower Profitability</td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <span class="sl-ce-table__bar sl-ce-table__bar--index" style="--sl-ce-percentile: 54" role="img" aria-label="54th percentile">
-                          <span class="sl-ce-table__bar-fill"></span>
-                        </span>
-                      </td>
-                      <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Greater Profitability</td>
-                    </tr>
-                  </tbody>
-                  <tfoot class="sl-ce-table__tfoot">
-                    <tr>
-                      <td class="sl-ce-table__td"></td>
-                      <td class="sl-ce-table__td"></td>
-                      <td class="sl-ce-table__td sl-ce-table__td--bar">
-                        <div class="sl-ce-table__axis" aria-hidden="true">
-                          <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
-                        </div>
-                        <span class="sl-ce-table__axis-label">Percentile</span>
-                      </td>
-                      <td class="sl-ce-table__td"></td>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
+            <div class="sl-ce-traits sl-ce-traits--dense">
+              <h3 class="sl-ce-traits__title">Full trait profile</h3>
+              <p class="sl-ce-traits__description">Percentile rank with EBV — open on demand.</p>
+
+              <p class="sl-ce-traits__group">Calving &amp; birth</p>
+              <ul class="sl-ce-traits__list">
+                <li class="sl-ce-traits__item sl-ce-traits__item--calving" style="--sl-ce-percentile: 78">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">Calving Ease Direct</span>
+                      <span class="sl-ce-traits__ebv">EBV +3.1</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 22%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="78th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">78th percentile</p>
+                </li>
+                <li class="sl-ce-traits__item sl-ce-traits__item--calving" style="--sl-ce-percentile: 95">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">Birth Weight</span>
+                      <span class="sl-ce-traits__ebv">EBV +2.1</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 5%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="95th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">95th percentile</p>
+                </li>
+              </ul>
+
+              <p class="sl-ce-traits__group">Growth</p>
+              <ul class="sl-ce-traits__list">
+                <li class="sl-ce-traits__item sl-ce-traits__item--growth" style="--sl-ce-percentile: 92">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">200 Day Growth</span>
+                      <span class="sl-ce-traits__ebv">EBV +28</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 8%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="92nd percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">92nd percentile</p>
+                </li>
+                <li class="sl-ce-traits__item sl-ce-traits__item--growth" style="--sl-ce-percentile: 92">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">400 Day Growth</span>
+                      <span class="sl-ce-traits__ebv">EBV +46</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 8%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="92nd percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">92nd percentile</p>
+                </li>
+                <li class="sl-ce-traits__item sl-ce-traits__item--growth" style="--sl-ce-percentile: 95">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">600 Day Growth</span>
+                      <span class="sl-ce-traits__ebv">EBV +58</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 5%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="95th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">95th percentile</p>
+                </li>
+              </ul>
+
+              <p class="sl-ce-traits__group">Carcase</p>
+              <ul class="sl-ce-traits__list">
+                <li class="sl-ce-traits__item sl-ce-traits__item--carcase" style="--sl-ce-percentile: 70">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">Eye Muscle Area</span>
+                      <span class="sl-ce-traits__ebv">EBV +8.7</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 30%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="70th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">70th percentile</p>
+                </li>
+                <li class="sl-ce-traits__item sl-ce-traits__item--index" style="--sl-ce-percentile: 55">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">IMF</span>
+                      <span class="sl-ce-traits__ebv">EBV +3.1</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 45%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="55th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">55th percentile</p>
+                </li>
+              </ul>
+
+              <p class="sl-ce-traits__group">Indexes</p>
+              <ul class="sl-ce-traits__list">
+                <li class="sl-ce-traits__item sl-ce-traits__item--index" style="--sl-ce-percentile: 54">
+                  <div class="sl-ce-traits__head">
+                    <div class="sl-ce-traits__label">
+                      <span class="sl-ce-traits__name">Angus Breeding Index</span>
+                      <span class="sl-ce-traits__ebv">$210</span>
+                    </div>
+                    <span class="sl-ce-badge sl-ce-badge--solid sl-ce-badge--sm sl-ce-badge--pill sl-ce-traits__rank">Top 46%</span>
+                  </div>
+                  <div class="sl-ce-traits__track" role="img" aria-label="54th percentile"><span class="sl-ce-traits__fill"></span></div>
+                  <p class="sl-ce-traits__perc">54th percentile</p>
+                </li>
+              </ul>
             </div>
 
             <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm" style="margin-top: 1rem;">
@@ -450,74 +428,6 @@
             </div>
           </div>
         </details>
-      </div>
-
-      <div class="lot-ce">
-        <div class="sl-ce-table sl-ce-table--percentile sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--sm">
-          <div class="sl-ce-table__header">
-            <h3 class="sl-ce-table__title">Trait profile</h3>
-            <p class="sl-ce-table__description">Percentile vs breed average (50).</p>
-          </div>
-          <div class="sl-ce-table__scroll">
-            <table class="sl-ce-table__grid">
-              <tbody>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">Birth Weight</th>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Heavier Birth Weight</td>
-                  <td class="sl-ce-table__td sl-ce-table__td--bar">
-                    <span class="sl-ce-table__bar sl-ce-table__bar--calving" style="--sl-ce-percentile: 95" role="img" aria-label="95th percentile">
-                      <span class="sl-ce-table__bar-fill"></span>
-                    </span>
-                  </td>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Lighter Birth Weight</td>
-                </tr>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">200 Day Growth</th>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                  <td class="sl-ce-table__td sl-ce-table__td--bar">
-                    <span class="sl-ce-table__bar sl-ce-table__bar--growth" style="--sl-ce-percentile: 8" role="img" aria-label="8th percentile">
-                      <span class="sl-ce-table__bar-fill"></span>
-                    </span>
-                  </td>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                </tr>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">Milk</th>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Lighter Live Weight</td>
-                  <td class="sl-ce-table__td sl-ce-table__td--bar">
-                    <span class="sl-ce-table__bar sl-ce-table__bar--milk" style="--sl-ce-percentile: 83" role="img" aria-label="83rd percentile">
-                      <span class="sl-ce-table__bar-fill"></span>
-                    </span>
-                  </td>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">Heavier Live Weight</td>
-                </tr>
-                <tr>
-                  <th scope="row" class="sl-ce-table__th">IMF</th>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-start">Less IMF</td>
-                  <td class="sl-ce-table__td sl-ce-table__td--bar">
-                    <span class="sl-ce-table__bar sl-ce-table__bar--carcase" style="--sl-ce-percentile: 32" role="img" aria-label="32nd percentile">
-                      <span class="sl-ce-table__bar-fill"></span>
-                    </span>
-                  </td>
-                  <td class="sl-ce-table__td sl-ce-table__td--hint sl-ce-table__td--hint-end">More IMF</td>
-                </tr>
-              </tbody>
-              <tfoot class="sl-ce-table__tfoot">
-                <tr>
-                  <td class="sl-ce-table__td"></td>
-                  <td class="sl-ce-table__td"></td>
-                  <td class="sl-ce-table__td sl-ce-table__td--bar">
-                    <div class="sl-ce-table__axis" aria-hidden="true">
-                      <span>100</span><span>90</span><span>80</span><span>70</span><span>60</span><span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
-                    </div>
-                    <span class="sl-ce-table__axis-label">Percentile</span>
-                  </td>
-                  <td class="sl-ce-table__td"></td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
   </article>

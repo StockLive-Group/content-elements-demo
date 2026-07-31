@@ -14,6 +14,7 @@ css/
   tabs.css                # .sl-ce-tabs*
   accordion.css           # .sl-ce-accordion* + variants
   table.css               # .sl-ce-table* + variants
+  traits.css              # .sl-ce-traits* (EBV percentile profile)
   expand.css              # .sl-ce-expand* (show more)
   badge.css               # .sl-ce-badge* (RRUI-aligned)
   button.css              # .sl-ce-button* (RRUI-aligned)
@@ -22,7 +23,8 @@ css/
 partials/
   tabs/default.html
   accordion/{default,bordered,separated,flush,ghost,chevron-left}.html
-  table/{default,caption,striped,square,sticky,footer,cards,empty,percentile}.html
+  table/{default,caption,striped,square,sticky,footer,cards,empty}.html
+  traits/{default,compact,full}.html
   expand/default.html
   badge/{default,lot-accreditations}.html
   button/default.html
@@ -62,10 +64,19 @@ lot-*.html                # lot-row context demos
 | `sl-ce-table--hoverable` | Row hover highlight |
 | `sl-ce-table--sticky-header` | Sticky thead in scroll box |
 | `sl-ce-table--cards` / `--stack` | Mobile responsive layouts (`data-label` on cells) |
-| `sl-ce-table--percentile` | Trait-profile bars (100← · 50 · →0) via `--sl-ce-percentile` |
 | `sl-ce-table--xs` … `--xl` | Cell padding / type size |
 
-Bar tone modifiers on `.sl-ce-table__bar`: `--calving`, `--growth`, `--maternal`, `--milk`, `--fertility`, `--other`, `--carcase`, `--structure`, `--index`.
+## Traits (percentile profile)
+
+Compact list — not a table. Each row: trait name, EBV, Top% badge, progress bar, percentile label.
+
+| Class | Look |
+|-------|------|
+| `sl-ce-traits` | Trait profile list |
+| `sl-ce-traits--dense` | Tighter vertical rhythm |
+| `sl-ce-traits__item--calving` … `--index` | Tone for bar + badge |
+
+Set `--sl-ce-percentile` (0–100) on each `.sl-ce-traits__item`. Top% badge ≈ `100 − percentile`.
 
 ## Expand (show more)
 

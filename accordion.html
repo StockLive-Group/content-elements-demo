@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StockLive Content Elements — Tabs (lot context)</title>
+  <title>StockLive Content Elements — Accordion (lot context)</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Lot row shell ≈ StockLive auction lots: image left, description/tabs right -->
+<!-- Lot row shell ≈ StockLive auction lots: image left, description/accordion right -->
 <div class="demo">
   <nav class="demo__nav" aria-label="Content element demos">
-    <a href="index.html" aria-current="page">Tabs</a>
-    <a href="accordion.html">Accordion</a>
+    <a href="index.html">Tabs</a>
+    <a href="accordion.html" aria-current="page">Accordion</a>
   </nav>
 
   <p class="demo__note">
     Team preview — layout proportions inspired by
     <a href="https://app.stocklive.com.au/auctions/1843561/lots" target="_blank" rel="noopener">auction lots</a>.
-    Tabs sit in the description column; future content elements go here too.
+    Accordion sits in the description column; visual language mirrors
+    <a href="https://rapidrails.cc/docs/accordion" target="_blank" rel="noopener">RapidRailsUI Accordion</a>
+    (bordered) with StockLive colours. No JavaScript — native
+    <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>.
   </p>
 
   <article class="lot">
@@ -34,24 +37,13 @@
       <p class="lot__number"># 1</p>
       <h1 class="lot__title">Sara Park Entice V89</h1>
 
-      <div class="sl-ce-tabs">
-        <div class="sl-ce-tabs__targets" aria-hidden="true">
-          <span id="lot1-overview"></span>
-          <span id="lot1-pedigree"></span>
-          <span id="lot1-comments"></span>
-          <span id="lot1-asbv"></span>
-        </div>
-
-        <nav class="sl-ce-tabs__list" aria-label="Lot details">
-          <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#lot1-overview">Overview</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-pedigree">Pedigree</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-comments">Comments</a>
-          <a class="sl-ce-tabs__tab" href="#lot1-asbv">ASBV</a>
-        </nav>
-
-        <div class="sl-ce-tabs__panels">
-          <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
-            <h4>Overview</h4>
+      <div class="sl-ce-accordion">
+        <details class="sl-ce-accordion__item" open>
+          <summary class="sl-ce-accordion__trigger">
+            <span class="sl-ce-accordion__title">Overview</span>
+            <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="sl-ce-accordion__panel">
             <dl class="lot-dl">
               <div>
                 <dt>Animal ID</dt>
@@ -74,10 +66,15 @@
                 <dd>SARA PARK Angus</dd>
               </div>
             </dl>
-          </section>
+          </div>
+        </details>
 
-          <section class="sl-ce-tabs__panel">
-            <h4>Pedigree</h4>
+        <details class="sl-ce-accordion__item">
+          <summary class="sl-ce-accordion__trigger">
+            <span class="sl-ce-accordion__title">Pedigree</span>
+            <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="sl-ce-accordion__panel">
             <dl class="lot-dl">
               <div>
                 <dt>Sire</dt>
@@ -88,26 +85,36 @@
                 <dd>SARA PARK LOWAN Q1</dd>
               </div>
             </dl>
-          </section>
+          </div>
+        </details>
 
-          <section class="sl-ce-tabs__panel">
-            <h4>Comments</h4>
+        <details class="sl-ce-accordion__item">
+          <summary class="sl-ce-accordion__trigger">
+            <span class="sl-ce-accordion__title">Comments</span>
+            <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="sl-ce-accordion__panel">
             <p class="lot-copy">
               A good bull to start the sale. V89 is a well balanced bull that has ideal skin and hair.
               He is deep, good hip to pin and wide through the pins with a good top.
             </p>
-          </section>
+          </div>
+        </details>
 
-          <section class="sl-ce-tabs__panel">
-            <h4>ASBV / documents</h4>
+        <details class="sl-ce-accordion__item">
+          <summary class="sl-ce-accordion__trigger">
+            <span class="sl-ce-accordion__title">ASBV / documents</span>
+            <span class="sl-ce-accordion__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="sl-ce-accordion__panel">
             <p class="lot-copy">
               <a href="#">ASBV Data Link — Click Here</a>
             </p>
             <p class="lot-copy lot-copy--muted">
               Placeholder for future content elements (callouts, tables, document lists).
             </p>
-          </section>
-        </div>
+          </div>
+        </details>
       </div>
     </div>
   </article>

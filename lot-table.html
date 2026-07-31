@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockLive Content Elements — Lot · Table</title>
+  <link rel="stylesheet" href="css/content-elements.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<div class="demo">
+  <nav class="demo__nav" aria-label="Content element demos">
+    <a href="index.html">Variants</a>
+    <a href="lot-tabs.html">Lot · Tabs</a>
+    <a href="lot-accordion.html">Lot · Accordion</a>
+    <a href="lot-table.html" aria-current="page">Lot · Table</a>
+    <a href="lot-combined.html">Lot · Combined</a>
+  </nav>
+
+  <p class="demo__note">
+    Lot-row preview — bordered ASBV table (<code>sl-ce-table--bordered</code> + <code>--rounded</code>) with StockLive colours.
+    No JavaScript — semantic <code>&lt;table&gt;</code> only.
+  </p>
+
+  <article class="lot">
+    <figure class="lot__media">
+      <img
+        src="https://www.droughtmaster.com.au/wp-content/uploads/565695586_1275831397682102_716293321823734050_n.jpg"
+        alt="Example lot animal — Droughtmaster bull"
+        width="800"
+        height="600"
+      />
+    </figure>
+    <div class="lot__body">
+      <p class="lot__number"># 1</p>
+      <h1 class="lot__title">Sara Park Entice V89</h1>
+
+      <dl class="lot-dl lot-dl--before-ce">
+        <div><dt>Animal ID</dt><dd>BDY24V89</dd></div>
+        <div><dt>Born</dt><dd>10/08/2024</dd></div>
+        <div><dt>Registration status</dt><dd>HBR</dd></div>
+      </dl>
+
+      <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--sm">
+        <div class="sl-ce-table__header">
+          <h3 class="sl-ce-table__title">ASBV summary</h3>
+          <p class="sl-ce-table__description">Estimated breeding values for this lot.</p>
+        </div>
+        <div class="sl-ce-table__scroll">
+          <table class="sl-ce-table__grid">
+            <thead>
+              <tr>
+                <th scope="col" class="sl-ce-table__th">Trait</th>
+                <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">EBV</th>
+                <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">Acc.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="sl-ce-table__td" data-label="Trait">Birth weight</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+2.1</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">72%</td>
+              </tr>
+              <tr>
+                <td class="sl-ce-table__td" data-label="Trait">200-day weight</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+28</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">68%</td>
+              </tr>
+              <tr>
+                <td class="sl-ce-table__td" data-label="Trait">400-day weight</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+46</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">64%</td>
+              </tr>
+              <tr>
+                <td class="sl-ce-table__td" data-label="Trait">Milk</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+8</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">55%</td>
+              </tr>
+            </tbody>
+            <tfoot class="sl-ce-table__tfoot">
+              <tr>
+                <td class="sl-ce-table__td" colspan="2">Domestic index</td>
+                <td class="sl-ce-table__td sl-ce-table__td--center">$142</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+</body>
+</html>

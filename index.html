@@ -13,14 +13,18 @@
     <a href="index.html" aria-current="page">Variants</a>
     <a href="lot-tabs.html">Lot · Tabs</a>
     <a href="lot-accordion.html">Lot · Accordion</a>
+    <a href="lot-table.html">Lot · Table</a>
+    <a href="lot-combined.html">Lot · Combined</a>
   </nav>
 
   <h1 class="demo__title">Content Elements variants</h1>
   <p class="demo__lede">
     CSS-only <code>sl-ce</code> components. Structure mirrors Kuickr plans
-    (<code>tokens</code> / <code>tabs</code> / <code>accordion</code>).
-    Accordion visuals follow
+    (<code>tokens</code> / <code>tabs</code> / <code>accordion</code> / <code>table</code>).
+    Visuals follow
     <a href="https://rapidrails.cc/docs/accordion" target="_blank" rel="noopener">RapidRailsUI</a>
+    (accordion) and
+    <a href="https://rapidrails.cc/docs/table" target="_blank" rel="noopener">table</a>
     with StockLive colours. Markup partials live under <code>partials/</code>.
   </p>
 
@@ -34,6 +38,14 @@
       <li><a href="#accordion-flush">Accordion · flush</a></li>
       <li><a href="#accordion-ghost">Accordion · ghost</a></li>
       <li><a href="#accordion-chevron-left">Accordion · chevron left</a></li>
+      <li><a href="#table-default">Table · default</a></li>
+      <li><a href="#table-caption">Table · caption</a></li>
+      <li><a href="#table-striped">Table · striped</a></li>
+      <li><a href="#table-square">Table · square</a></li>
+      <li><a href="#table-sticky">Table · sticky header</a></li>
+      <li><a href="#table-footer">Table · footer</a></li>
+      <li><a href="#table-cards">Table · cards</a></li>
+      <li><a href="#table-empty">Table · empty</a></li>
     </ol>
   </nav>
 
@@ -41,27 +53,27 @@
     <p class="demo__section-label">Tabs</p>
     <h2 class="demo__section-title">Default (segmented)</h2>
     <p class="demo__section-desc">:target + :has() · partial: <code>partials/tabs/default.html</code></p>
-        <div class="sl-gallery-tabs-tabs">
-      <div class="sl-gallery-tabs-tabs__targets" aria-hidden="true">
+        <div class="sl-ce-tabs">
+      <div class="sl-ce-tabs__targets" aria-hidden="true">
         <span id="gallery-tabs-overview"></span>
         <span id="gallery-tabs-pedigree"></span>
         <span id="gallery-tabs-comments"></span>
       </div>
-      <nav class="sl-gallery-tabs-tabs__list" aria-label="Tabs">
-        <a class="sl-gallery-tabs-tabs__tab sl-gallery-tabs-tabs__tab--default" href="#gallery-tabs-overview">Overview</a>
-        <a class="sl-gallery-tabs-tabs__tab" href="#gallery-tabs-pedigree">Pedigree</a>
-        <a class="sl-gallery-tabs-tabs__tab" href="#gallery-tabs-comments">Comments</a>
+      <nav class="sl-ce-tabs__list" aria-label="Tabs">
+        <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#gallery-tabs-overview">Overview</a>
+        <a class="sl-ce-tabs__tab" href="#gallery-tabs-pedigree">Pedigree</a>
+        <a class="sl-ce-tabs__tab" href="#gallery-tabs-comments">Comments</a>
       </nav>
-      <div class="sl-gallery-tabs-tabs__panels">
-        <section class="sl-gallery-tabs-tabs__panel sl-gallery-tabs-tabs__panel--default">
+      <div class="sl-ce-tabs__panels">
+        <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
           <h4>Overview</h4>
           <p>Segmented track, elevated active pill, StockLive navy. Pure CSS.</p>
         </section>
-        <section class="sl-gallery-tabs-tabs__panel">
+        <section class="sl-ce-tabs__panel">
           <h4>Pedigree</h4>
           <p>Sire and dam details live in this panel.</p>
         </section>
-        <section class="sl-gallery-tabs-tabs__panel">
+        <section class="sl-ce-tabs__panel">
           <h4>Comments</h4>
           <p>Sale comments and vendor notes.</p>
         </section>
@@ -276,6 +288,356 @@
                 <p>Vendor sale comments and notes.</p>
         </div>
       </details>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-default">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Default (bordered + rounded)</h2>
+    <p class="demo__section-desc">Primary look · partial: <code>partials/table/default.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--base">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#1</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Entice V89</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#2</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Taurus T8</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Bidding</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#3</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Lowan Q1</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Passed</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-caption">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">With caption</h2>
+    <p class="demo__section-desc">Visible title + description · partial: <code>partials/table/caption.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--base">
+      <div class="sl-ce-table__header">
+        <h3 class="sl-ce-table__title">Sale results</h3>
+        <p class="sl-ce-table__description">Lots from today’s catalogue with hammer price and status.</p>
+      </div>
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#1</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Entice V89</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#2</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Taurus T8</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Bidding</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#3</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Lowan Q1</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Passed</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-striped">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Striped</h2>
+    <p class="demo__section-desc">Alternating row wash · partial: <code>partials/table/striped.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--striped sl-ce-table--hoverable sl-ce-table--base">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#1</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Entice V89</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#2</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Taurus T8</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Bidding</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#3</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Lowan Q1</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Passed</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">—</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#4</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Duke U12</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$8,200</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-square">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Square</h2>
+    <p class="demo__section-desc">No corner radius · partial: <code>partials/table/square.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--square sl-ce-table--hoverable sl-ce-table--base">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#1</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Entice V89</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#2</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Taurus T8</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Bidding</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#3</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Lowan Q1</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Passed</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-sticky">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Sticky header</h2>
+    <p class="demo__section-desc">Fixed thead while scrolling · partial: <code>partials/table/sticky.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--sticky-header sl-ce-table--sm">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Buyer</th>
+              <th scope="col" class="sl-ce-table__th">Date</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer A</td>
+              <td class="sl-ce-table__td" data-label="Date">31 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Paid</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer B</td>
+              <td class="sl-ce-table__td" data-label="Date">30 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Pending</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer C</td>
+              <td class="sl-ce-table__td" data-label="Date">29 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--danger">Refunded</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$4,200</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer D</td>
+              <td class="sl-ce-table__td" data-label="Date">28 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Paid</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$11,000</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer E</td>
+              <td class="sl-ce-table__td" data-label="Date">27 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Paid</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$7,650</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer F</td>
+              <td class="sl-ce-table__td" data-label="Date">26 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Pending</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$6,400</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer G</td>
+              <td class="sl-ce-table__td" data-label="Date">25 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Paid</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">$15,200</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Buyer">Buyer H</td>
+              <td class="sl-ce-table__td" data-label="Date">24 Jul 2026</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Void</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Amount">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-footer">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Footer</h2>
+    <p class="demo__section-desc">Summary / index row · partial: <code>partials/table/footer.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--base">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Trait</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">EBV</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--center">Acc.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Trait">Birth weight</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+2.1</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">72%</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Trait">200-day weight</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+28</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">68%</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Trait">Milk</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="EBV">+8</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center" data-label="Acc.">55%</td>
+            </tr>
+          </tbody>
+          <tfoot class="sl-ce-table__tfoot">
+            <tr>
+              <td class="sl-ce-table__td" colspan="2">Index</td>
+              <td class="sl-ce-table__td sl-ce-table__td--center">$142</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-cards">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Cards (responsive)</h2>
+    <p class="demo__section-desc">Mobile cards via <code>data-label</code> · partial: <code>partials/table/cards.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--cards sl-ce-table--base">
+      <div class="sl-ce-table__header">
+        <h3 class="sl-ce-table__title">Lots (cards on mobile)</h3>
+        <p class="sl-ce-table__description">Resize below ~640px — each row becomes a labelled card.</p>
+      </div>
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+              <th scope="col" class="sl-ce-table__th sl-ce-table__th--right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#1</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Entice V89</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--success">Sold</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$12,500</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#2</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Taurus T8</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--warning">Bidding</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">$9,800</td>
+            </tr>
+            <tr>
+              <td class="sl-ce-table__td" data-label="Lot">#3</td>
+              <td class="sl-ce-table__td" data-label="Animal">Sara Park Lowan Q1</td>
+              <td class="sl-ce-table__td" data-label="Status"><span class="sl-ce-table__badge sl-ce-table__badge--muted">Passed</span></td>
+              <td class="sl-ce-table__td sl-ce-table__td--right" data-label="Price">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo__section" id="table-empty">
+    <p class="demo__section-label">Table</p>
+    <h2 class="demo__section-title">Empty</h2>
+    <p class="demo__section-desc">No-data row · partial: <code>partials/table/empty.html</code></p>
+    <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--base">
+      <div class="sl-ce-table__scroll">
+        <table class="sl-ce-table__grid">
+          <thead>
+            <tr>
+              <th scope="col" class="sl-ce-table__th">Lot</th>
+              <th scope="col" class="sl-ce-table__th">Animal</th>
+              <th scope="col" class="sl-ce-table__th">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sl-ce-table__td sl-ce-table__empty" colspan="3">No lots match your filters.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 

@@ -24,6 +24,7 @@ index.html                # stacked variants gallery
 lot-tabs.html             # lot-row context
 lot-accordion.html        # lot-row context (bordered)
 lot-table.html            # lot-row context (ASBV table)
+lot-combined.html         # lot-row with tabs + accordion + table
 ```
 
 ## Pages
@@ -34,6 +35,7 @@ lot-table.html            # lot-row context (ASBV table)
 | [Lot · Tabs](https://stocklive-group.github.io/sl-ce/lot-tabs.html) | Auction lot shell + tabs |
 | [Lot · Accordion](https://stocklive-group.github.io/sl-ce/lot-accordion.html) | Auction lot shell + bordered accordion |
 | [Lot · Table](https://stocklive-group.github.io/sl-ce/lot-table.html) | Auction lot shell + ASBV table |
+| [Lot · Combined](https://stocklive-group.github.io/sl-ce/lot-combined.html) | Auction lot shell + tabs + accordion + pedigree table |
 
 ## Accordion variants
 

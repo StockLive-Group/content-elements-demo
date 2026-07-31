@@ -191,6 +191,10 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.lot-ce + .lot-ce {
+  margin-top: 1.5rem;
+}
+
 .lot-dl div {
   display: grid;
   grid-template-columns: 11.5rem minmax(0, 1fr);

@@ -44,6 +44,8 @@ Still available (and used): `div`, `span`, `a`, `p`, `h4`, `table…`, **`detail
 
 **Trade-off:** Visual model is “segmented track + disclosure panel”, not classic hash tabs. Acceptable for lot descriptions; accordion remains available for multi-open stacks.
 
+Tab pills stay in a **stable left-to-right order**. Layout uses CSS grid + `display: contents` on each `<details>`, with Chrome’s `::details-content` placed on row 2 so the open panel sits under the track (not between / reshuffling pills).
+
 ### 4. Avoid `nav` / `section` / form controls in paste snippets
 
 **Why:** Even if Froala’s default allowlist includes them, Nextlot’s configuration does not keep them intact. Author snippets use only tags proven to survive staging.

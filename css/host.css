@@ -123,7 +123,21 @@ a.sl-ce-tabs__tab:hover {
   background: var(--sl-ce-color-track, #edf2f7) !important;
 }
 
+.sl-ce-tabs .sl-ce-tabs__item {
+  display: contents;
+}
+
+.sl-ce-tabs .sl-ce-tabs__item::details-content {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
+
+.sl-ce-tabs .sl-ce-tabs__item:not([open])::details-content {
+  display: none !important;
+}
+
 .sl-ce-tabs .sl-ce-tabs__tab {
+  grid-row: 1;
   list-style: none !important;
   color: var(--sl-ce-color-text-muted, #555555) !important;
   background: transparent !important;

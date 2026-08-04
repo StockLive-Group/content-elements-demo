@@ -5,59 +5,58 @@ StockLive ships **`stocklive-content-elements.css`**. Nextlot loads it on pages 
 **Namespace:** `sl-ce`  
 **Demo gallery:** https://stocklive-group.github.io/sl-ce/  
 **Repo:** https://github.com/StockLive-Group/sl-ce  
+**Froala / Nextlot constraints (why):** [froala-nextlot-constraints.md](froala-nextlot-constraints.md)  
 **Specs:** [01 tabs](../plans/content-elements/01-tabs.md) · [02 accordion](../plans/content-elements/02-accordion.md) · [03 table](../plans/content-elements/03-table.md) · [04 traits](../plans/content-elements/04-traits.md) · [05 expand](../plans/content-elements/05-expand.md) · [06 badge](../plans/content-elements/06-badge.md) · [07 button](../plans/content-elements/07-button.md)
 
 ---
 
 ## Tabs
 
+Froala/Nextlot strips `id`, `<nav>`, `<section>`, `<label>`, and `<input>`, so tabs use **exclusive `<details name>`** (same tags as accordion — already allowed).
+
 ### Copy-paste
 
 ```html
 <div class="sl-ce-tabs">
-  <div class="sl-ce-tabs__targets" aria-hidden="true">
-    <span id="lot-overview"></span>
-    <span id="lot-details"></span>
-    <span id="lot-pricing"></span>
-  </div>
-
-  <nav class="sl-ce-tabs__list" aria-label="Tabs">
-    <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#lot-overview">Overview</a>
-    <a class="sl-ce-tabs__tab" href="#lot-details">Details</a>
-    <a class="sl-ce-tabs__tab" href="#lot-pricing">Pricing</a>
-  </nav>
-
-  <div class="sl-ce-tabs__panels">
-    <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
+  <details class="sl-ce-tabs__item" name="lot-42-tabs" open>
+    <summary class="sl-ce-tabs__tab">Overview</summary>
+    <div class="sl-ce-tabs__panel">
       <p>Overview content…</p>
-    </section>
-    <section class="sl-ce-tabs__panel">
+    </div>
+  </details>
+  <details class="sl-ce-tabs__item" name="lot-42-tabs">
+    <summary class="sl-ce-tabs__tab">Details</summary>
+    <div class="sl-ce-tabs__panel">
       <p>Details content…</p>
-    </section>
-    <section class="sl-ce-tabs__panel">
+    </div>
+  </details>
+  <details class="sl-ce-tabs__item" name="lot-42-tabs">
+    <summary class="sl-ce-tabs__tab">Pricing</summary>
+    <div class="sl-ce-tabs__panel">
       <p>Pricing content…</p>
-    </section>
-  </div>
+    </div>
+  </details>
 </div>
 ```
 
 ### Rules
 
-1. **Unique IDs** on the tiny targets (prefix them, e.g. `sale-42-overview`).
-2. **Same order** for targets, tab links, and panels (1st ↔ 1st ↔ 1st).
-3. Mark **one** default tab and **one** default panel with `--default`.
-4. **Max 8 tabs** per group.
-5. Do **not** put `id`s on panels (that causes scroll jump).
-6. Do not add “active” classes — CSS handles that.
+1. **Unique `name=`** on every `<details>` in the group (prefix by lot, e.g. `lot-42-tabs`) so only one tab is open.
+2. Put **`open`** on the default item.
+3. Prefer **`div` / `details` / `summary`** — avoid `nav`, `section`, `id`, `label`, and `input` (Nextlot strips them).
+4. Do not add “active” classes — CSS handles open state.
 
 ### Gotchas
 
 | Situation | What happens |
 |-----------|----------------|
-| Two tab groups on one page | Fine — use unique IDs. Activating group B resets group A to its default. |
-| Link elsewhere to `#lot-overview` | Opens that tab (same hash mechanism). |
-| Mobile, many labels | Tab row scrolls horizontally. |
-| More than 8 tabs | Extra tabs will not switch via the shared CSS. |
+| Two tab groups on one page | Fine — use unique `name=` values. |
+| `name` stripped by host | Multiple tabs can stay open (still show/hide per item). Ask Nextlot to allow `name` on `<details>`. |
+| Older browsers without exclusive `name` | Same as above — items still toggle independently. |
+
+### Why not `:target` or radios?
+
+See [Froala / Nextlot constraints](froala-nextlot-constraints.md). Short version: Nextlot’s Froala sanitiser strips the hooks those patterns need.
 
 ---
 
@@ -205,7 +204,6 @@ Prefer `<a>` in Froala. Styles match badge axes (solid/outline/ghost/soft/link +
 
 | Do | Don’t |
 |----|--------|
-| Paste the snippet and edit labels / IDs / panel HTML | Inline `style="…"` (except traits `--sl-ce-percentile`) or `<style>` / `<script>` |
-| Keep target / tab / panel order aligned | Reuse the same `id` twice |
-| Use `aria-label` that describes the set | Rely on form checkboxes for state |
-| Open external links with `rel="noopener noreferrer"` | Put `id`s on tab panels |
+| Paste the snippet and edit labels / panel HTML | Inline `style="…"` (except traits `--sl-ce-percentile`) or `<style>` / `<script>` |
+| Use unique `name=` on exclusive `<details>` tab groups | Rely on `id` / `:target`, `<nav>`, `<section>`, `<label>`, or `<input>` |
+| Open external links with `rel="noopener noreferrer"` | Expect host CSS to leave `--sl-ce-*` on `:root` alone — tokens also live on component roots |

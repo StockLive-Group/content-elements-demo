@@ -70,18 +70,9 @@
       <!-- Primary view: tabs with nested tables -->
       <div class="lot-ce">
         <div class="sl-ce-tabs">
-          <div class="sl-ce-tabs__targets" aria-hidden="true">
-            <span id="combo-overview"></span>
-            <span id="combo-pedigree"></span>
-            <span id="combo-asbv"></span>
-          </div>
-          <nav class="sl-ce-tabs__list" aria-label="Lot details">
-            <a class="sl-ce-tabs__tab sl-ce-tabs__tab--default" href="#combo-overview">Overview</a>
-            <a class="sl-ce-tabs__tab" href="#combo-pedigree">Pedigree</a>
-            <a class="sl-ce-tabs__tab" href="#combo-asbv">ASBV</a>
-          </nav>
-          <div class="sl-ce-tabs__panels">
-            <section class="sl-ce-tabs__panel sl-ce-tabs__panel--default">
+          <details class="sl-ce-tabs__item" name="combo-tabs" open>
+            <summary class="sl-ce-tabs__tab">Overview</summary>
+            <div class="sl-ce-tabs__panel">
               <h4>Overview</h4>
               <dl class="lot-dl">
                 <div><dt>Animal ID</dt><dd>BDY24V89</dd></div>
@@ -93,9 +84,12 @@
               <p class="lot-copy" style="margin-top: 0.85rem;">
                 A good bull to start the sale. V89 is well balanced with ideal skin and hair.
               </p>
-            </section>
+            </div>
+          </details>
 
-            <section class="sl-ce-tabs__panel">
+          <details class="sl-ce-tabs__item" name="combo-tabs">
+            <summary class="sl-ce-tabs__tab">Pedigree</summary>
+            <div class="sl-ce-tabs__panel">
               <h4>Pedigree</h4>
               <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--striped sl-ce-table--hoverable sl-ce-table--sm">
                 <div class="sl-ce-table__scroll">
@@ -122,9 +116,12 @@
                   </table>
                 </div>
               </div>
-            </section>
+            </div>
+          </details>
 
-            <section class="sl-ce-tabs__panel">
+          <details class="sl-ce-tabs__item" name="combo-tabs">
+            <summary class="sl-ce-tabs__tab">ASBV</summary>
+            <div class="sl-ce-tabs__panel">
               <h4>ASBV summary</h4>
               <div class="sl-ce-table sl-ce-table--bordered sl-ce-table--rounded sl-ce-table--hoverable sl-ce-table--sm">
                 <div class="sl-ce-table__scroll">
@@ -167,8 +164,8 @@
                   </table>
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </details>
         </div>
       </div>
 

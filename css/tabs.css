@@ -1,51 +1,57 @@
-/* sl-ce-tabs — CSS-only :target + :has() segmented tabs */
+/* sl-ce-tabs — CSS-only exclusive <details name> tabs
+   Froala/Nextlot-safe: no id, nav, section, label, or input.
+   Unique name= per group (e.g. name="lot-1-tabs"). Put open on the default item.
+*/
 .sl-ce-tabs {
   position: relative;
-  margin: 0;
-  color: var(--sl-ce-color-text);
-}
-
-.sl-ce-tabs__targets {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.sl-ce-tabs__targets [id] {
-  display: block;
-  width: 1px;
-  height: 1px;
-}
-
-.sl-ce-tabs__list {
   display: flex;
-  flex-wrap: nowrap;
-  gap: var(--sl-ce-space-xs);
-  padding: var(--sl-ce-space-xs);
-  overflow-x: auto;
-  background: var(--sl-ce-color-track);
-  border-radius: var(--sl-ce-radius-track);
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  flex-wrap: wrap;
+  gap: var(--sl-ce-space-xs, 0.25rem);
+  margin: 0;
+  padding: var(--sl-ce-space-xs, 0.25rem);
+  color: var(--sl-ce-color-text, #021c45);
+  background: var(--sl-ce-color-track, #edf2f7);
+  border-radius: var(--sl-ce-radius-track, 0.5rem);
+}
+
+.sl-ce-tabs__item {
+  order: 0;
+  flex: 0 0 auto;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+}
+
+.sl-ce-tabs__item[open] {
+  order: 1;
+  flex: 1 1 100%;
 }
 
 .sl-ce-tabs__tab {
-  flex: 0 0 auto;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   padding: 0.55rem 1rem;
-  border-radius: var(--sl-ce-radius-pill);
-  color: var(--sl-ce-color-text-muted);
-  text-decoration: none;
+  list-style: none;
+  border-radius: var(--sl-ce-radius-pill, 0.375rem);
+  color: var(--sl-ce-color-text-muted, #555555);
+  background: transparent;
   font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.25;
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
   transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sl-ce-tabs__tab::-webkit-details-marker {
+  display: none;
+}
+
+.sl-ce-tabs__tab::marker {
+  content: "";
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,7 +61,7 @@
 }
 
 .sl-ce-tabs__tab:hover {
-  color: var(--sl-ce-color-text);
+  color: var(--sl-ce-color-text, #021c45);
   background: rgba(255, 255, 255, 0.55);
 }
 
@@ -64,22 +70,26 @@
 }
 
 .sl-ce-tabs__tab:focus-visible {
-  box-shadow: var(--sl-ce-focus-ring);
-  color: var(--sl-ce-color-text);
+  box-shadow: var(--sl-ce-focus-ring, 0 0 0 3px rgba(2, 28, 69, 0.25));
+  color: var(--sl-ce-color-text, #021c45);
 }
 
-.sl-ce-tabs__panels {
-  min-height: 8rem;
-  margin-top: var(--sl-ce-space-md);
-  padding: var(--sl-ce-space-lg);
-  background: var(--sl-ce-color-surface);
-  border: 1px solid var(--sl-ce-color-border);
-  border-radius: var(--sl-ce-radius-track);
-  box-shadow: var(--sl-ce-shadow-panel);
+.sl-ce-tabs__item[open] > .sl-ce-tabs__tab {
+  background: var(--sl-ce-color-surface, #ffffff);
+  color: var(--sl-ce-color-primary, #021c45);
+  font-weight: 600;
+  box-shadow: var(--sl-ce-shadow-pill, 0 1px 2px rgba(0, 0, 0, 0.08));
 }
 
 .sl-ce-tabs__panel {
-  display: none;
+  margin-top: var(--sl-ce-space-md, 1rem);
+  padding: var(--sl-ce-space-lg, 1.25rem);
+  background: var(--sl-ce-color-surface, #ffffff);
+  border: 1px solid var(--sl-ce-color-border, #e5e7eb);
+  border-radius: var(--sl-ce-radius-track, 0.5rem);
+  box-shadow: var(--sl-ce-shadow-panel, none);
+  color: var(--sl-ce-color-text-muted, #555555);
+  font-size: 0.95rem;
 }
 
 .sl-ce-tabs__panel h4 {
@@ -88,47 +98,11 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--sl-ce-color-text-muted);
+  color: var(--sl-ce-color-text-muted, #555555);
 }
 
 .sl-ce-tabs__panel p {
   margin: 0;
-  color: var(--sl-ce-color-text-muted);
+  color: var(--sl-ce-color-text-muted, #555555);
   font-size: 0.95rem;
-}
-
-.sl-ce-tabs:not(:has(.sl-ce-tabs__targets > :target)) .sl-ce-tabs__panel--default {
-  display: block;
-}
-
-.sl-ce-tabs:not(:has(.sl-ce-tabs__targets > :target)) .sl-ce-tabs__tab--default {
-  background: var(--sl-ce-color-surface);
-  color: var(--sl-ce-color-primary);
-  font-weight: 600;
-  box-shadow: var(--sl-ce-shadow-pill);
-}
-
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(1):target) .sl-ce-tabs__panel:nth-child(1),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(2):target) .sl-ce-tabs__panel:nth-child(2),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(3):target) .sl-ce-tabs__panel:nth-child(3),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(4):target) .sl-ce-tabs__panel:nth-child(4),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(5):target) .sl-ce-tabs__panel:nth-child(5),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(6):target) .sl-ce-tabs__panel:nth-child(6),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(7):target) .sl-ce-tabs__panel:nth-child(7),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(8):target) .sl-ce-tabs__panel:nth-child(8) {
-  display: block;
-}
-
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(1):target) .sl-ce-tabs__list > :nth-child(1),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(2):target) .sl-ce-tabs__list > :nth-child(2),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(3):target) .sl-ce-tabs__list > :nth-child(3),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(4):target) .sl-ce-tabs__list > :nth-child(4),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(5):target) .sl-ce-tabs__list > :nth-child(5),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(6):target) .sl-ce-tabs__list > :nth-child(6),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(7):target) .sl-ce-tabs__list > :nth-child(7),
-.sl-ce-tabs:has(.sl-ce-tabs__targets > :nth-child(8):target) .sl-ce-tabs__list > :nth-child(8) {
-  background: var(--sl-ce-color-surface);
-  color: var(--sl-ce-color-primary);
-  font-weight: 600;
-  box-shadow: var(--sl-ce-shadow-pill);
 }

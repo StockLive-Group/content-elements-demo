@@ -1,7 +1,18 @@
 /* StockLive Content Elements — design tokens
-   Mirrors plans/content-elements architecture: --sl-ce-* on :root
+   Defined on :root / html AND every component root so vars resolve even when
+   a host (e.g. Nextlot) strips, scopes, or isolates :root custom properties.
 */
-:root {
+:root,
+html,
+.sl-ce-tabs,
+.sl-ce-accordion,
+.sl-ce-table,
+.sl-ce-traits,
+.sl-ce-expand,
+.sl-ce-badge,
+.sl-ce-badge-group,
+.sl-ce-button,
+.sl-ce-button-group {
   --sl-ce-color-primary: #021c45;
   --sl-ce-color-secondary: #cd7854;
   --sl-ce-color-track: #edf2f7;

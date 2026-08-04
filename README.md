@@ -10,7 +10,7 @@ Mirrors the Kuickr plan architecture (`plans/content-elements/`):
 
 ```text
 css/
-  tokens.css              # :root { --sl-ce-* }
+  tokens.css              # --sl-ce-* on :root and component roots
   tabs.css                # .sl-ce-tabs*
   accordion.css           # .sl-ce-accordion* + variants
   table.css               # .sl-ce-table* + variants
@@ -18,6 +18,7 @@ css/
   expand.css              # .sl-ce-expand* (show more)
   badge.css               # .sl-ce-badge* (RRUI-aligned)
   button.css              # .sl-ce-button* (RRUI-aligned)
+  host.css                # Nextlot / Froala isolation (load last)
   content-elements.css    # shippable @import entry
   demo.css                # preview chrome only (not shipped)
 partials/
@@ -28,9 +29,14 @@ partials/
   expand/default.html
   badge/{default,lot-accreditations}.html
   button/default.html
+catalogue/
+  example-catalogue.xlsx              # staging MLT (4 columns)
+  stocklive-content-elements.css      # comment-free single-file bundle
 index.html                # stacked variants gallery
 lot-*.html                # lot-row context demos
 ```
+
+**Nextlot / Froala:** see [docs/content-elements/froala-nextlot-constraints.md](docs/content-elements/froala-nextlot-constraints.md) — tabs use exclusive `<details name>` because the sanitiser strips `id`, `nav`, `section`, `label`, and `input`.
 
 ## Pages
 

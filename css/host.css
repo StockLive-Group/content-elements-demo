@@ -1,0 +1,354 @@
+/* Host isolation — beat Nextlot / Froala native styles inside Content Elements.
+   Loaded last. Uses component-rooted selectors (+1 specificity) and selective
+   !important only on properties hosts commonly force on a / table / summary.
+*/
+
+/* Soft local cascade root */
+.sl-ce-tabs,
+.sl-ce-accordion,
+.sl-ce-table,
+.sl-ce-traits,
+.sl-ce-expand,
+.sl-ce-badge-group,
+.sl-ce-button-group {
+  box-sizing: border-box;
+  max-width: 100%;
+  color: var(--sl-ce-color-text, #021c45);
+  line-height: 1.5;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+
+.sl-ce-tabs *,
+.sl-ce-tabs *::before,
+.sl-ce-tabs *::after,
+.sl-ce-accordion *,
+.sl-ce-accordion *::before,
+.sl-ce-accordion *::after,
+.sl-ce-table *,
+.sl-ce-table *::before,
+.sl-ce-table *::after,
+.sl-ce-traits *,
+.sl-ce-traits *::before,
+.sl-ce-traits *::after,
+.sl-ce-expand *,
+.sl-ce-expand *::before,
+.sl-ce-expand *::after,
+.sl-ce-badge-group *,
+.sl-ce-button-group * {
+  box-sizing: border-box;
+}
+
+/* Typography the host often restyles */
+.sl-ce-tabs h3,
+.sl-ce-tabs h4,
+.sl-ce-tabs p,
+.sl-ce-accordion h3,
+.sl-ce-accordion h4,
+.sl-ce-accordion p,
+.sl-ce-table h3,
+.sl-ce-table h4,
+.sl-ce-table p,
+.sl-ce-traits h3,
+.sl-ce-traits p,
+.sl-ce-expand h3,
+.sl-ce-expand h4,
+.sl-ce-expand p {
+  color: inherit;
+  max-width: none;
+}
+
+.sl-ce-tabs p,
+.sl-ce-accordion p,
+.sl-ce-table p,
+.sl-ce-traits p,
+.sl-ce-expand p {
+  margin: 0 0 0.75rem;
+}
+
+.sl-ce-tabs h3,
+.sl-ce-tabs h4,
+.sl-ce-accordion h3,
+.sl-ce-accordion h4,
+.sl-ce-table h3,
+.sl-ce-table h4,
+.sl-ce-traits h3,
+.sl-ce-expand h3,
+.sl-ce-expand h4 {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sl-ce-tabs ul,
+.sl-ce-accordion ul,
+.sl-ce-traits ul,
+.sl-ce-expand ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Links — hosts love .description a { color; underline } */
+.sl-ce-tabs a,
+.sl-ce-accordion a,
+.sl-ce-table a,
+.sl-ce-traits a,
+.sl-ce-expand a,
+.sl-ce-badge-group a,
+.sl-ce-button-group a,
+a.sl-ce-badge,
+a.sl-ce-button,
+a.sl-ce-tabs__tab {
+  text-decoration: none !important;
+  box-shadow: none;
+}
+
+.sl-ce-tabs a:hover,
+.sl-ce-accordion a:hover,
+.sl-ce-table a:hover,
+.sl-ce-traits a:hover,
+.sl-ce-expand a:hover,
+.sl-ce-badge-group a:hover,
+.sl-ce-button-group a:hover,
+a.sl-ce-badge:hover,
+a.sl-ce-button:hover,
+a.sl-ce-tabs__tab:hover {
+  text-decoration: none !important;
+}
+
+/* Tabs — track / panel / open pill against host styles */
+.sl-ce-tabs {
+  background: #edf2f7 !important;
+  background: var(--sl-ce-color-track, #edf2f7) !important;
+}
+
+.sl-ce-tabs .sl-ce-tabs__tab {
+  list-style: none !important;
+  color: var(--sl-ce-color-text-muted, #555555) !important;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 500;
+  box-shadow: none;
+}
+
+.sl-ce-tabs .sl-ce-tabs__tab::-webkit-details-marker {
+  display: none !important;
+}
+
+.sl-ce-tabs .sl-ce-tabs__tab:hover,
+.sl-ce-tabs .sl-ce-tabs__tab:focus-visible {
+  color: var(--sl-ce-color-text, #021c45) !important;
+}
+
+.sl-ce-tabs .sl-ce-tabs__item[open] > .sl-ce-tabs__tab {
+  background: #ffffff !important;
+  background: var(--sl-ce-color-surface, #ffffff) !important;
+  color: #021c45 !important;
+  color: var(--sl-ce-color-primary, #021c45) !important;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.sl-ce-tabs .sl-ce-tabs__panel {
+  background: #ffffff !important;
+  background: var(--sl-ce-color-surface, #ffffff) !important;
+  border: 1px solid #e5e7eb !important;
+  border: 1px solid var(--sl-ce-color-border, #e5e7eb) !important;
+  color: var(--sl-ce-color-text, #021c45);
+}
+
+/* Accordion / expand — kill host summary markers & button chrome */
+.sl-ce-accordion .sl-ce-accordion__item,
+.sl-ce-expand.sl-ce-expand {
+  border: none;
+  background: transparent;
+}
+
+.sl-ce-accordion.sl-ce-accordion--bordered {
+  background: #ffffff !important;
+  background: var(--sl-ce-color-surface, #ffffff) !important;
+  border: 1px solid #e5e7eb !important;
+  border: 1px solid var(--sl-ce-color-border, #e5e7eb) !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+}
+
+.sl-ce-accordion.sl-ce-accordion--separated .sl-ce-accordion__item {
+  background: #ffffff !important;
+  background: var(--sl-ce-color-surface, #ffffff) !important;
+  border: 1px solid #e5e7eb !important;
+  border: 1px solid var(--sl-ce-color-border, #e5e7eb) !important;
+}
+
+.sl-ce-accordion .sl-ce-accordion__trigger:hover,
+.sl-ce-accordion .sl-ce-accordion__item[open] > .sl-ce-accordion__trigger {
+  background: #edf2f7 !important;
+  background: var(--sl-ce-color-track, #edf2f7) !important;
+}
+
+.sl-ce-expand.sl-ce-expand--bordered {
+  background: #ffffff !important;
+  background: var(--sl-ce-color-surface, #ffffff) !important;
+  border: 1px solid #e5e7eb !important;
+  border: 1px solid var(--sl-ce-color-border, #e5e7eb) !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+}
+
+.sl-ce-expand.sl-ce-expand--bordered > .sl-ce-expand__trigger {
+  background: #edf2f7 !important;
+  background: var(--sl-ce-color-track, #edf2f7) !important;
+}
+
+.sl-ce-accordion .sl-ce-accordion__trigger,
+.sl-ce-expand .sl-ce-expand__trigger {
+  list-style: none !important;
+  color: var(--sl-ce-color-text, #021c45);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.sl-ce-accordion .sl-ce-accordion__trigger::-webkit-details-marker,
+.sl-ce-expand .sl-ce-expand__trigger::-webkit-details-marker {
+  display: none !important;
+}
+
+.sl-ce-expand .sl-ce-expand__trigger {
+  color: var(--sl-ce-color-primary, #021c45) !important;
+}
+
+.sl-ce-expand .sl-ce-expand__trigger:hover {
+  color: var(--sl-ce-color-secondary, #cd7854) !important;
+}
+
+/* Tables — hosts often force borders / widths / striped rows */
+.sl-ce-table .sl-ce-table__grid {
+  width: 100% !important;
+  max-width: none;
+  margin: 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  background: transparent;
+  color: var(--sl-ce-color-text, #021c45);
+}
+
+.sl-ce-table .sl-ce-table__th,
+.sl-ce-table .sl-ce-table__td {
+  color: inherit;
+  vertical-align: middle;
+  font-size: inherit;
+}
+
+.sl-ce-table.sl-ce-table--bordered .sl-ce-table__grid,
+.sl-ce-table.sl-ce-table--bordered .sl-ce-table__th,
+.sl-ce-table.sl-ce-table--bordered .sl-ce-table__td {
+  border-color: var(--sl-ce-color-border, #e5e7eb);
+}
+
+/* Badge / button atoms against host a/button rules */
+a.sl-ce-badge,
+span.sl-ce-badge,
+.sl-ce-badge {
+  text-decoration: none !important;
+  color: var(--_sl-ce-badge-fg, #ffffff) !important;
+  background: var(--_sl-ce-badge-bg, #021c45) !important;
+  border-color: var(--_sl-ce-badge-border, #021c45) !important;
+}
+
+a.sl-ce-button,
+button.sl-ce-button,
+.sl-ce-button {
+  text-decoration: none !important;
+  color: var(--_sl-ce-btn-fg, #ffffff) !important;
+  background: var(--_sl-ce-btn-bg, #021c45) !important;
+  border-color: var(--_sl-ce-btn-border, #021c45) !important;
+}
+
+a.sl-ce-button:hover,
+button.sl-ce-button:hover,
+.sl-ce-button:hover {
+  background: var(--_sl-ce-btn-hover, #021c45) !important;
+  color: var(--_sl-ce-btn-fg, #ffffff) !important;
+}
+
+/* Soft / outline / ghost / link variants — restore after solid !important above */
+.sl-ce-badge.sl-ce-badge--outline {
+  background: transparent !important;
+  color: var(--_sl-ce-badge-border, #021c45) !important;
+  border-color: var(--_sl-ce-badge-border, #021c45) !important;
+}
+
+.sl-ce-badge.sl-ce-badge--ghost {
+  background: transparent !important;
+  color: var(--_sl-ce-badge-border, #021c45) !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-badge.sl-ce-badge--soft {
+  background: color-mix(in srgb, var(--_sl-ce-badge-bg, #021c45) 14%, #ffffff) !important;
+  color: var(--_sl-ce-badge-border, #021c45) !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-badge.sl-ce-badge--link {
+  background: transparent !important;
+  color: var(--_sl-ce-badge-border, #021c45) !important;
+  border-color: transparent !important;
+  text-decoration: underline !important;
+  text-underline-offset: 0.15em;
+}
+
+.sl-ce-button.sl-ce-button--outline {
+  background: transparent !important;
+  color: var(--_sl-ce-btn-bg, #021c45) !important;
+  border-color: var(--_sl-ce-btn-border, #021c45) !important;
+}
+
+.sl-ce-button.sl-ce-button--ghost {
+  background: transparent !important;
+  color: var(--_sl-ce-btn-bg, #021c45) !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-button.sl-ce-button--soft {
+  background: color-mix(in srgb, var(--_sl-ce-btn-bg, #021c45) 12%, #ffffff) !important;
+  color: var(--_sl-ce-btn-bg, #021c45) !important;
+  border-color: transparent !important;
+}
+
+.sl-ce-button.sl-ce-button--link {
+  background: transparent !important;
+  color: var(--_sl-ce-btn-bg, #021c45) !important;
+  border-color: transparent !important;
+}
+
+/* Soft badge colour fg overrides used in partials */
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--primary {
+  color: var(--sl-ce-color-primary, #021c45) !important;
+}
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--success {
+  color: var(--sl-ce-color-success-fg, #166534) !important;
+}
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--danger {
+  color: var(--sl-ce-color-danger-fg, #991b1b) !important;
+}
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--warning {
+  color: var(--sl-ce-color-warning-fg, #92400e) !important;
+}
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--info {
+  color: var(--sl-ce-color-info-fg, #075985) !important;
+}
+.sl-ce-badge.sl-ce-badge--soft.sl-ce-badge--secondary {
+  color: color-mix(in srgb, var(--sl-ce-color-secondary, #cd7854) 70%, #000) !important;
+}
+.sl-ce-badge.sl-ce-badge--link.sl-ce-badge--secondary {
+  color: var(--sl-ce-color-secondary, #cd7854) !important;
+}
+
+/* Traits rank chips (already !important in traits.css — reinforce fg) */
+.sl-ce-traits .sl-ce-traits__rank {
+  color: #fff !important;
+}
